@@ -4,23 +4,23 @@ st.set_page_config(page_title="Arqueología Antropológica Política", page_icon
 
 st.title("🏛️ Simulador de Arqueología Antropológica Política")
 st.markdown("---")
-st.write("Esta herramienta explora las premisas filosóficas, antropológicas y geopolíticas que sostienen tus ideas políticas, evaluando la coherencia de tu edificio conceptual.")
+st.write("Responde con honestidad filosófica. Esta herramienta evaluará tus premisas profundas para mostrarte qué edificio conceptual y geopolítico sostiene tus ideas.")
 
-# --- FORMULARIO DE DECISIONES POR CAPAS ---
+# --- FORMULARIO DE DECISIONES POR CAPAS (NEUTRO / CIEGO) ---
 with st.form("formulario_arqueologia"):
     
     # CAPA 1: ANTROPOLOGÍA
     st.header("Capa 1: Antropología Filosófica")
-    st.markdown("*¿Cuál es la premisa fundamental sobre la naturaleza del ser humano?*")
+    st.markdown("*¿Cuál es la naturaleza fundamental del ser humano?*")
     antropologia = st.radio(
-        "Selecciona tu premisa antropológica:",
+        "Selecciona la premisa que consideres más verídica:",
         [
-            "Atomista / Liberal: Un individuo autónomo, racional y maximizador de interés propio.",
-            "Materialista / Práxico: Un ser social constituido por el trabajo y las relaciones materiales.",
-            "Tradicional / Enraizado: Un ser histórico anclado a una comunidad, tradición o orden sagrado.",
-            "Libertario / Autopropiedad: Un propietario absoluto de su propio cuerpo y voluntad.",
-            "Anarquista Individualista: Un ego soberano que rechaza toda coacción institucional y moral externa.",
-            "Comunitario / Indigenismo: Un nodo inseparable de la comunidad y del territorio (Pacha)."
+            "Un individuo autónomo, racional, movido por el interés propio y la maximización de su utilidad.",
+            "Un ser social cuya conciencia y esencia se construyen a través del trabajo material y las relaciones sociales.",
+            "Un ser histórico y comunitario, enraizado orgánicamente a una tradición, cultura u orden trascendente.",
+            "Un propietario absoluto de su propio cuerpo y voluntad, regido por el principio de no agresión.",
+            "Un ego soberano y único que rechaza toda coacción institucional, moral o colectiva externa.",
+            "Un nodo inseparable de la comunidad ancestral y del territorio (la tierra como organismo vivo)."
         ],
         key="ant_choice"
     )
@@ -33,11 +33,12 @@ with st.form("formulario_arqueologia"):
     poder = st.radio(
         "Selecciona tu premisa sobre el poder:",
         [
-            "Contrato Institucional: Un pacto racional regulado por un árbitro neutral (Estado de derecho).",
-            "Lucha de Clases: Un antagonismo estructural inmanente basado en la propiedad y el plustrabajo.",
-            "Amigo / Enemigo: Una decisión soberana sobre el conflicto existencial y la supervivencia.",
-            "Anarquía / Autogestión: La negación de toda jerarquía coactiva; orden mediante la cooperación voluntaria.",
-            "Orden Orgánico y Jerárquico: Un reflejo de un orden cósmico o tradicional donde cada estamento cumple un deber."
+            "Mediante un contrato social racional regulado por un tercero neutral e imparcial (Estado de derecho).",
+            "Mediante un antagonismo estructural inmanente impulsado por la lucha por la apropiación del plustrabajo.",
+            "Mediante la decisión soberana sobre el conflicto existencial (la distinción fundamental entre amigo y enemigo).",
+            "Mediante la cooperación voluntaria y la acción directa horizontal, negando toda jerarquía coactiva.",
+            "Mediante un orden jerárquico natural u orgánico que refleja un principio cósmico, sagrado o histórico.",
+            "Mediante el servicio rotativo de cargos, la reciprocidad y el mandar obedeciendo comunitario."
         ],
         key="pod_choice"
     )
@@ -50,11 +51,11 @@ with st.form("formulario_arqueologia"):
     economia = st.radio(
         "Selecciona tu modelo económico:",
         [
-            "Capitalismo de Mercado: Propiedad privada inviolable, libre competencia y precios descentralizados.",
-            "Economía Planificada / Socializada: Medios de producción bajo control social o de los trabajadores.",
-            "Economía Mixta / Bienestar: Mercado regulado con fuerte intervención estatal y redistribución social.",
-            "Anarcocapitalismo / Libre Mercado Radical: Contratos privados absolutos sin monopolio estatal ni banca central.",
-            "Economía Comunal / Recíproca: Bien vivir, reciprocidad, trueque y custodia colectiva del territorio."
+            "Mediante la propiedad privada inviolable, el libre mercado de precios y la competencia descentralizada.",
+            "Mediante la socialización y planificación centralizada o democrática de los medios de producción.",
+            "Mediante una economía mixta regulada, impuestos progresivos y provisión pública de bienestar social.",
+            "Mediante contratos privados absolutos y un mercado totalmente libre de monopolios estatales o bancarios.",
+            "Mediante la reciprocidad, el trueque, el bien vivir y la custodia colectiva de los bienes comunes."
         ],
         key="eco_choice"
     )
@@ -67,11 +68,11 @@ with st.form("formulario_arqueologia"):
     geopolitica = st.radio(
         "Selecciona tu visión geopolítica:",
         [
-            "Globalización Mercantil: Integración global sin fronteras, libre comercio e instituciones supranacionales.",
-            "Multipolaridad de Grandes Espacios: Un sistema de civilizaciones y potencias soberanas (*Großraum*) que rechazan la hegemonía única.",
-            "Imperialismo / Competencia Global: Lucha de centros y periferias por el control de mercados y zonas de influencia.",
-            "Internacionalismo Proletario: Emancipación global de los pueblos más allá de las fronteras estatales.",
-            "Etnopluralismo / Tradicionalismo: Defensa radical de la diversidad de identidades espirituales y culturales frente a la homogenización."
+            "Mediante la integración global del mercado, la apertura total de fronteras y la gobernanza supranacional.",
+            "Mediante un orden multipolar de Grandes Espacios civilizacionales soberanos que rechazan la hegemonía única.",
+            "Mediante la competencia interimperialista por el control de zonas de influencia, materias primas y mercados.",
+            "Mediante la emancipación universal y la solidaridad internacional de los pueblos por encima de los estados.",
+            "Mediante la defensa radical de la pluralidad de identidades culturales y espirituales frente a la homogenización."
         ],
         key="geo_choice"
     )
@@ -83,37 +84,23 @@ if submitted:
     st.markdown("---")
     st.header("🔍 Resultados de la Arqueología Teórica")
 
-    # Lógica de detección de disonancias y coherencia
     disonancias = []
     
-    # Detección 1: Tradicional/Comunitario vs Capitalismo Salvaje
-    if "Tradicional" in antropologia and "Capitalismo de Mercado" in economia:
+    # Detección de tensiones basadas en el contenido neutral seleccionado
+    if "enraizado orgánicamente" in antropologia and "interés propio" not in economia and "privada inviolable" in economia:
         disonancias.append({
-            "alerta": "⚠️ Disonancia Teórica: Antropología Tradicional vs. Economía de Mercado Desregulado",
-            "explicacion": "Sostienes una visión enraizada o tradicional del hombre, pero defiendes un sistema económico capitalista de libre mercado. Históricamente, los pensadores de la tradición advierten que el mercado absoluto disuelve los lazos comunitarios, familiares y espirituales que pretendes proteger.",
+            "alerta": "⚠️ Disonancia Teórica detectada en tu edificio conceptual",
+            "explicacion": "Tus premisas combinan un enraizamiento comunitario u orgánico con un modelo económico basado en la propiedad privada capitalista absoluta. La historia del pensamiento político demuestra que el despliegue del mercado desregulado tiende a disolver los lazos comunitarios y tradicionales que tu antropología busca preservar.",
             "lecturas": [
                 "Karl Polanyi - *La gran transformación*",
                 "Wilhelm Röpke - *La crisis de nuestro tiempo*"
             ]
         })
-        
-    # Detección 2: Atomista vs Planificación Central
-    if "Atomista" in antropologia and "Planificada" in economia:
-        disonancias.append({
-            "alerta": "⚠️ Disonancia Teórica: Antropología Atomista vs. Economía Planificada",
-            "explicacion": "Partes de un individuo racional maximizador de su interés privado, pero propones una economía colectivizada y planificada centralmente. Esto genera una contradicción insalvable con los incentivos de la acción individual y la propiedad.",
-            "lecturas": [
-                "Ludwig von Mises - *El socialismo: un análisis económico y sociológico*",
-                "Karl Marx - *Crítica del Programa de Gotha*"
-            ]
-        })
 
-    # Si no hay grandes contradicciones críticas detectadas en este filtro base:
     if len(disonancias) == 0:
-        st.success("✔ Edificio Conceptual Estable: Tus premisas muestran una convergencia lógica sólida a lo largo de las capas evaluadas.")
-        st.subheader("📚 Arsenal Teórico para Profundizar y Defender tu Postura:")
-        st.markdown("- Estudia a los autores clásicos de tu corriente matriz para blindar tus argumentos en los debates académicos.")
-        st.markdown("- Revisa textos críticos internos de tu misma escuela para identificar posibles puntos ciegos doctrinales.")
+        st.success("✔ Coherencia Estructural Sólida: Tus premisas filosóficas, antropológicas y económicas convergen sin contradicciones lógicas aparentes en este filtro.")
+        st.subheader("📚 Arsenal Teórico Recomendado:")
+        st.markdown("Has construido un sistema consistente. Te sugerimos profundizar en las fuentes primarias de tu corriente matriz para blindar tus argumentos conceptuales y prepararte para el debate crítico.")
     else:
         for d in disonancias:
             st.error(d["alerta"])
@@ -121,5 +108,7 @@ if submitted:
             st.subheader("📚 Ruta bibliográfica recomendada para resolver esta tensión:")
             for lib in d["lecturas"]:
                 st.markdown(f"- {lib}")
+
+    st.balloons()
 
     st.balloons()
