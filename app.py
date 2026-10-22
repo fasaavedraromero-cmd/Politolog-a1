@@ -5,17 +5,17 @@ st.set_page_config(page_title="Arqueología Antropológica Política", page_icon
 st.title("🏛️ Simulador de Arqueología Antropológica Política")
 st.markdown("---")
 st.write("""
-**Bienvenido al ejercicio de arqueología conceptual.** La política no nace en los programas de gobierno ni en los parlamentos; nace en las respuestas silenciosas que damos sobre qué es el hombre, cómo se ejerce el poder y qué lugar ocupamos en el mundo. 
-Tómate tu tiempo en cada dilema. Al finalizar, el sistema realizará una radiografía crítica de tu edificio intelectual.
+**Bienvenido al ejercicio de arqueología conceptual.** Inspirado en el flujo deductivo del pensamiento político, este simulador parte de tu **concepto de ser humano** para descender por las capas de la sociedad, el estado, la economía y el proyecto histórico. 
+Tómate tu tiempo. Al finalizar, obtendrás una radiografía tabular, un diagnóstico de coherencia y una guía de modelamiento intelectual.
 """)
 
-# --- FORMULARIO DE DECISIONES POR CAPAS ---
+# --- FORMULARIO DE DECISIONES SECUENCIALES (6 PASOS) ---
 with st.form("formulario_arqueologia"):
     
-    # CAPA 1: ANTROPOLOGÍA
-    st.header("Capa 1: La Naturaleza Humana (Antropología)")
-    st.markdown("*Antes de legislar o gobernar, ¿qué suponemos que es el ser humano en su esencia?*")
-    antropologia = st.radio(
+    # 1. CONCEPTO DE SER HUMANO
+    st.header("Paso 1: El Concepto de Ser Humano")
+    st.markdown("*¿Cómo definirías la condición fundamental del ser humano?*")
+    ser_humano = st.radio(
         "Selecciona la premisa con la que más te identifiques:",
         [
             "Un individuo autónomo y racional que busca maximizar su propio bienestar e interés particular.",
@@ -25,256 +25,301 @@ with st.form("formulario_arqueologia"):
             "Un espíritu libre y soberano que no acepta ninguna autoridad, ley institucional o moral impuesta.",
             "Un eslabón inseparable de la tierra, la naturaleza y el bienestar colectivo de su pueblo originario."
         ],
-        key="ant_choice"
+        key="ser_choice"
     )
 
     st.markdown("---")
 
-    # CAPA 2: ONTOLOGÍA DEL PODER
-    st.header("Capa 2: El Vínculo Social y el Poder (Ontología Política)")
-    st.markdown("*Aceptando la premisa anterior, ¿cómo se relacionan los hombres y de dónde surge la autoridad?*")
-    poder = st.radio(
-        "Selecciona tu premisa sobre el poder:",
+    # 2. CONCEPTO DE SOCIEDAD
+    st.header("Paso 2: El Concepto de Sociedad")
+    st.markdown("*¿Cómo se entienden las personas y de dónde nace el vínculo social?*")
+    sociedad = st.radio(
+        "Selecciona tu premisa sobre la sociedad:",
         [
-            "Mediante un pacto o acuerdo entre ciudadanos regulado por leyes justas y un árbitro neutral imparcial.",
+            "Mediante un pacto o acuerdo contractual entre ciudadanos libres que buscan proteger sus intereses.",
             "Mediante un conflicto permanente y estructural entre grupos sociales según quién posee los medios de producción.",
-            "Mediante la defensa soberana del grupo frente a amenazas externas, distinguiendo claramente entre amigos y enemigos.",
-            "Mediante la cooperación libre y voluntaria, eliminando por completo cualquier jerarquía u orden impuesto por la fuerza.",
-            "Mediante un orden natural jerárquico y de respeto a la autoridad histórica, espiritual o sagrada.",
-            "Mediante el servicio a la comunidad, la rotación de responsabilidades y la autoridad que obedece al mandato colectivo."
+            "Mediante una comunidad orgánica unida por lazos históricos, culturales, espirituales o de lealtad tradicional.",
+            "Mediante la cooperación libre, voluntaria y sin coacción institucional entre individuos soberanos.",
+            "Mediante la reciprocidad, el parentesco y la integración armónica con la comunidad y el territorio."
         ],
-        key="pod_choice"
+        key="soc_choice"
     )
 
     st.markdown("---")
 
-    # CAPA 3: ECONOMÍA
-    st.header("Capa 3: La Riqueza y el Trabajo (Economía Política)")
-    st.markdown("*¿Cómo deben organizarse los recursos, la producción y el reparto de los bienes?*")
+    # 3. CONCEPTO DE NACIÓN
+    st.header("Paso 3: El Concepto de Nación")
+    st.markdown("*¿Cuál es el fundamento de la identidad colectiva o la pertenencia?*")
+    nacion = st.radio(
+        "Selecciona tu premisa sobre la nación:",
+        [
+            "Una asociación de ciudadanos bajo el imperio de la ley, abierta e integradora sin importar losorkígenes.",
+            "Una comunidad de destino histórico, cultural o identitario que debe defender su soberanía y tradiciones.",
+            "Una construcción artificial que divide a la clase trabajadora; la verdadera lealtad es internacional.",
+            "Un orden político innecesario; la pertenencia se basa en comunas libres o asociaciones voluntarias.",
+            "Una colectividad arraigada a la tierra ancestral y a la soberanía de los pueblos originarios."
+        ],
+        key="nac_choice"
+    )
+
+    st.markdown("---")
+
+    # 4. CONCEPTO DE ESTADO
+    st.header("Paso 4: El Concepto de Estado y Gobierno")
+    st.markdown("*¿Cómo debe organizarse la autoridad política y el poder?*")
+    estado = st.radio(
+        "Selecciona tu premisa sobre el Estado:",
+        [
+            "Un árbitro neutral limitado por la ley y la división de poderes para garantizar las libertades individuales.",
+            "Un instrumento de dominación de clase que debe ser transformado o superado mediante la praxis revolucionaria.",
+            "Un custodio soberano del orden, la seguridad y la supervivencia colectiva frente a amenazas (amigo/enemigo).",
+            "Una estructura ilegítima y coactiva que debe ser disuelta o reemplazada por contratos privados y autogestión.",
+            "Un sistema de autoridad basado en el servicio comunal, la rotación de cargos y el mandar obedeciendo."
+        ],
+        key="est_choice"
+    )
+
+    st.markdown("---")
+
+    # 5. CONCEPTO DE ECONOMÍA
+    st.header("Paso 5: La Economía")
+    st.markdown("*¿Cómo debe organizarse la producción y el reparto de la riqueza?*")
     economia = st.radio(
         "Selecciona tu modelo económico ideal:",
         [
-            "A través de la propiedad privada garantizada, el intercambio libre y la competencia sin trabas en el mercado.",
-            "A través de la propiedad social y la planificación organizada de la producción para satisfacer las necesidades de todos.",
-            "A través de una economía mixta donde el mercado opera pero el Estado regula y asegura el bienestar social básico.",
-            "A través de acuerdos estrictamente privados y voluntarios, sin intervención del Estado ni control de bancos centrales.",
-            "A través de la reciprocidad, el trueque justo, el trabajo comunitario y la protección de los recursos de la tierra."
+            "Propiedad privada garantizada, libre mercado de precios y competencia económica sin trabas estatales.",
+            "Propiedad social y planificación organizada de la producción para satisfacer las necesidades de toda la sociedad.",
+            "Economía mixta regulada, donde el Estado interviene para asegurar el bienestar social y la equidad básica.",
+            "Contratos estrictamente privados y voluntarios, eliminando monopolios estatales, impuestos y bancos centrales.",
+            "Reciprocidad, trueque justo, trabajo comunitario y protección colectiva de los recursos naturales (Buen Vivir)."
         ],
         key="eco_choice"
     )
 
     st.markdown("---")
 
-    # CAPA 4: GEOPOLÍTICA
-    st.header("Capa 4: El Tablero Global (Geopolítica)")
-    st.markdown("*¿Cómo debe estructurarse el espacio mundial a escala internacional?*")
-    geopolitica = st.radio(
-        "Selecciona tu visión del orden global:",
+    # 6. PROYECTO HISTÓRICO Y GEOPOLÍTICA
+    st.header("Paso 6: El Proyecto Histórico y el Tablero Global")
+    st.markdown("*¿Cómo se proyecta este modelo hacia el mundo exterior y el futuro?*")
+    proyecto = st.radio(
+        "Selecciona tu visión del proyecto histórico global:",
         [
-            "Un mundo integrado por el libre comercio sin fronteras rígidas y gobernado por reglas e instituciones globales.",
-            "Un sistema de grandes bloques civilizacionales y potencias soberanas que defienden sus propias zonas de influencia.",
-            "Un escenario de permanente competencia y disputa entre potencias globales por el dominio de los mercados y recursos.",
-            "Una hermandad universal de los pueblos que supera y disuelve las fronteras de los Estados nacionales.",
-            "Un mundo que defiende con fuerza la diversidad cultural y espiritual de cada civilización frente a la imposición de una cultura única."
+            "Integración global del mercado, apertura de fronteras y gobernanza a través de instituciones supranacionales.",
+            "Un sistema multipolar de grandes bloques civilizacionales o potencias soberanas que defienden sus espacios.",
+            "Superación global del capitalismo mediante la emancipación universal y la solidaridad internacional de los pueblos.",
+            "Defensa radical de la pluralidad cultural y espiritual de cada civilización frente a la homogenización global.",
+            "Construcción de autonomías locales autogestionadas en red, superando el sistema de Estados nacionales."
         ],
-        key="geo_choice"
+        key="pro_choice"
     )
 
-    submitted = st.form_submit_button("Ejecutar Auditoría y Análisis Metacognitivo")
+    submitted = st.form_submit_button("Ejecutar Análisis y Modelamiento Metacognitivo")
 
 # --- PROCESAMIENTO Y DIAGNÓSTICO FORMATIVO ---
 if submitted:
     st.markdown("---")
-    st.header("🔍 Radiografía Crítica y Metacognición")
+    st.header("📊 Radiografía Tabular de tu Edificio Conceptual")
 
-    # Clasificación de perfiles
-    es_liberal = ("individuo autónomo" in antropologia) and ("pacto o acuerdo" in poder or "propiedad privada garantizada" in economia)
-    es_marxista = ("ser social e histórico" in antropologia or "conflicto permanente" in poder) and ("propiedad social" in economia)
-    es_tradicional = ("profundamente enraizado" in antropologia or "orden natural jerárquico" in poder) and ("grandes bloques civilizacionales" in geopolitica or "orden natural" in poder)
-    es_libertario = ("dueño absoluto" in antropologia) and ("acuerdos estrictamente privados" in economia)
-    es_anarquista = ("espíritu libre y soberano" in antropologia or "cooperación libre" in poder) and ("hermandad universal" in geopolitica or "cooperación libre" in poder)
-    es_comunitario = ("eslabón inseparable de la tierra" in antropologia) and ("reciprocidad" in economia or "servicio a la comunidad" in poder)
+    # Mostrar las respuestas en formato de tabla clara
+    import pandas as pd
+    tabla_resumen = pd.DataFrame({
+        "Dimensión del Esquema": [
+            "1. Concepto de Ser Humano",
+            "2. Concepto de Sociedad",
+            "3. Concepto de Nación",
+            "4. Concepto de Estado",
+            "5. Economía",
+            "6. Proyecto Histórico"
+        ],
+        "Elección del Estudiante": [
+            ser_humano, sociedad, nacion, estado, economia, proyecto
+        ]
+    })
+    st.table(tabla_resumen)
 
-    # Evaluación de tensiones internas (Perfil Híbrido / Incoherente)
-    tension_detectada = False
-    es_antropologia_comunitaria = ("enraizado" in antropologia) or ("eslabón inseparable de la tierra" in antropologia) or ("orden natural jerárquico" in poder)
-    es_economia_capitalista = ("propiedad privada garantizada" in economia) or ("acuerdos estrictamente privados" in economia)
-    
-    if es_antropologia_comunitaria and es_economia_capitalista:
-        tension_detectada = True
+    st.markdown("---")
+    st.header("🔍 Diagnóstico Crítico y Cruce de Vertientes")
 
-    # --- CASO A: PERFIL HÍBRIDO / TENSIONADO (INCOHERENTE) ---
-    if tension_detectada:
-        st.warning("⚠️ Diagnóstico: Perfil Conceptual Híbrido / En Tensión")
+    # Detección de perfiles principales y cruces híbridos
+    es_liberal = ("individuo autónomo" in ser_humano) and ("pacto o acuerdo" in sociedad or "propiedad privada garantizada" in economia)
+    es_marxista = ("ser social e histórico" in ser_humano or "conflicto permanente" in sociedad) and ("propiedad social" in economia)
+    es_tradicional = ("profundamente enraizado" in ser_humano or "comunidad orgánica" in sociedad) and ("custodio soberano" in estado or "grandes bloques" in proyecto)
+    es_libertario = ("dueño absoluto" in ser_humano) and ("contratos estrictamente privados" in economia)
+    es_anarquista = ("espíritu libre y soberano" in ser_humano or "cooperación libre" in sociedad) and ("estructura ilegítima" in estado)
+    es_comunitario = ("eslabón inseparable de la tierra" in ser_humano) and ("reciprocidad" in economia)
+
+    # Detección de tensiones específicas (mezclas de vertientes)
+    tension_tradicional_liberal = ("enraizado" in ser_humano or "comunidad orgánica" in sociedad) and ("propiedad privada garantizada" in economia or "libre mercado" in economia)
+    tension_libertario_estatista = ("dueño absoluto" in ser_humano) and ("economía mixta" in economia or "Estado" in estado)
+
+    # --- CASO A: PERFIL HÍBRIDO / TENSIONADO (CON PRECISIÓN DE VERTIENTES) ---
+    if tension_tradicional_liberal:
+        st.warning("⚠️ Diagnóstico: Perfil Híbrido en Tensión Teórica")
         st.markdown("""
+        **Precisión del cruce ideológico:**  
+        Estás cruzando y mezclando el **Tradicionalismo / Conservadurismo Orgánico** (en tu concepto de ser humano y sociedad) con el **Liberalismo Clásico / Capitalismo de Mercado** (en tu modelo económico).
+        
         **Análisis Crítico y Metacognición:**  
-        Has construido una postura que dialoga con mundos teóricos contrapuestos. Por un lado, tus premisas antropológicas y sociales buscan proteger el valor del enraizamiento, la comunidad o los vínculos orgánicos; por el otro, adoptas un modelo económico fundado en la competencia mercantil y la propiedad privada desregulada.
+        Esta mezcla es sumamente común en la política contemporánea, pero teológicamente e históricamente genera una contradicción profunda. Estás intentando proteger los lazos comunitarios, la familia y la tradición (valores caros al tradicionalismo), pero adoptas un motor económico (el libre mercado absoluto) que funciona como un solvente universal de las tradiciones, mercantilizando las relaciones humanas y desraizando los vínculos comunitarios.
         
-        **¿Por qué genera fricción teórica?**  
-        La historia del pensamiento político demuestra que el despliegue del mercado capitalista absoluto actúa como un solvente universal: disuelve las tradiciones, los lazos comunitarios estables y las identidades locales que tu antropología pretende defender. No se trata de un "error", sino de una **contradicción sintomática** muy común en el debate contemporáneo (habitual en posturas conservadoras de mercado o populismos identitarios). El desafío pedagógico para ti es decidir qué principio cede ante el otro.
+        **Modelamiento recomendado para aclarar tu postura:**  
+        Para resolver esta incoherencia y definir qué tiene más peso para ti, debes volver al **Concepto de Ser Humano**:  
+        * *Si decides que lo primordial es el individuo propietario y maximizador:* Debes aceptar que las tradiciones secundan al mercado y ceden ante él.  
+        * *Si decides que lo primordial es la comunidad enraizada y el orden orgánico:* Debes subordinar la economía de mercado al bien común y a la moral tradicional (mirando hacia el distributismo o el corporativismo social).
         
-        **Movimientos, partidos y figuras históricas que inspiran o han intentado articular esta tensión:**
-        * *Movimientos y partidos:* El distributismo católico, partidos democristianos de raigambre social, y diversas expresiones del nacionalismo económico proteccionista.
-        * *Personajes históricos:* Wilhelm Röpke, Konrad Adenauer (con su economía social de mercado), o intelectuales del conservadurismo popular.
+        **Movimientos y personajes históricos que han intentado articular (o debatir) este cruce:**
+        * *Corrientes:* El distributismo, la democracia cristiana de base social, el conservadurismo popular.
+        * *Figuras:* Wilhelm Röpke, G.K. Chesterton.
         """)
         
-        st.subheader("📚 Itinerario Bibliográfico Sugerido:")
+        st.subheader("📚 Itinerario Bibliográfico:")
         st.markdown("**Fuentes Principales (Autores Clásicos):**")
         st.markdown("- Karl Polanyi, *La gran transformación*")
-        st.markdown("- G.K. Chesterton, *Outline of Sanity (Esbozo de la cordura)*")
+        st.markdown("- G.K. Chesterton, *Esbozo de la cordura*")
         st.markdown("**Comentarios y Ensayos Críticos:**")
         st.markdown("- Wilhelm Röpke, *La crisis de nuestro tiempo*")
         st.markdown("- Michael Sandel, *Lo que el dinero no puede comprar*")
 
-    # --- CASO B: PERFIL COHERENTE - LIBERAL / CAPITALISTA ---
-    elif es_liberal:
-        st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Tradición Liberal y Capitalista")
+    elif tension_libertario_estatista:
+        st.warning("⚠️ Diagnóstico: Perfil Híbrido en Tensión Teórica")
         st.markdown("""
-        **Análisis Crítico y Metacognición (Ideas Fundantes):**  
-        Tus respuestas convergen armónicamente en el núcleo de la **modernidad liberal**. 
-        * **Idea fundante:** El individuo precede a la sociedad. Los seres humanos son agentes racionales, libres y titulares de derechos negativos que deben ser blindados frente a la coacción colectiva.
-        * **El orden y la economía:** La sociedad se organiza mediante el contrato legal y un Estado mínimo o neutral que arbitra las reglas del juego, mientras que la asignación de recursos descansa en el libre mercado y la iniciativa privada.
+        **Precisión del cruce ideológico:**  
+        Estás cruzando el **Libertarismo Radical / Autopropiedad** con elementos de intervención estatal o institucionalidad reguladora.
         
-        **Movimientos, partidos y figuras históricas que encarnan esta tradición:**
-        * *Movimientos y partidos:* El liberalismo clásico del siglo XIX, partidos liberales y reformistas europeos, vertientes del socioliberalismo contemporáneo.
-        * *Personajes históricos:* John Locke, Adam Smith, Alexis de Tocqueville, John Stuart Mill.
+        **Análisis Crítico y Metacognición:**  
+        Sostienes que el individuo es dueño absoluto de sí mismo y rechazas la coacción, pero al mismo tiempo dejas espacio para regulaciones o estructuras estatales. Para el libertarismo estricto, cualquier grado de coacción estatal anula el axioma de la autopropiedad.
+        
+        **Modelamiento recomendado para aclarar tu postura:**  
+        Vuelve a tu **Concepto de Ser Humano**: decide si la soberanía personal es intransigente (lo que te obligaría a rechazar todo impuesto y regulador estatal) o si aceptas un arbitraje estatal mínimo por pragmatismo social.
         """)
         
-        st.subheader("📚 Itinerario Bibliográfico Sugerido:")
-        st.markdown("**Fuentes Principales (Autores Clásicos):**")
+        st.subheader("📚 Itinerario Bibliográfico:")
+        st.markdown("**Fuentes Principales:**")
+        st.markdown("- Murray Rothbard, *Ética de la libertad*")
+        st.markdown("**Comentarios y Ensayos Críticos:**")
+        st.markdown("- Robert Nozick, *Anarquía, estado y utopía*")
+
+    # --- CASOS B A G: PERFILES COHERENTES ---
+    elif es_liberal:
+        st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Liberalismo Clásico")
+        st.markdown("""
+        **Ideas Fundantes y Modelamiento Coherente:**  
+        Tu edificio conceptual es plenamente consistente con el **Liberalismo Clásico**. 
+        * *Concepto de ser humano:* Agente racional, autónomo y titular de derechos.
+        * *Deducción doctrinal:* Sociedad contractual, Estado neutral garante de leyes y economía de libre mercado global.
+        
+        **Movimientos y figuras históricas:**  
+        * *Movimientos:* Liberalismo decimonónico, reformismo republicano.
+        * *Personajes:* John Locke, Adam Smith, Alexis de Tocqueville.
+        """)
+        st.subheader("📚 Itinerario Bibliográfico:")
+        st.markdown("**Fuentes Principales:**")
         st.markdown("- John Locke, *Segundo tratado sobre el gobierno civil*")
         st.markdown("- Adam Smith, *La riqueza de las naciones*")
         st.markdown("**Comentarios y Ensayos Críticos:**")
         st.markdown("- Friedrich Hayek, *Los fundamentos de la libertad*")
-        st.markdown("- Norberto Bobbio, *Liberalismo y democracia*")
 
-    # --- CASO C: PERFIL COHERENTE - MARXISTA / SOCIALISTA ---
     elif es_marxista:
-        st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Tradición Crítica y Materialista")
+        st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Marxismo y Teoría Crítica")
         st.markdown("""
-        **Análisis Crítico y Metacognición (Ideas Fundantes):**  
-        Tus respuestas se alinean de manera consistente con el **materialismo histórico y la emancipación obrera**.
-        * **Idea fundante:** El hombre es un ser social que se autoconstruye mediante el trabajo. La conciencia está determinada por las condiciones materiales de producción.
-        * **El orden y la economía:** La política no es un pacto neutral entre iguales, sino la superestructura de un antagonismo de clases. La transformación exige abolir la propiedad privada capitalista y planificar la producción socialmente.
+        **Ideas Fundantes y Modelamiento Coherente:**  
+        Tu edificio conceptual sigue la línea del **Materialismo Histórico**.
+        * *Concepto de ser humano:* Ser social constituido por el trabajo y la producción material.
+        * *Deducción doctrinal:* Sociedad dividida en clases, superación del Estado burgués y planificación social de la economía.
         
-        **Movimientos, partidos y figuras históricas que encarnan esta tradición:**
-        * *Movimientos y partidos:* Los partidos comunistas del siglo XX, movimientos socialistas revolucionarios, sindicatos de clase e internacionalismo proletario.
-        * *Personajes históricos:* Karl Marx, Vladimir Lenin, Rosa Luxemburgo, Antonio Gramsci.
+        **Movimientos y figuras históricas:**  
+        * *Movimientos:* Comunismo histórico, sindicalismo revolucionario.
+        * *Personajes:* Karl Marx, Vladimir Lenin, Antonio Gramsci.
         """)
-        
-        st.subheader("📚 Itinerario Bibliográfico Sugerido:")
-        st.markdown("**Fuentes Principales (Autores Clásicos):**")
-        st.markdown("- Karl Marx, *El Capital* (Libro I)")
-        st.markdown("- Vladimir Lenin, *El Estado y la revolución*")
+        st.subheader("📚 Itinerario Bibliográfico:")
+        st.markdown("**Fuentes Principales:**")
+        st.markdown("- Karl Marx, *El Capital*")
         st.markdown("**Comentarios y Ensayos Críticos:**")
-        st.markdown("- Antonio Gramsci, *Cuadernos de la cárcel* (Antología)")
-        st.markdown("- Ernst Mandel, *El pensamiento económico de Karl Marx*")
+        st.markdown("- Antonio Gramsci, *Cuadernos de la cárcel*")
 
-    # --- CASO D: PERFIL COHERENTE - TRADICIONALISTA / SOBERANO ---
     elif es_tradicional:
-        st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Tradición Conservadora, Realista y Geopolítica")
+        st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Tradicionalismo y Geopolítica Soberana")
         st.markdown("""
-        **Análisis Crítico y Metacognición (Ideas Fundantes):**  
-        Tus respuestas reflejan una arquitectura conceptual propia del **realismo político, el tradicionalismo y la multipolaridad civilizacional**.
-        * **Idea fundante:** El ser humano es un heredero, un ser enraizado en su comunidad histórica, su cultura y un orden trascendente o de autoridad legítima.
-        * **El orden y la economía:** El poder político se funda en la soberanía y la capacidad de preservar la supervivencia colectiva frente al caos, rechazando tanto el individualismo disolvente como el universalismo globalizador.
+        **Ideas Fundantes y Modelamiento Coherente:**  
+        Tus respuestas convergen en el **Realismo Político y Conservadurismo Orgánico**.
+        * *Concepto de ser humano:* Ser enraizado a una comunidad y un orden histórico.
+        * *Deducción doctrinal:* Soberanía política, Estado custodio frente al conflicto y orden multipolar de civilizaciones.
         
-        **Movimientos, partidos y figuras históricas que encarnan esta tradición:**
-        * *Movimientos y partidos:* Movimientos tradicionalistas históricos, corrientes soberanistas contemporáneas y bloques de geopolítica nacional-estatista.
-        * *Personajes históricos:* Thomas Hobbes, Carl Schmitt, Charles de Gaulle, Juan Donoso Cortés.
+        **Movimientos y figuras históricas:**  
+        * *Movimientos:* Soberanismos nacionales, tradicionalismo político.
+        * *Personajes:* Thomas Hobbes, Carl Schmitt, Charles de Gaulle.
         """)
-        
-        st.subheader("📚 Itinerario Bibliográfico Sugerido:")
-        st.markdown("**Fuentes Principales (Autores Clásicos):**")
+        st.subheader("📚 Itinerario Bibliográfico:")
+        st.markdown("**Fuentes Principales:**")
         st.markdown("- Thomas Hobbes, *Leviatán*")
         st.markdown("- Carl Schmitt, *El concepto de lo político*")
         st.markdown("**Comentarios y Ensayos Críticos:**")
-        st.markdown("- Julien Freund, *Sociología del conflicto*")
         st.markdown("- Aleksandr Dugin, *La cuarta teoría política*")
 
-    # --- CASO E: PERFIL COHERENTE - LIBERTARIO / ANARCOCAPITALISTA ---
     elif es_libertario:
-        st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Tradición Libertaria / Autopropiedad")
+        st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Anarcocapitalismo / Libertarismo")
         st.markdown("""
-        **Análisis Crítico y Metacognición (Ideas Fundantes):**  
-        Tus respuestas se estructuran firmemente bajo los principios del **libertarismo radical y la autopropiedad**.
-        * **Idea fundante:** El axioma de la autopropiedad (*self-ownership*). Todo individuo es dueño absoluto de su cuerpo, su esfuerzo y su propiedad legítimamente adquirida.
-        * **El orden y la economía:** Cualquier coacción estatal (impuestos, regulaciones, monopolios monetarios) es considerada una violación ilegítima de la libertad individual. La sociedad se articula mediante contratos privados voluntarios.
+        **Ideas Fundantes y Modelamiento Coherente:**  
+        Tu perfil responde al **Libertarismo Radical de Mercado**.
+        * *Concepto de ser humano:* Propietario absoluto de su cuerpo y voluntad.
+        * *Deducción doctrinal:* Rechazo total al Estado, contratos voluntarios y banca libre.
         
-        **Movimientos, partidos y figuras históricas que encarnan esta tradición:**
-        * *Movimientos y partidos:* El movimiento libertario contemporáneo, corrientes anarcocapitalistas y partidos de corte minarquista o libertario en América y Europa.
-        * *Personajes históricos:* Murray Rothbard, Ludwig von Mises, Ayn Rand, Robert Nozick.
+        **Movimientos y figuras históricas:**  
+        * *Movimientos:* Movimiento libertario austríaco.
+        * *Personajes:* Murray Rothbard, Ludwig von Mises.
         """)
-        
-        st.subheader("📚 Itinerario Bibliográfico Sugerido:")
-        st.markdown("**Fuentes Principales (Autores Clásicos):**")
+        st.subheader("📚 Itinerario Bibliográfico:")
+        st.markdown("**Fuentes Principales:**")
         st.markdown("- Murray Rothbard, *Ética de la libertad*")
-        st.markdown("- Ludwig von Mises, *La acción humana*")
         st.markdown("**Comentarios y Ensayos Críticos:**")
-        st.markdown("- Robert Nozick, *Anarquía, estado y utopía*")
         st.markdown("- Jesús Huerta de Soto, *Socialismo, cálculo económico y función empresarial*")
 
-    # --- CASO F: PERFIL COHERENTE - ANARQUISTA / AUTONOMISTA ---
     elif es_anarquista:
-        st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Tradición Ácrata y Autonomista")
+        st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Anarquismo Clásico")
         st.markdown("""
-        **Análisis Crítico y Metacognición (Ideas Fundantes):**  
-        Tus premisas convergen sólidamente en el horizonte del **anarquismo clásico y el autonomismo radical**.
-        * **Idea fundante:** La emancipación radical frente a toda forma de dominación jerárquica, sea estatal, religiosa o económica.
-        * **El orden y la economía:** El orden social no necesita coacción vertical; brota espontáneamente de la cooperación voluntaria, la ayuda mutua y la federación horizontal de los pueblos.
+        **Ideas Fundantes y Modelamiento Coherente:**  
+        Tu edificio conceptual es coherente con el **Anarquismo Autonomista**.
+        * *Concepto de ser humano:* Espíritu libre incompatible con la jerarquía.
+        * *Deducción doctrinal:* Acción directa, ayuda mutua y federación horizontal sin Estado.
         
-        **Movimientos, partidos y figuras históricas que encarnan esta tradición:**
-        * *Movimientos y partidos:* El sindicalismo revolucionario histórico, comunas anarquistas (como en la Revolución Española), movimientos autonomistas contemporáneos.
-        * *Personajes históricos:* Piotr Kropotkin, Mijaíl Bakunin, Pierre-Joseph Proudhon, Emma Goldman.
+        **Movimientos y figuras históricas:**  
+        * *Movimientos:* Anarcosindicalismo, comunas autónomas.
+        * *Personajes:* Piotr Kropotkin, Mijaíl Bakunin.
         """)
-        
-        st.subheader("📚 Itinerario Bibliográfico Sugerido:")
-        st.markdown("**Fuentes Principales (Autores Clásicos):**")
+        st.subheader("📚 Itinerario Bibliográfico:")
+        st.markdown("**Fuentes Principales:**")
         st.markdown("- Piotr Kropotkin, *La ayuda mutua*")
-        st.markdown("- Mijaíl Bakunin, *Dios y el Estado*")
         st.markdown("**Comentarios y Ensayos Críticos:**")
-        st.markdown("- Daniel Guérin, *El anarquismo: de la doctrina a la acción*")
-        st.markdown("- Colin Ward, *Anarchy in Action*")
+        st.markdown("- Daniel Guérin, *El anarquismo*")
 
-    # --- CASO G: PERFIL COHERENTE - COMUNITARIO / INDIGENISTA ---
     elif es_comunitario:
-        st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Ontología Comunitaria y del Bien Vivir")
+        st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Ontología Comunitaria y del Buen Vivir")
         st.markdown("""
-        **Análisis Crítico y Metacognición (Ideas Fundantes):**  
-        Tus respuestas se sustentan en una matriz de **pensamiento comunitario e indigenista**.
-        * **Idea fundante:** El ser humano no es un átomo aislado, sino un nodo inseparable de un organismo social y territorial más amplio (la comunidad y la Pacha).
-        * **El orden y la economía:** El poder se concibe como servicio y reciprocidad (*mandar obedeciendo*). La economía prioriza la reproducción de la vida y el equilibrio ecológico por encima del lucro mercantil.
+        **Ideas Fundantes y Modelamiento Coherente:**  
+        Tus respuestas se sustentan en el **Comunitarismo Indigenista**.
+        * *Concepto de ser humano:* Nodo inseparable de la comunidad y la tierra.
+        * *Deducción doctrinal:* Reciprocidad, mandar obedeciendo y defensa del territorio.
         
-        **Movimientos, partidos y figuras históricas que encarnan esta tradición:**
-        * *Movimientos y partidos:* Movimientos indígenas latinoamericanos, comunidades zapatistas, corrientes de socialismo indoamericano y ecologismo popular.
-        * *Personajes históricos:* José Carlos Mariátegui, Túpac Katari, líderes comunales históricos y teóricos del Buen Vivir.
+        **Movimientos y figuras históricas:**  
+        * *Movimientos:* Movimientos indígenas de los Andes, zapatismo.
+        * *Personajes:* José Carlos Mariátegui, líderes comunitarios del Buen Vivir.
         """)
-        
-        st.subheader("📚 Itinerario Bibliográfico Sugerido:")
-        st.markdown("**Fuentes Principales (Autores Clásicos):**")
+        st.subheader("📚 Itinerario Bibliográfico:")
+        st.markdown("**Fuentes Principales:**")
         st.markdown("- José Carlos Mariátegui, *7 ensayos de interpretación de la realidad peruana*")
-        st.markdown("- Manifiestos y documentos políticos de movimientos comunitarios originarios")
         st.markdown("**Comentarios y Ensayos Críticos:**")
         st.markdown("- Álvaro García Linera, *Forma valor y forma comunidad*")
-        st.markdown("- Alberto Acosta, *El buen vivir: Sumak Kawsay, una oportunidad para imaginar otros mundos*")
 
-    # --- CASO H: PERFIL ECLÉCTICO GENERAL ---
     else:
-        st.info("ℹ️ Diagnóstico: Perfil Ecléctico / En Construcción")
+        st.info("ℹ️ Diagnóstico: Perfil Ecléctico en Exploración")
         st.markdown("""
         **Análisis Crítico y Metacognición:**  
-        Tus elecciones reflejan una combinación singular de diferentes tradiciones intelectuales. No te encasillas en un dogma cerrado, sino que amalgamas elementos de diversas procedencias sobre la naturaleza del poder, la economía y el individuo.
-        
-        **Desafío formativo:**  
-        Este eclecticismo es propio de una mente en exploración, pero en la teoría política conlleva el riesgo de la incoherencia operativa si los supuestos chocan entre sí. Te invitamos a examinar qué puente une tus premisas para construir un discurso propio sólidamente argumentado.
+        Tus respuestas combinan múltiples tradiciones sin anclarse rígidamente en un solo bloque. Para clarificar tu postura, te invitamos a modelar tu pensamiento partiendo de tu **concepto de ser humano** y observando cómo fluyen las demás capas.
         """)
-        
-        st.subheader("📚 Itinerario Bibliográfico Sugerido:")
-        st.markdown("**Fuentes Principales (Autores Clásicos):**")
+        st.subheader("📚 Itinerario Bibliográfico:")
+        st.markdown("**Fuentes Principales:**")
         st.markdown("- Norberto Bobbio, *Derecha e izquierda*")
-        st.markdown("- Isaiah Berlin, *Cuatro ensayos sobre la libertad*")
         st.markdown("**Comentarios y Ensayos Críticos:**")
         st.markdown("- Michael Sandel, *El descontento con la democracia*")
-        st.markdown("- Chantal Mouffe, *En torno a lo político*")
 
     st.balloons()
