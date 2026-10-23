@@ -1,12 +1,13 @@
 import streamlit as st
+import pandas as pd
 
 st.set_page_config(page_title="Arqueología Antropológica Política", page_icon="🏛️", layout="wide")
 
 st.title("🏛️ Simulador de Arqueología Antropológica Política")
 st.markdown("---")
 st.write("""
-**Bienvenido al ejercicio de arqueología conceptual.** Inspirado en el flujo deductivo del pensamiento político, este simulador parte de tu **concepto de ser humano** para descender por las capas de la sociedad, el estado, la economía y el proyecto histórico. 
-Tómate tu tiempo. Al finalizar, obtendrás una radiografía tabular, un diagnóstico crítico de tensiones y un riguroso modelamiento metacognitivo.
+**Bienvenido al laboratorio de arqueología conceptual.** Inspirado en el flujo deductivo del pensamiento político, este simulador parte de tu **concepto de ser humano** para descender por las capas de la sociedad, la nación, el estado, la economía y el proyecto histórico. 
+Tómate tu tiempo en cada dilema. Al finalizar, obtendrás una radiografía tabular, un diagnóstico crítico de tensiones y un riguroso modelamiento metacognitivo guiado por fuentes clásicas y pensadores de nuestra tradición hispanoamericana y chilena.
 """)
 
 # --- FORMULARIO DE DECISIONES SECUENCIALES (6 PASOS) ---
@@ -14,7 +15,7 @@ with st.form("formulario_arqueologia"):
     
     # 1. CONCEPTO DE SER HUMANO
     st.header("Paso 1: El Concepto de Ser Humano")
-    st.markdown("*¿Cómo definirías la condición fundamental del ser humano?*")
+    st.markdown("*Antes de estructurar la política, ¿cómo definirías la condición fundamental del ser humano?*")
     ser_humano = st.radio(
         "Selecciona la premisa con la que más te identifiques:",
         [
@@ -120,7 +121,6 @@ if submitted:
     st.markdown("---")
     st.header("📊 Radiografía Tabular de tu Edificio Conceptual")
 
-    import pandas as pd
     tabla_resumen = pd.DataFrame({
         "Dimensión del Esquema": [
             "1. Concepto de Ser Humano",
@@ -147,97 +147,100 @@ if submitted:
     es_anarquista = ("espíritu libre y soberano" in ser_humano or "cooperación libre" in sociedad) and ("estructura ilegítima" in estado)
     es_comunitario = ("eslabón inseparable de la tierra" in ser_humano) and ("reciprocidad" in economia)
 
-    # Detecciones de tensiones específicas (Cruces de vertientes)
+    # Detección de tensiones específicas (Cruces de vertientes)
     tension_tradicional_liberal = ("enraizado" in ser_humano or "comunidad orgánica" in sociedad) and ("propiedad privada garantizada" in economia or "libre mercado" in economia)
     tension_libertario_estatista = ("dueño absoluto" in ser_humano) and ("economía mixta" in economia or "Estado" in estado)
-    tension_socialdemocrata_radical = ("individuo autónomo" in ser_humano) and ("planificación" in economia or "propiedad social" in economia)
 
     # --- CASO A: TENSIONES ESPECÍFICAS (PERFILES HÍBRIDOS / MIXTOS) ---
     if tension_tradicional_liberal:
         st.warning("⚠️ Diagnóstico: Perfil Híbrido — Cruce entre Tradicionalismo Orgánico y Liberalismo de Mercado")
         st.markdown("""
         **1. Precisión de las vertientes en colisión:**  
-        Estás mezclando los fundamentos del **Conservadurismo Orgánico / Tradicionalismo** (en tus pasos 1 y 2 sobre el ser humano y la comunidad) con las premisas del **Liberalismo Clásico y Capitalismo de Mercado** (en tu paso 5 sobre la economía).
+        Estás mezclando los fundamentos del **Conservadurismo Orgánico / Tradicionalismo** (en tu concepto de ser humano y sociedad) con las premisas del **Liberalismo Clásico y Capitalismo de Mercado** (en tu modelo económico).
         
         **2. Graduación de la tensión (Qué entra en contradicción vs. qué puede ser complementario):**  
-        * *Lo complementario:* En la superficie política práctica, ambas corrientes suelen aliarse tácticamente frente a proyectos colectivistas o estatistas radicales en nombre de la libertad y el orden institucional.
-        * *Lo irreconciliable (La contradicción profunda):* A nivel ontológico e histórico, chocan de forma violenta. El capitalismo de mercado opera como un motor de desintegración social que mercantiliza la vida, disuelve las lealtades familiares, erosiona las tradiciones locales y desarraiga a las comunidades. Pretender defender el enraizamiento orgánico mediante los mecanismos de un mercado absoluto es teóricamente contradictorio.
+        * *Lo complementario:* En la política práctica, ambas corrientes suelen aliarse tácticamente frente a proyectos colectivistas radicales en nombre de la libertad individual y el orden institucional.
+        * *Lo irreconciliable (La contradicción profunda):* A nivel ontológico, chocan violentamente. El capitalismo de mercado opera como un disolvente social que mercantiliza la vida, corroe las tradiciones locales y desarraiga a las comunidades que tu antropología busca proteger. Pretender defender el enraizamiento mediante la lógica de un mercado absoluto es una contradicción teórica mayor.
         
         **3. Modelamiento Metacognitivo (Cómo reestructurar tu postura desde el Concepto de Ser Humano):**  
-        Para resolver esta tensión y dar consistencia a tu edificio político, debes volver obligatoriamente al **Paso 1 (Concepto de Ser Humano)** y preguntarte qué valor tiene el peso fundante para ti:  
-        * **Opción A (Girar hacia el Liberalismo):** Si concluyes que el individuo autónomo y maximizador es lo primario, debes aceptar que las tradiciones y los vínculos comunitarios son secundarios y deben subordinarse a las leyes del libre mercado.  
-        * **Opción B (Girar hacia el Tradicionalismo/Comunitarismo):** Si concluyes que el ser humano enraizado y la comunidad orgánica son lo primario, debes subordinar la economía al bien común moral, limitando o regulando el mercado desregulado (mirando hacia doctrinas como el distributismo o el corporativismo social).
+        Para resolver esta incoherencia y dar consistencia a tu edificio político, debes volver obligatoriamente al **Paso 1 (Concepto de Ser Humano)** y ponderar qué principio tiene primacía para ti:  
+        * *Si tu base es el individuo maximizador:* Debes aceptar que las tradiciones secundan al mercado y ceden ante su dinámica.  
+        * *Si tu base es la comunidad enraizada:* Debes subordinar la economía al bien común moral y a la regulación comunitaria (mirando hacia el distributismo o el socialcristianismo histórico).
         
-        **Movimientos y personajes históricos que han intentado abordar este cruce:**  
-        * *Corrientes:* El distributismo, la democracia cristiana de base social, el conservadurismo popular de posguerra.  
-        * *Figuras:* Wilhelm Röpke, G.K. Chesterton, Konrad Adenauer.
+        **Movimientos, partidos y referentes históricos y chilenos:**  
+        * *Corrientes:* El distributismo, la democracia cristiana de base social, el conservadurismo social.  
+        * *Figuras y referentes:* Wilhelm Röpke, G.K. Chesterton; en el pensamiento chileno, el pensamiento social de Jaime Eyzaguirre o el corporativismo moderado.
         """)
         
-        st.subheader("📚 Itinerario Bibliográfico Riguroso:")
+        st.subheader("📚 Itinerario Bibliográfico con Aporte Temático y Guía de Lectura:")
         st.markdown("**Fuentes Principales (Autores Clásicos):**")
-        st.markdown("- Karl Polanyi, *La gran transformación*")
-        st.markdown("- G.K. Chesterton, *Esbozo de la cordura*")
+        st.markdown("- Karl Polanyi, *La gran transformación* (Aporte: Explica cómo el mercado desbocado destruye las instituciones sociales. Leer: Capítulos 4 al 6: *Sistemas económicos y el surgimiento del mercado*).")
+        st.markdown("- G.K. Chesterton, *Esbozo de la cordura* (Aporte: Fundamenta la propiedad distribuida frente al capitalismo centralizado. Leer: Primera parte, Capítulos 1 al 3).")
         st.markdown("**Comentarios y Ensayos Críticos:**")
-        st.markdown("- Wilhelm Röpke, *La crisis de nuestro tiempo*")
-        st.markdown("- Michael Sandel, *Lo que el dinero no puede comprar*")
+        st.markdown("- Wilhelm Röpke, *La crisis de nuestro tiempo* (Aporte: Diagnóstico sobre la masificación y el rescate de la economía humana. Leer: Capítulo 3: *La desintegración económica y social*).")
+        st.markdown("- Michael Sandel, *Lo que el dinero no puede comprar* (Aporte: Limites morales de los mercados en la vida comunitaria. Leer: Introducción y Capítulo 1).")
 
     elif tension_libertario_estatista:
         st.warning("⚠️ Diagnóstico: Perfil Híbrido — Cruce entre Libertarismo Radical y Estatismo / Reformismo")
         st.markdown("""
         **1. Precisión de las vertientes en colisión:**  
-        Estás combinando el **Anarcocapitalismo / Libertarismo Radical** (en tu concepto de autopropiedad absoluta) con elementos del **Estatismo Regulador o la Economía Mixta** (en tus opciones sobre estado o economía).
+        Estás combinando el **Anarcocapitalismo / Libertarismo Radical** (en tu concepto de autopropiedad absoluta) con elementos del **Estatismo Regulador o la Economía Mixta**.
         
         **2. Graduación de la tensión:**  
-        * *Lo complementario:* Ambas posturas valoran la vigencia formal del orden legal y la estabilidad institucional frente al caos.
-        * *Lo irreconciliable:* Para el libertarismo estricto, el Estado es una agencia ilegítima de agresión basada en el monopolio de la coacción y los impuestos. Tolerar intervenciones estatales o regulaciones anula el axioma moral de la autopropiedad.
+        * *Lo complementario:* Ambas posturas valoran la seguridad jurídica formal.
+        * *Lo irreconciliable:* Para el libertarismo estricto, el Estado es una organización criminal institucionalizada basada en el monopolio de la coacción y los impuestos. Tolerar intervenciones estatales invalida el axioma moral de la autopropiedad.
         
         **3. Modelamiento Metacognitivo:**  
-        Vuelve al **Concepto de Ser Humano**: define si la soberanía individual es absoluta e intransigente (lo que exige rechazar cualquier forma de coerción estatal) o si adoptas un pragmatismo liberal reformista que acepta un Estado mínimo regulador.
+        Vuelve al **Concepto de Ser Humano**: define si la soberanía personal es intransigente (rechazando todo impuesto) o si adoptas un liberalismo reformista que acepta un Estado mínimo arbitral.
+        
+        **Movimientos y referentes:**  
+        * *Corrientes:* Minarquismo, libertarismo pragmático.
+        * *Figuras:* Murray Rothbard, Robert Nozick.
         """)
         
-        st.subheader("📚 Itinerario Bibliográfico Riguroso:")
+        st.subheader("📚 Itinerario Bibliográfico con Aporte Temático y Guía de Lectura:")
         st.markdown("**Fuentes Principales:**")
-        st.markdown("- Murray Rothbard, *Ética de la libertad*")
+        st.markdown("- Murray Rothbard, *Ética de la libertad* (Aporte: Deducción axiomática de los derechos de propiedad. Leer: Partes 1 y 2).")
         st.markdown("**Comentarios y Ensayos Críticos:**")
-        st.markdown("- Robert Nozick, *Anarquía, estado y utopía*")
+        st.markdown("- Robert Nozick, *Anarquía, estado y utopía* (Aporte: Defensa crítica del Estado mínimo frente al anarcocapitalismo. Leer: Capítulo 3: *Las granjas morales del Estado*).")
 
     # --- CASOS B A G: PERFILES COHERENTES ---
     elif es_liberal:
         st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Liberalismo Clásico")
         st.markdown("""
         **Ideas Fundantes y Modelamiento Coherente:**  
-        Tu edificio conceptual es plenamente consistente con el **Liberalismo Clásico**. 
+        Tu edificio conceptual es plenamente consistente con la **Tradición Liberal**. 
         * *Concepto de ser humano:* Agente racional, autónomo y titular de derechos inalienables.
-        * *Deducción doctrinal:* Sociedad contractual, Estado neutral garante de leyes y economía de libre mercado.
+        * *Deducción doctrinal:* Sociedad contractual, Estado neutral garante de leyes y libre mercado.
         
-        **Movimientos y figuras históricas:**  
-        * *Movimientos:* Liberalismo decimonónico, reformismo republicano.
-        * *Personajes:* John Locke, Adam Smith, Alexis de Tocqueville.
+        **Movimientos y referentes históricos y chilenos:**  
+        * *Movimientos:* Liberalismo político, reformismo republicano.
+        * *Figuras:* John Locke, Adam Smith; en Chile, pensadores del liberalismo clásico decimonónico como José Victorino Lastarria.
         """)
-        st.subheader("📚 Itinerario Bibliográfico Riguroso:")
+        st.subheader("📚 Itinerario Bibliográfico con Aporte Temático y Guía de Lectura:")
         st.markdown("**Fuentes Principales:**")
-        st.markdown("- John Locke, *Segundo tratado sobre el gobierno civil*")
-        st.markdown("- Adam Smith, *La riqueza de las naciones*")
+        st.markdown("- John Locke, *Segundo tratado sobre el gobierno civil* (Aporte: Origen del contrato social y la propiedad. Leer: Capítulos 2, 5 y 8).")
+        st.markdown("- Adam Smith, *La riqueza de las naciones* (Aporte: Funcionamiento del mercado y división del trabajo. Leer: Capítulos 1 al 3 del Libro I).")
         st.markdown("**Comentarios y Ensayos Críticos:**")
-        st.markdown("- Friedrich Hayek, *Los fundamentos de la libertad*")
+        st.markdown("- Friedrich Hayek, *Los fundamentos de la libertad* (Aporte: Defensa del orden espontáneo de mercado. Leer: Capítulos 1 y 4).")
 
     elif es_marxista:
         st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Marxismo y Teoría Crítica")
         st.markdown("""
         **Ideas Fundantes y Modelamiento Coherente:**  
-        Tu edificio conceptual sigue la línea del **Materialismo Histórico**.
+        Tu edificio conceptual sigue la línea del **Materialismo Histórico y la Teoría Crítica**.
         * *Concepto de ser humano:* Ser social constituido por el trabajo y la producción material.
         * *Deducción doctrinal:* Sociedad dividida en clases, superación del Estado burgués y planificación social de la economía.
         
-        **Movimientos y figuras históricas:**  
-        * *Movimientos:* Comunismo histórico, sindicalismo revolucionario.
-        * *Personajes:* Karl Marx, Vladimir Lenin, Antonio Gramsci.
+        **Movimientos y referentes históricos y chilenos:**  
+        * *Movimientos:* Comunismo histórico, sindicalismo revolucionario y de clase.
+        * *Figuras:* Karl Marx, Antonio Gramsci; en Chile, Luis Emilio Recabarren y Clotario Blest.
         """)
-        st.subheader("📚 Itinerario Bibliográfico Riguroso:")
+        st.subheader("📚 Itinerario Bibliográfico con Aporte Temático y Guía de Lectura:")
         st.markdown("**Fuentes Principales:**")
-        st.markdown("- Karl Marx, *El Capital*")
+        st.markdown("- Karl Marx, *El Capital* (Aporte: Análisis de la plusvalía y la mercancía. Leer: Sección 1, Capítulo 1).")
         st.markdown("**Comentarios y Ensayos Críticos:**")
-        st.markdown("- Antonio Gramsci, *Cuadernos de la cárcel*")
+        st.markdown("- Antonio Gramsci, *Cuadernos de la cárcel* (Aporte: Hegemonía cultural y bloque histórico. Leer: Antología sobre el Estado y los intelectuales).")
 
     elif es_tradicional:
         st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Tradicionalismo y Geopolítica Soberana")
@@ -247,16 +250,16 @@ if submitted:
         * *Concepto de ser humano:* Ser enraizado a una comunidad y un orden histórico.
         * *Deducción doctrinal:* Soberanía política, Estado custodio frente al conflicto y orden multipolar de civilizaciones.
         
-        **Movimientos y figuras históricas:**  
-        * *Movimientos:* Soberanismos nacionales, tradicionalismo político.
-        * *Personajes:* Thomas Hobbes, Carl Schmitt, Charles de Gaulle.
+        **Movimientos y referentes históricos y chilenos:**  
+        * *Movimientos:* Soberanismos nacionales, realismo geopolítico.
+        * *Figuras:* Thomas Hobbes, Carl Schmitt; en Chile, la tradición del realismo geopolítico militar y estamental (ej. Ramón Cañas Montalva).
         """)
-        st.subheader("📚 Itinerario Bibliográfico Riguroso:")
+        st.subheader("📚 Itinerario Bibliográfico con Aporte Temático y Guía de Lectura:")
         st.markdown("**Fuentes Principales:**")
-        st.markdown("- Thomas Hobbes, *Leviatán*")
-        st.markdown("- Carl Schmitt, *El concepto de lo político*")
+        st.markdown("- Thomas Hobbes, *Leviatán* (Aporte: Necesidad de la soberanía fuerte para evitar el caos. Leer: Capítulos 13, 17 y 18).")
+        st.markdown("- Carl Schmitt, *El concepto de lo político* (Aporte: La distinción amigo/enemigo. Leer: Capítulos 1 al 3).")
         st.markdown("**Comentarios y Ensayos Críticos:**")
-        st.markdown("- Aleksandr Dugin, *La cuarta teoría política*")
+        st.markdown("- Aleksandr Dugin, *La cuarta teoría política* (Aporte: Crítica al globalismo y defensa del *Großraum*. Leer: Capítulos iniciales).")
 
     elif es_libertario:
         st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Anarcocapitalismo / Libertarismo")
@@ -266,15 +269,15 @@ if submitted:
         * *Concepto de ser humano:* Propietario absoluto de su cuerpo y voluntad.
         * *Deducción doctrinal:* Rechazo total al Estado, contratos voluntarios y banca libre.
         
-        **Movimientos y figuras históricas:**  
-        * *Movimientos:* Movimiento libertario austríaco.
-        * *Personajes:* Murray Rothbard, Ludwig von Mises.
+        **Movimientos y referentes:**  
+        * *Movimientos:* Escuela austríaca de economía, movimiento libertario.
+        * *Figuras:* Murray Rothbard, Ludwig von Mises.
         """)
-        st.subheader("📚 Itinerario Bibliográfico Riguroso:")
+        st.subheader("📚 Itinerario Bibliográfico con Aporte Temático y Guía de Lectura:")
         st.markdown("**Fuentes Principales:**")
-        st.markdown("- Murray Rothbard, *Ética de la libertad*")
+        st.markdown("- Murray Rothbard, *Ética de la libertad* (Aporte: Fundamentación de los derechos naturales libertarios. Leer: Parte I: Ley natural).")
         st.markdown("**Comentarios y Ensayos Críticos:**")
-        st.markdown("- Jesús Huerta de Soto, *Socialismo, cálculo económico y función empresarial*")
+        st.markdown("- Jesús Huerta de Soto, *Socialismo, cálculo económico y función empresarial* (Aporte: Imposibilidad del socialismo y defensa de la función empresarial libre. Leer: Capítulos 1 y 2).")
 
     elif es_anarquista:
         st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Anarquismo Clásico")
@@ -284,52 +287,24 @@ if submitted:
         * *Concepto de ser humano:* Espíritu libre incompatible con la jerarquía.
         * *Deducción doctrinal:* Acción directa, ayuda mutua y federación horizontal sin Estado.
         
-        **Movimientos y figuras históricas:**  
-        * *Movimientos:* Anarcosindicalismo, comunas autónomas.
-        * *Personajes:* Piotr Kropotkin, Mijaíl Bakunin.
+        **Movimientos y referentes históricos y chilenos:**  
+        * *Movimientos:* Anarcosindicalismo de principios del siglo XX en Chile, comunas autónomas.
+        * *Figuras:* Piotr Kropotkin, Mijaíl Bakunin; en Chile, los precursores del movimiento obrero ácrata.
         """)
-        st.subheader("📚 Itinerario Bibliográfico Riguroso:")
+        st.subheader("📚 Itinerario Bibliográfico con Aporte Temático y Guía de Lectura:")
         st.markdown("**Fuentes Principales:**")
-        st.markdown("- Piotr Kropotkin, *La ayuda mutua*")
+        st.markdown("- Piotr Kropotkin, *La ayuda mutua* (Aporte: Factor evolutivo de la cooperación social sin estado. Leer: Introducción y Conclusión).")
         st.markdown("**Comentarios y Ensayos Críticos:**")
-        st.markdown("- Daniel Guérin, *El anarquismo*")
+        st.markdown("- Daniel Guérin, *El anarquismo* (Aporte: Síntesis histórica de la praxis ácrata. Leer: Capítulos introductorios).")
 
     elif es_comunitario:
         st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Ontología Comunitaria y del Buen Vivir")
         st.markdown("""
         **Ideas Fundantes y Modelamiento Coherente:**  
-        Tus respuestas se sustentan en el **Comunitarismo Indigenista**.
+        Tus respuestas se sustentan en el **Comunitarismo Indigenista y del Buen Vivir**.
         * *Concepto de ser humano:* Nodo inseparable de la comunidad y la tierra.
-        * *Deducción doctrinal:* Reciprocidad, mandar obedeciendo y defensa del territorio.
+        * *Deducción doctrinal:* Reciprocidad, mandar obedeciendo y defensa colectiva del territorio.
         
-        **Movimientos y figuras históricas:**  
-        * *Movimientos:* Movimientos indígenas de los Andes, zapatismo.
-        * *Personajes:* José Carlos Mariátegui, líderes comunitarios del Buen Vivir.
-        """)
-        st.subheader("📚 Itinerario Bibliográfico Riguroso:")
-        st.markdown("**Fuentes Principales:**")
-        st.markdown("- José Carlos Mariátegui, *7 ensayos de interpretación de la realidad peruana*")
-        st.markdown("**Comentarios y Ensayos Críticos:**")
-        st.markdown("- Álvaro García Linera, *Forma valor y forma comunidad*")
-
-    else:
-        st.info("ℹ️ Diagnóstico: Perfil Ecléctico / En Exploración Conceptual")
-        st.markdown("""
-        **1. Precisión de las vertientes en juego:**  
-        Tus respuestas combinan múltiples tradiciones sin encasillarse en una estructura cerrada, cruzando elementos de diversas escuelas sobre la naturaleza del poder, la sociedad y la economía.
-        
-        **2. Análisis Crítico y Graduación de Tensiones:**  
-        Este eclecticismo refleja una mente en plena exploración teórica. Sin embargo, al no anclar claramente las capas inferiores (sociedad y estado) al supuesto necesario inicial (tu **Concepto de Ser Humano**), el edificio corre el riesgo de volverse incoherente en la práctica política.
-        
-        **3. Modelamiento Metacognitivo:**  
-        Para ordenar tu pensamiento, modela tu postura partiendo estrictamente del **Paso 1 (Concepto de Ser Humano)**: define qué principio tiene mayor peso ontológico para ti (el individuo soberano, el trabajador social o el miembro enraizado de una comunidad) y observa cómo las demás capas del esquema deben subordinarse lógicamente a esa elección fundante.
-        """)
-        st.subheader("📚 Itinerario Bibliográfico Riguroso:")
-        st.markdown("**Fuentes Principales (Autores Clásicos):**")
-        st.markdown("- Norberto Bobbio, *Derecha e izquierda*")
-        st.markdown("- Isaiah Berlin, *Cuatro ensayos sobre la libertad*")
-        st.markdown("**Comentarios y Ensayos Críticos:**")
-        st.markdown("- Michael Sandel, *El descontento con la democracia*")
-        st.markdown("- Chantal Mouffe, *En torno a lo político*")
-
-    st.balloons()
+        **Movimientos y referentes históricos y latinoamericanos:**  
+        * *Movimientos:* Zapatismo, movimientos originarios andinos.
+        * *Fig
