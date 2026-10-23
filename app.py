@@ -139,7 +139,7 @@ if submitted:
     st.markdown("---")
     st.header("🔍 Diagnóstico Crítico y Modelamiento Metacognitivo")
 
-    # Detección de perfiles puros
+    # Detección de perfiles puros para las 7 vertientes
     es_liberal = ("individuo autónomo" in ser_humano) and ("pacto o acuerdo" in sociedad or "propiedad privada garantizada" in economia)
     es_marxista = ("ser social e histórico" in ser_humano or "conflicto permanente" in sociedad) and ("propiedad social" in economia)
     es_tradicional = ("profundamente enraizado" in ser_humano or "comunidad orgánica" in sociedad) and ("custodio soberano" in estado or "grandes bloques" in proyecto)
@@ -147,7 +147,7 @@ if submitted:
     es_anarquista = ("espíritu libre y soberano" in ser_humano or "cooperación libre" in sociedad) and ("estructura ilegítima" in estado)
     es_comunitario = ("eslabón inseparable de la tierra" in ser_humano) and ("reciprocidad" in economia)
 
-    # Detección de tensiones específicas (Cruces de vertientes)
+    # Detección de tensiones específicas (Cruces de vertientes híbridas)
     tension_tradicional_liberal = ("enraizado" in ser_humano or "comunidad orgánica" in sociedad) and ("propiedad privada garantizada" in economia or "libre mercado" in economia)
     tension_libertario_estatista = ("dueño absoluto" in ser_humano) and ("economía mixta" in economia or "Estado" in estado)
 
@@ -178,7 +178,7 @@ if submitted:
         st.markdown("- G.K. Chesterton, *Esbozo de la cordura* (Aporte: Fundamenta la propiedad distribuida frente al capitalismo centralizado. Leer: Primera parte, Capítulos 1 al 3).")
         st.markdown("**Comentarios y Ensayos Críticos:**")
         st.markdown("- Wilhelm Röpke, *La crisis de nuestro tiempo* (Aporte: Diagnóstico sobre la masificación y el rescate de la economía humana. Leer: Capítulo 3: *La desintegración económica y social*).")
-        st.markdown("- Michael Sandel, *Lo que el dinero no puede comprar* (Aporte: Limites morales de los mercados en la vida comunitaria. Leer: Introducción y Capítulo 1).")
+        st.markdown("- Michael Sandel, *Lo que el dinero no puede comprar* (Aporte: Límites morales de los mercados en la vida comunitaria. Leer: Introducción y Capítulo 1).")
 
     elif tension_libertario_estatista:
         st.warning("⚠️ Diagnóstico: Perfil Híbrido — Cruce entre Libertarismo Radical y Estatismo / Reformismo")
@@ -204,7 +204,7 @@ if submitted:
         st.markdown("**Comentarios y Ensayos Críticos:**")
         st.markdown("- Robert Nozick, *Anarquía, estado y utopía* (Aporte: Defensa crítica del Estado mínimo frente al anarcocapitalismo. Leer: Capítulo 3: *Las granjas morales del Estado*).")
 
-    # --- CASOS B A G: PERFILES COHERENTES ---
+    # --- CASOS B A G: PERFILES COHERENTES (LAS 7 VERTIENTES) ---
     elif es_liberal:
         st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Liberalismo Clásico")
         st.markdown("""
@@ -316,18 +316,22 @@ if submitted:
         st.markdown("- Alberto Acosta, *El buen vivir: Sumak Kawsay* (Aporte: Alternativas al desarrollo capitalista desde la cosmovisión comunitaria. Leer: Capítulos 1 y 2).")
 
     else:
-        st.warning("⚠️ Diagnóstico: Perfil Ecléctico / En Exploración Conceptual Avanzada")
+        st.warning("⚠️ Diagnóstico: Perfil Híbrido / Ecléctico en Exploración Conceptual Avanzada")
         st.markdown("""
         **1. Precisión de las vertientes en juego:**  
         Tus respuestas combinan elementos de diversas tradiciones intelectuales sin anclarse rígidamente en un solo bloque doctrinal, cruzando miradas del liberalismo, el socialismo, el comunitarismo o el realismo.
         
         **2. Análisis Crítico y Graduación de Tensiones:**  
-        Este eclecticismo refleja una etapa de profunda exploración teórica. Sin embargo, en el rigor de la ciencia política, la falta de un anclaje deductivo estricto desde tu **Concepto de Ser Humano** hacia el Estado y la economía genera cortocircuitos doctrinales en la práctica. Lo que para ti puede parecer pragmatismo, desde la teoría pura implica aceptar premisas ontológicas que se neutralizan entre sí.
+        Este eclecticismo es propio de una etapa de profunda exploración teórica. Sin embargo, en el rigor de la ciencia política, la falta de un anclaje deductivo estricto desde tu **Concepto de Ser Humano** hacia el Estado y la economía genera cortocircuitos doctrinales en la práctica. Lo que para ti puede parecer pragmatismo, desde la teoría pura implica aceptar premisas ontológicas que se neutralizan entre sí.
         
         **3. Modelamiento Metacognitivo (Cómo reestructurar tu postura):**  
-        Para ordenar y dar consistencia a tu pensamiento, parte estrictamente del **Paso 1 (Concepto de Ser Humano)**: define qué principio tiene mayor peso ontológico irrenunciable para ti (el individuo autónomo y soberano, el trabajador social transformador, o el miembro enraizado de una comunidad histórica). Una vez fijado ese "supuesto necesario", observa obligatoriamente cómo las demás capas del esquema (sociedad, estado, economía y proyecto histórico) deben subordinarse de forma lógica a esa raíz fundante para dejar atrás la incoherencia.
+        Para ordenar y dar consistencia a tu pensamiento, parte estrictamente del **Paso 1 (Concepto de Ser Humano)**: define qué principio tiene mayor peso ontológico irrenunciable para ti (el individuo autónomo y soberano, el trabajador social transformador, o el miembro enraizado de una comunidad histórica). Una vez fijado ese "supuesto necesario", observa obligatoriamente cómo las demás capas del esquema (sociedad, estado, economía y proyecto histórico) deben subordinarse de forma lógica a esa raíz fundante para superar la incoherencia.
+        
+        **Movimientos y referentes históricos y chilenos de referencia transversal:**  
+        * *Corrientes:* Pensamiento institucionalista, reformismo democrático.  
+        * *Figuras:* Norberto Bobbio, Michael Sandel.
         """)
-        st.subheader("📚 Itinerario Bibliográfico Riguroso:")
+        st.subheader("📚 Itinerario Bibliográfico con Aporte Temático y Guía de Lectura:")
         st.markdown("**Fuentes Principales (Autores Clásicos):**")
         st.markdown("- Norberto Bobbio, *Derecha e izquierda* (Aporte: Criterios analíticos para clasificar las familias políticas. Leer: Capítulos 1 al 3).")
         st.markdown("**Comentarios y Ensayos Críticos:**")
