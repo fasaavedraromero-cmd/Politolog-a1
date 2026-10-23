@@ -172,7 +172,6 @@ if submitted:
         "comunitario": 0
     }
 
-    # Ponderación basada en las opciones seleccionadas (Opción 0=Liberal, 1=Marxista, 2=Tradicional/Comunitario, 3=Libertario/Anarquista)
     respuestas = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12]
     
     for r in respuestas:
@@ -189,136 +188,226 @@ if submitted:
         elif "eslabón" in r or "reciprocidad" in r or "tierra ancestral" in r or "trabajo comunitario" in r:
             puntos["comunitario"] += 1
 
-    max_vertiente = max(puntos, key=puntos.get)
-    max_puntaje = puntos[max_vertiente]
+    # Detectar las dos vertientes con mayor puntaje para el cruce doctrinal en perfiles híbridos
+    vertientes_ordenadas = sorted(puntos.items(), key=lambda x: x[1], reverse=True)
+    v1, p_v1 = vertientes_ordenadas[0]
+    v2, p_v2 = vertientes_ordenadas[1]
+
+    max_puntaje = p_v1
     es_coherente = max_puntaje >= 6  # Umbral de consistencia sobre 12 preguntas
+
+    # Nombres legibles para las vertientes
+    nombres_vertientes = {
+        "liberal": "Liberalismo Clásico",
+        "marxista": "Marxismo y Teoría Crítica",
+        "tradicional": "Tradicionalismo y Realismo Político",
+        "libertario": "Anarcocapitalismo / Libertarismo Radical",
+        "anarquista": "Anarquismo Clásico / Autonomismo",
+        "comunitario": "Ontología Comunitaria y del Buen Vivir"
+    }
 
     # --- DIAGNÓSTICO FINAL ---
     if not es_coherente:
-        st.warning("⚠️ Diagnóstico: Perfil Híbrido / En Cruzamiento Doctrinal")
-        st.markdown("""
-        **1. Precisión de las vertientes en juego:**  
-        Tus respuestas combinan elementos de diversas tradiciones intelectuales sin un dominio absoluto de un solo bloque, cruzando premisas que provienen de distintas familias doctrinales.
-        
+        st.warning(f"⚠️ Diagnóstico: Perfil Híbrido — Entrecruzamiento Doctrinal entre {nombres_vertientes[v1]} y {nombres_vertientes[v2]}")
+        st.markdown(f"""
+        **1. Definiciones Fundamentales (Las vertientes en juego):**  
+        * **{nombres_vertientes[v1]}:** Matriz teórica que prioriza ciertos ejes del esquema, defendiendo premisas específicas sobre la organización de la sociedad, la autoridad y el orden global.
+        * **{nombres_vertientes[v2]}:** Segunda matriz doctrinal detectada en tus respuestas, la cual introduce principios alternativos o contrapuestos en la arquitectura de tus decisiones políticas.  
+        * *El cruce:* Estás combinando los fundamentos de ambas tradiciones sin un anclaje deductivo unificado, lo que genera un entrecruzamiento de premisas ontológicas y normativas.
+
         **2. Análisis Crítico y Graduación de Tensiones:**  
         * *Lo complementario:* En la acción política pragmática, es habitual tomar herramientas de distintas tradiciones para resolver problemas coyunturales.
-        * *Lo irreconciliable (La ambigüedad teórica):* A nivel de la arquitectura conceptual, este cruce genera un cortocircuito. Estás aceptando simultáneamente premisas que se neutralizan entre sí.
+        * *Lo irreconciliable (La contradicción profunda):* A nivel de la arquitectura conceptual, este cruce genera un cortocircuito. Estás aceptando simultáneamente premisas que se neutralizan mutuamente en su deducción institucional y económica.
         
         **3. Modelamiento Metacognitivo (Cómo reestructurar tu postura):**  
-        Para ordenar y dar consistencia lógica a tu pensamiento, debes volver al **Bloque 1 (Ser Humano)** y decidir cuál de tus elecciones ejerce el "supuesto necesario" que funda tu doctrina:  
-        * *Opción A (Girar hacia el Eje Individualista / Contractual):* Alinear las capas siguientes hacia el mercado y el pacto legal neutral.  
-        * *Opción B (Girar hacia el Eje Colectivo / Comunitario u Orgánico):* Subordinar la economía a la planificación o a la reciprocidad comunitaria.
+        Para ordenar y dar consistencia lógica a tu pensamiento, debes volver al **Bloque 1 (Concepto de Ser Humano)** y decidir cuál de tus elecciones ejerce el "supuesto necesario" que funda tu doctrina:  
+        * *Opción A (Girar hacia el eje de {nombres_vertientes[v1]}):* Alinear deductivamente las capas siguientes hacia los postulados coherentes de esta matriz, descartando elementos contradictorios.  
+        * *Opción B (Girar hacia el eje de {nombres_vertientes[v2]}):* Reestructurar tu edificio conceptual subordinando la totalidad de las capas a los principios de esta segunda tradición.
         
         **Movimientos y referentes históricos y chilenos de referencia transversal:**  
-        * *Corrientes:* Pensamiento institucionalista, reformismo democrático.  
-        * *Figuras:* Norberto Bobbio, Michael Sandel.
+        * *Corrientes:* Pensamiento institucionalista, reformismo democrático, síntesis doctrinales.  
+        * *Figuras:* Norberto Bobbio, Michael Sandel; en el debate nacional, ensayistas del institucionalismo chileno.
         """)
-        st.subheader("📚 Itinerario Bibliográfico Enriquecido (Aporte Temático y Guía de Lectura):")
-        st.markdown("**Fuentes Principales (Autores Clásicos):**")
-        st.markdown("- Norberto Bobbio, *Derecha e izquierda* (Aporte: Criterios analíticos para clasificar las familias políticas. Leer: Capítulos 1 al 3).")
-        st.markdown("**Comentarios y Ensayos Críticos:**")
-        st.markdown("- Michael Sandel, *El descontento con la democracia* (Aporte: Crítica al liberalismo procedimental y rescate comunitarista. Leer: Introducción).")
+        
+        st.subheader("📚 Itinerario Bibliográfico Enriquecido (Aporte Temático y Guía de Lectura por Capítulos):")
+        st.markdown("**Fuentes Principales (Autores Clásicos y Metodológicos):**")
+        st.markdown("- Norberto Bobbio, *Derecha e izquierda* (Aporte: Criterios analíticos para clasificar las familias políticas y sus oposiciones. Leer: Capítulos 1 al 3).")
+        st.markdown("- Michael Sandel, *El descontento con la democracia* (Aporte: Crítica al liberalismo procedimental y rescate comunitarista. Leer: Introducción y Capítulo 1).")
+        st.markdown("- Chantal Mouffe, *En torno a lo político* (Aporte: La dimensión agonística y los antagonismos doctrinales. Leer: Capítulos 1 y 2).")
+        st.markdown("- Isaiah Berlin, *Cuatro ensayos sobre la libertad* (Aporte: Distinción fundamental entre libertad negativa y positiva. Leer: Ensayo sobre los dos conceptos de libertad).")
 
     elif max_vertiente == "liberal":
         st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Liberalismo Clásico")
         st.markdown("""
-        **1. Explicación reveladora de tu postura (A qué adhiere tu perfil):**  
-        Tus respuestas revelan una adhesión profunda a la **Tradición Liberal Clásica**. Operas bajo la convicción de que el individuo precede a la sociedad. Para ti, la convivencia política garantiza un marco neutral de leyes donde cada quien persigue su propia felicidad.
+        **1. Definiciones Fundamentales (La vertiente en juego):**  
+        * **Liberalismo Clásico:** Tradición político-filosófica que sostiene que el individuo autónomo y racional precede ontológicamente a la sociedad. La convivencia política se funda en un contrato social voluntario, un Estado neutral e imparcial limitado por el imperio de la ley, y un orden económico basado en la propiedad privada y el libre mercado.
         
-        **2. Modelamiento de Profundización (Cómo robustecer y llevar al siguiente nivel tus ideas):**  
-        * *Opción A (Liberalismo Social / Reformista):* Asumir que la libertad formal requiere garantías materiales básicas proporcionadas por el Estado mediante impuestos moderados.  
+        **2. Explicación reveladora de tu postura (A qué adhiere tu perfil):**  
+        Tus respuestas revelan una adhesión profunda y consistente a esta matriz. Operas bajo la convicción de que las instituciones deben garantizar un marco neutral donde cada quien persiga su propia felicidad sin imposiciones morales colectivas.
+        
+        **3. Modelamiento de Profundización (Cómo robustecer y llevar al siguiente nivel tus ideas):**  
+        * *Opción A (Liberalismo Social / Reformista):* Asumir que la libertad formal requiere garantías materiales básicas proporcionadas por el Estado mediante impuestos moderados y provisión pública.  
         * *Opción B (Liberalismo Mínimo / Ortodoxo):* Endurecer el principio de no agresión fiscal, apostando por un Estado estrictamente limitado a la seguridad y la justicia.
         
         **Movimientos y referentes históricos y chilenos:**  
         * *Movimientos:* Liberalismo político, reformismo republicano.  
-        * *Figuras:* John Locke, Adam Smith; en Chile: José Victorino Lastarria.
+        * *Figuras:* John Locke, Adam Smith, Alexis de Tocqueville, Friedrich Hayek; en Chile: José Victorino Lastarria y Valentín Letelier.
         """)
-        st.subheader("📚 Itinerario Bibliográfico Enriquecido:")
-        st.markdown("- John Locke, *Segundo tratado sobre el gobierno civil* (Aporte: Contrato social y propiedad. Leer: Capítulos 2, 5 y 8).")
-        st.markdown("- Adam Smith, *La riqueza de las naciones* (Aporte: Mercado y división del trabajo. Leer: Capítulos 1 al 3).")
-        st.markdown("- Friedrich Hayek, *Los fundamentos de la libertad* (Aporte: Orden espontáneo de mercado. Leer: Capítulos 1 al 4).")
+        st.subheader("📚 Itinerario Bibliográfico Enriquecido (Aporte Temático y Guía de Lectura por Capítulos):")
+        st.markdown("**Fuentes Principales (Autores Clásicos):**")
+        st.markdown("1. John Locke, *Segundo tratado sobre el gobierno civil* (Aporte: Origen del contrato social y la propiedad privada. Leer: Capítulos 2, 5 y 8).")
+        st.markdown("2. Adam Smith, *La riqueza de las naciones* (Aporte: Funcionamiento del mercado, precios y división del trabajo. Leer: Capítulos 1 al 3 del Libro I).")
+        st.markdown("3. Alexis de Tocqueville, *La democracia en América* (Aporte: Análisis de los peligros del centralismo y el valor de la libertad civil. Leer: Volumen II, Segunda Parte).")
+        st.markdown("4. Immanuel Kant, *Filosofía de la historia* (Aporte: El derecho cosmopolita y el Estado de derecho republicano. Leer: *Idea de una historia universal en sentido cosmopolita*).")
+        st.markdown("**Comentarios y Ensayos Críticos:**")
+        st.markdown("1. Friedrich Hayek, *Los fundamentos de la libertad* (Aporte: Defensa rigurosa del orden espontáneo de mercado frente al constructivismo. Leer: Capítulos 1 al 4).")
+        st.markdown("2. Robert Nozick, *Anarquía, estado y utopía* (Aporte: Justificación del Estado mínimo desde los derechos individuales inviolables. Leer: Capítulos 3 al 7).")
+        st.markdown("3. John Rawls, *Teoría de la justicia* (Aporte: El liberalismo político y la justicia como equidad. Leer: Capítulos 1 y 2: *El papel de la justicia* y *Los principios de la justicia*).")
+        st.markdown("4. Norberto Bobbio, *Liberalismo y democracia* (Aporte: Síntesis crítica de la relación histórica entre los derechos liberales y las formas democráticas. Leer: Capítulos 1 al 3).")
 
     elif max_vertiente == "marxista":
         st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Marxismo y Teoría Crítica")
         st.markdown("""
-        **1. Explicación reveladora de tu postura (A qué adhiere tu perfil):**  
-        Te sitúas firmemente en la órbita del **Materialismo Histórico y la Teoría Crítica**. Para ti, el ser humano es un producto social moldeado por las condiciones materiales y el trabajo; la injusticia es una contradicción estructural de las relaciones de clase.
+        **1. Definiciones Fundamentales (La vertiente en juego):**  
+        * **Marxismo y Teoría Crítica:** Matriz teórico-política basada en el materialismo histórico. Sostiene que la conciencia y la política están determinadas por las condiciones materiales de producción y el conflicto estructural de clases. Busca la emancipación universal mediante la superación del capitalismo y la socialización de los medios de producción.
         
-        **2. Modelamiento de Profundización (Cómo robustecer y llevar al siguiente nivel tus ideas):**  
-        * *Opción A (Vía Gramsciana / Hegemónica):* Construcción paciente de un bloque histórico y hegemonía cultural en la sociedad civil.  
+        **2. Explicación reveladora de tu postura (A qué adhiere tu perfil):**  
+        Te sitúas firmemente en esta órbita. Tu visión rechaza las abstracciones contractuales y entiende que la injusticia no es un fallo moral individual, sino una contradicción estructural del sistema capitalista.
+        
+        **3. Modelamiento de Profundización (Cómo robustecer y llevar al siguiente nivel tus ideas):**  
+        * *Opción A (Vía Gramsciana / Hegemónica):* Construcción paciente de un bloque histórico y hegemonía cultural dentro de la sociedad civil.  
         * *Opción B (Vía Revolucionaria / Ortodoxa):* Ruptura frontal con el Estado burgués y planificación social centralizada de la economía.
         
         **Movimientos y referentes históricos y chilenos:**  
-        * *Movimientos:* Comunismo histórico, sindicalismo de clase.  
-        * *Figuras:* Karl Marx, Antonio Gramsci; en Chile: Luis Emilio Recabarren y Clotario Blest.
+        * *Movimientos:* Comunismo histórico, sindicalismo de clase, internacionalismo proletario.  
+        * *Figuras:* Karl Marx, Antonio Gramsci, Rosa Luxemburgo, Vladimir Lenin; en Chile: Luis Emilio Recabarren y Clotario Blest.
         """)
-        st.subheader("📚 Itinerario Bibliográfico Enriquecido:")
-        st.markdown("- Karl Marx, *El Capital* (Aporte: Análisis de la plusvalía y la mercancía. Leer: Sección 1, Capítulo 1).")
-        st.markdown("- Antonio Gramsci, *Cuadernos de la cárcel* (Aporte: Hegemonía cultural y bloque histórico. Leer: Antología sobre el Estado).")
+        st.subheader("📚 Itinerario Bibliográfico Enriquecido (Aporte Temático y Guía de Lectura por Capítulos):")
+        st.markdown("**Fuentes Principales (Autores Clásicos):**")
+        st.markdown("1. Karl Marx, *El Capital* (Aporte: Análisis riguroso de la plusvalía, la mercancía y la explotación capitalista. Leer: Sección 1, Capítulos 1 y 2).")
+        st.markdown("2. Karl Marx y Friedrich Engels, *Manifiesto del Partido Comunista* (Aporte: La lucha de clases como motor de la historia y crítica al orden burgués. Leer: Capítulo 1: *Burgueses y proletarios*).")
+        st.markdown("3. Vladimir Lenin, *El Estado y la revolución* (Aporte: Naturaleza coercitiva del Estado burgués y estrategia de transición proletaria. Leer: Capítulos 1 y 3).")
+        st.markdown("4. Rosa Luxemburgo, *La acumulación del capital* (Aporte: Expansión imperialista y contradicciones sistémicas globales del capital. Leer: Secciones iniciales).")
+        st.markdown("**Comentarios y Ensayos Críticos:**")
+        st.markdown("1. Antonio Gramsci, *Cuadernos de la cárcel* (Aporte: Teoría de la hegemonía cultural, el bloque histórico y los intelectuales orgánicos. Leer: Antología sobre el Estado y la sociedad civil).")
+        st.markdown("2. Ernst Mandel, *El pensamiento económico de Karl Marx* (Aporte: Clarificación sistemática de las crisis cíclicas y la ley del valor. Leer: Capítulos 1 al 3).")
+        st.markdown("3. Georg Lukács, *Historia y conciencia de clase* (Aporte: El concepto de reificación y la conciencia de clase proletaria. Leer: Ensayo sobre *La reificación y la conciencia del proletariado*).")
+        st.markdown("4. Louis Althusser, *Ideología y aparatos ideológicos del Estado* (Aporte: Funcionamiento de los aparatos represivos e ideológicos en la reproducción social. Leer: Ensayo completo).")
 
     elif max_vertiente == "tradicional":
-        st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Tradicionalismo y Geopolítica Soberana")
+        st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Tradicionalismo y Realismo Político")
         st.markdown("""
-        **1. Explicación reveladora de tu postura (A qué adhiere tu perfil):**  
-        Adhieres al **Realismo Político y Conservadurismo Orgánico**. El ser humano está enraizado a una comunidad histórica, cultura y lealtades espirituales o nacionales que debe custodiar frente al caos exterior.
+        **1. Definiciones Fundamentales (La vertiente en juego):**  
+        * **Tradicionalismo y Realismo Político:** Corriente que concibe al ser humano como un ser enraizado en comunidades históricas y culturales. Prioriza el orden, la soberanía estatal, la seguridad frente al conflicto geopolítico (*amigo/enemigo*) y la defensa de las instituciones orgánicas frente al desarraigo moderno.
         
-        **2. Modelamiento de Profundización:**  
-        * *Opción A (Vía Estado-Nación Soberano):* Fortalecimiento del Estado nacional centralizado y protección de fronteras económicas.  
-        * *Opción B (Vía Multipolaridad Civilizacional):* Mundo policéntrico de grandes civilizaciones (*Großraum*) frente al globalismo.
+        **2. Explicación reveladora de tu postura (A qué adhiere tu perfil):**  
+        Adhieres coherentemente a una visión donde la política es ante todo conservación del orden, soberanía efectiva y defensa de la identidad colectiva frente a las amenazas del entorno global.
         
-        **Movimientos y referentes:**  
-        * *Figuras:* Thomas Hobbes, Carl Schmitt; en Chile: Ramón Cañas Montalva.
+        **3. Modelamiento de Profundización (Cómo robustecer y llevar al siguiente nivel tus ideas):**  
+        * *Opción A (Vía Estado-Nación Soberano):* Fortalecimiento del Estado nacional centralizado y protección estricta de las fronteras económicas y culturales.  
+        * *Opción B (Vía Multipolaridad Civilizacional):* Apuesta por un orden global policéntrico de grandes civilizaciones (*Großraum*) que rechazan el universalismo liberal.
+        
+        **Movimientos y referentes históricos y chilenos:**  
+        * *Movimientos:* Soberanismos nacionales, realismo político clásico.  
+        * *Figuras:* Thomas Hobbes, Carl Schmitt, Juan Donoso Cortés, Julius Evola; en Chile: la tradición de geopolítica nacional y el pensamiento de Ramón Cañas Montalva.
         """)
-        st.subheader("📚 Itinerario Bibliográfico Enriquecido:")
-        st.markdown("- Thomas Hobbes, *Leviatán* (Aporte: Soberanía fuerte para evitar el caos. Leer: Capítulos 13, 17 y 18).")
-        st.markdown("- Carl Schmitt, *El concepto de lo político* (Aporte: La distinción amigo/enemigo. Leer: Capítulos 1 al 3).")
+        st.subheader("📚 Itinerario Bibliográfico Enriquecido (Aporte Temático y Guía de Lectura por Capítulos):")
+        st.markdown("**Fuentes Principales (Autores Clásicos):**")
+        st.markdown("1. Thomas Hobbes, *Leviatán* (Aporte: Necesidad fundacional de una soberanía fuerte e indivisible para evitar el caos. Leer: Capítulos 13, 17 y 18).")
+        st.markdown("2. Carl Schmitt, *El concepto de lo político* (Aporte: Definición ontológica de la política a través de la distinción amigo/enemigo. Leer: Capítulos 1 al 3).")
+        st.markdown("3. Juan Donoso Cortés, *Ensayos sobre el catolicismo, el liberalismo y el socialismo* (Aporte: Crítica teológica y política al racionalismo moderno. Leer: Ensayos fundamentales).")
+        st.markdown("4. Edmund Burke, *Reflexiones sobre la revolución en Francia* (Aporte: Defensa del orden consuetudinario, la historia y la prudencia frente al abstractismo político. Leer: Fragmentos esenciales sobre la herencia institucional).")
+        st.markdown("**Comentarios y Ensayos Críticos:**")
+        st.markdown("1. Aleksandr Dugin, *La cuarta teoría política* (Aporte: Crítica radical al globalismo liberal/marxista y defensa de los grandes espacios civilizacionales. Leer: Capítulos iniciales).")
+        st.markdown("2. Ramón Cañas Montalva, *Geopolítica de Chile* (Aporte: Estrategia territorial, bioceánica y antártica del Estado soberano. Leer: Capítulos sobre espacios vitales y soberanía nacional).")
+        st.markdown("3. Hans Morgenthau, *Política entre las naciones* (Aporte: Los principios rectores del realismo político y el interés nacional. Leer: Capítulos 1 y 2).")
+        st.markdown("4. Julien Freund, *L'essence du politique* (Aporte: Análisis sistemático de las constantes del mando, la obediencia y el espectro político. Leer: Capítulos sobre el poder y la autoridad).")
 
     elif max_vertiente == "libertario":
-        st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Anarcocapitalismo / Libertarismo")
+        st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Anarcocapitalismo / Libertarismo Radical")
         st.markdown("""
-        **1. Explicación reveladora de tu postura:**  
-        Tu perfil se enmarca en el **Libertarismo de Mercado y la Autopropiedad**. Todo individuo es dueño absoluto de su cuerpo y trabajo; cualquier monopolio coactivo estatal es ilegítimo.
+        **1. Definiciones Fundamentales (La vertiente en juego):**  
+        * **Libertarismo Radical y Anarcocapitalismo:** Doctrina basada en el axioma de la autopropiedad y el principio de no agresión. Sostiene que todo individuo es dueño absoluto de su cuerpo y de los frutos de su trabajo, considerando cualquier intervención estatal o tributaria como una forma ilegítima de coacción.
         
-        **2. Modelamiento de Profundización:**  
-        * *Opción A (Anarcocapitalismo radical):* Eliminar el Estado y confiar la seguridad y moneda al mercado libre.  
-        * *Opción B (Minarquismo):* Estado mínimo limitado a la seguridad y tribunales.
+        **2. Explicación reveladora de tu postura (A qué adhiere tu perfil):**  
+        Tu perfil se alinea con la defensa intransigente del libre mercado absoluto y la soberanía individual radical, rechazando toda forma de monopolio estatal sobre la moneda, la justicia o la seguridad.
+        
+        **3. Modelamiento de Profundización (Cómo robustecer y llevar al siguiente nivel tus ideas):**  
+        * *Opción A (Anarcocapitalismo radical):* Abolición total del Estado, confiando la ley, la moneda y la seguridad a agencias privadas de libre mercado.  
+        * *Opción B (Minarquismo):* Aceptación pragmática de un Estado mínimo restringido exclusivamente a tribunales, policía y defensa nacional.
         
         **Movimientos y referentes:**  
-        * *Figuras:* Murray Rothbard, Ludwig von Mises.
+        * *Movimientos:* Escuela austríaca de economía, movimiento libertario contemporáneo.  
+        * *Figuras:* Murray Rothbard, Ludwig von Mises, Ayn Rand, Robert Nozick.
         """)
-        st.subheader("📚 Itinerario Bibliográfico Enriquecido:")
-        st.markdown("- Murray Rothbard, *Ética de la libertad* (Aporte: Derechos naturales libertarios. Leer: Parte I).")
+        st.subheader("📚 Itinerario Bibliográfico Enriquecido (Aporte Temático y Guía de Lectura por Capítulos):")
+        st.markdown("**Fuentes Principales (Autores Clásicos):**")
+        st.markdown("1. Murray Rothbard, *Ética de la libertad* (Aporte: Deducción axiomática de los derechos de propiedad y la autopropiedad. Leer: Parte I: *Ley natural* y Parte II).")
+        st.markdown("2. Ludwig von Mises, *La acción humana* (Aporte: Tratado fundamental de praxeología y demostración de la superioridad económica del mercado libre. Leer: Capítulos 1 al 4).")
+        st.markdown("3. Ayn Rand, *La virtud del egoísmo* (Aporte: Justificación ética del interés propio y el capitalismo de laissez-faire. Leer: Ensayos 1 al 4).")
+        st.markdown("4. Friedrich Hayek, *Camino de servidumbre* (Aporte: Demostración de cómo la planificación económica conduce inexorablemente al totalitarismo. Leer: Capítulos 1 al 5).")
+        st.markdown("**Comentarios y Ensayos Críticos:**")
+        st.markdown("1. Jesús Huerta de Soto, *Socialismo, cálculo económico y función empresarial* (Aporte: Imposibilidad teórica del socialismo y vindicación de la función empresarial. Leer: Capítulos 1 al 3).")
+        st.markdown("2. Robert Nozick, *Anarquía, estado y utopía* (Aporte: Defensa crítica del Estado mínimo frente a las pretensiones anarcocapitalistas. Leer: Capítulos 3 al 5).")
+        st.markdown("3. Hans-Hermann Hoppe, *Democracia: el Dios que fracasó* (Aporte: Crítica radical al sufragio universal y defensa de órdenes sociales de derecho privado. Leer: Capítulos 1 al 3).")
+        st.markdown("4. Tom Bethell, *The Noblest Triumph: Property and Prosperity through the Ages* (Aporte: Historia institucional de cómo la propiedad privada fundamenta la civilización. Leer: Introducción y conclusiones).")
 
     elif max_vertiente == "anarquista":
-        st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Anarquismo Clásico")
+        st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Anarquismo Clásico / Autonomismo")
         st.markdown("""
-        **1. Explicación reveladora de tu postura:**  
-        Adhieres al **Anarquismo Autonomista**. La libertad humana y la dominación jerárquica son incompatibles; el orden surge de la cooperación voluntaria y la ayuda mutua.
+        **1. Definiciones Fundamentales (La vertiente en juego):**  
+        * **Anarquismo Clásico y Autonomismo:** Tradición político-social que postula la incompatibilidad absoluta entre la libertad humana y toda estructura de dominación jerárquica (Estado, capitalismo, Iglesia). Propone la autoorganización horizontal, la ayuda mutua, el federalismo comunal y la acción directa.
         
-        **2. Modelamiento de Profundización:**  
-        * *Opción A (Anarcosindicalismo):* Producción económica mediante sindicatos autogestionados.  
-        * *Opción B (Comunalismo):* Municipalismo libertario y redes de comunas autónomas.
+        **2. Explicación reveladora de tu postura (A qué adhiere tu perfil):**  
+        Adhieres a una concepción donde el orden social no requiere de mandos verticales ni coacción institucional, sino de la cooperación voluntaria y la federación autónoma desde las bases.
         
-        **Movimientos y referentes:**  
-        * *Figuras:* Piotr Kropotkin, Mijaíl Bakunin.
+        **3. Modelamiento de Profundización (Cómo robustecer y llevar al siguiente nivel tus ideas):**  
+        * *Opción A (Anarcosindicalismo):* Organización de la producción económica a través de sindicatos obreros autogestionados que sustituyan al capital y al Estado.  
+        * *Opción B (Comunalismo / Municipalismo Libertario):* Redes de comunas autónomas autogestionadas en red y basadas en la ecología social.
+        
+        **Movimientos y referentes históricos y chilenos:**  
+        * *Movimientos:* Anarcosindicalismo histórico, cooperativismo obrero.  
+        * *Figuras:* Piotr Kropotkin, Mijaíl Bakunin, Pierre-Joseph Proudhon, Elisée Reclus; en Chile: la prensa mutualista y precursores del movimiento obrero ácrata.
         """)
-        st.subheader("📚 Itinerario Bibliográfico Enriquecido:")
-        st.markdown("- Piotr Kropotkin, *La ayuda mutua* (Aporte: Cooperación sin estado. Leer: Introducción y Conclusión).")
+        st.subheader("📚 Itinerario Bibliográfico Enriquecido (Aporte Temático y Guía de Lectura por Capítulos):")
+        st.markdown("**Fuentes Principales (Autores Clásicos):**")
+        st.markdown("1. Piotr Kropotkin, *La ayuda mutua* (Aporte: Demostración histórica de la cooperación como factor evolutivo social al margen del Estado. Leer: Introducción y Conclusión).")
+        st.markdown("2. Mijaíl Bakunin, *Dios y el Estado* (Aporte: Crítica frontal a la autoridad teológica, política y a los dogmas jerárquicos. Leer: Texto completo fragmentado).")
+        st.markdown("3. Pierre-Joseph Proudhon, *¿Qué es la propiedad?* (Aporte: La famosa tesis sobre la propiedad como dominación y el mutualismo económico. Leer: Capítulos 1 al 3).")
+        st.markdown("4. Elisée Reclus, *El hombre y la tierra* (Aporte: Relación simbiótica entre las comunidades humanas libres y el entorno ecológico. Leer: Introducción geográfica).")
+        st.markdown("**Comentarios y Ensayos Críticos:**")
+        st.markdown("1. Daniel Guérin, *El anarquismo* (Aporte: Síntesis histórica rigurosa de las corrientes y praxis ácratas mundiales. Leer: Capítulos introductorios).")
+        st.markdown("2. Colin Ward, *Anarchy in Action* (Aporte: Ejemplos prácticos y cotidianos de cómo la sociedad se autoorganiza sin necesidad de gobierno. Leer: Capítulos 1 al 4).")
+        st.markdown("3. Murray Bookchin, *The Ecology of Freedom* (Aporte: Fundamentación del municipalismo libertario y la ecología social. Leer: Capítulos sobre la jerarquía y la libertad).")
+        st.markdown("4. Rudolf Rocker, *Anarcosindicalismo* (Aporte: Exposición clásica de la relación entre el sindicalismo obrero y la emancipación antiautoritaria. Leer: Capítulos 1 al 3).")
 
     elif max_vertiente == "comunitario":
         st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Ontología Comunitaria y del Buen Vivir")
         st.markdown("""
-        **1. Explicación reveladora de tu postura:**  
-        Te alineas con la **Ontología Comunitaria y el Buen Vivir**. La persona es un nodo inalienable de un tejido vivo que incluye a la comunidad y al territorio.
+        **1. Definiciones Fundamentales (La vertiente en juego):**  
+        * **Ontología Comunitaria y Buen Vivir:** Matriz inspirada en el pensamiento indígena y comunitario que concibe a la persona como un nodo inalienable de un tejido vivo que integra a la comunidad humana, los antepasados y la naturaleza (*Pachamama*). Opone la reciprocidad y el mandar obedeciendo al individualismo mercantil.
         
-        **2. Modelamiento de Profundización:**  
-        * *Opción A (Autonomía Territorial):* Autogobierno local y propiedad colectiva frente al extractivismo.  
-        * *Opción B (Socialismo Comunitario):* Proyecto estatal plurinacional.
+        **2. Explicación reveladora de tu postura (A qué adhiere tu perfil):**  
+        Te alineas con una visión donde la economía y la política deben estar subordinadas a la reproducción de la vida comunitaria, el equilibrio territorial y la reciprocidad frente al extractivismo.
         
-        **Movimientos y referentes:**  
-        * *Figuras:* José Carlos Mariátegui, Alberto Acosta.
+        **3. Modelamiento de Profundización (Cómo robustecer y llevar al siguiente nivel tus ideas):**  
+        * *Opción A (Autonomía Territorial Comunitaria):* Consolidación del autogobierno local, la justicia comunitaria y la defensa colectiva del territorio.  
+        * *Opción B (Socialismo Comunitario / Plurinacional):* Articulación de los pueblos y comunidades en un proyecto de transformación estatal a escala nacional.
+        
+        **Movimientos y referentes históricos y latinoamericanos:**  
+        * *Movimientos:* Zapatismo, confederaciones indígenas andinas, movimientos por el Buen Vivir.  
+        * *Figuras:* José Carlos Mariátegui, Alberto Acosta, Álvaro García Linera, Fausto Reinaga.
         """)
-        st.subheader("📚 Itinerario Bibliográfico Enriquecido:")
-        st.markdown("- José Carlos Mariátegui, *7 ensayos de interpretación de la realidad peruana* (Aporte: Raíz comunitaria agraria).")
+        st.subheader("📚 Itinerario Bibliográfico Enriquecido (Aporte Temático y Guía de Lectura por Capítulos):")
+        st.markdown("**Fuentes Principales (Autores Clásicos y Latinoamericanos):**")
+        st.markdown("1. José Carlos Mariátegui, *7 ensayos de interpretación de la realidad peruana* (Aporte: El problema del indio y la pervivencia del ayllu y la raíz comunitaria agraria. Leer: Ensayo sobre el problema agrario).")
+        st.markdown("2. Alberto Acosta, *El buen vivir: Sumak Kawsay* (Aporte: Crítica al desarrollismo capitalista y formulación de alternativas desde la cosmovisión comunitaria. Leer: Capítulos 1 al 3).")
+        st.markdown("3. Fausto Reinaga, *La revolución india* (Aporte: Conciencia amindia y reivindicación de civilización comunitaria frente al colonialismo. Leer: Capítulos esenciales).")
+        st.markdown("4. Silvia Rivera Cusicanqui, *Oprimidos pero no vencidos* (Aporte: Luchas campesinas, aymaras y sociología de la imagen comunitaria. Leer: Capítulos metodológicos).")
+        st.markdown("**Comentarios y Ensayos Críticos:**")
+        st.markdown("1. Álvaro García Linera, *Forma valor y forma comunidad* (Aporte: Articulación teórica entre el marxismo crítico y las estructuras comunitarias andinas. Leer: Introducción y capítulos centrales).")
+        st.markdown("2. Arturo Escobar, *Territorios de diferencia* (Aporte: Geografías de la diferencia, ontologías relacionales y defensa de los mundos socio-naturales. Leer: Capítulos 1 al 3).")
+        st.markdown("3. Eduardo Gudynas, *Derechos de la naturaleza y buen vivir* (Aporte: Sistematización jurídica y filosófica del biocentrismo comunitario. Leer: Capítulos iniciales).")
+        st.markdown("4. Boaventura de Sousa Santos, *Descolonizar el saber, reinventar el poder* (Aporte: Las epistemologías del sur frente a la hegemonía de la modernidad occidental. Leer: Ensayos sobre el Estado plurinacional).")
 
     st.balloons()
