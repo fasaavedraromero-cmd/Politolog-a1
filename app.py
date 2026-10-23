@@ -10,113 +10,136 @@ st.write("""
 Tómate tu tiempo en cada dilema. Al finalizar, obtendrás una radiografía tabular, un diagnóstico crítico de tensiones y un riguroso modelamiento metacognitivo guiado por fuentes clásicas y pensadores de nuestra tradición hispanoamericana y chilena.
 """)
 
-# --- FORMULARIO DE DECISIONES SECUENCIALES (6 PASOS) ---
+# --- FORMULARIO DE DECISIONES SECUENCIALES (6 BLOQUES / 12 MICRO-PREGUNTAS) ---
 with st.form("formulario_arqueologia"):
     
-    # 1. CONCEPTO DE SER HUMANO
-    st.header("Paso 1: El Concepto de Ser Humano")
-    st.markdown("*Antes de estructurar la política, ¿cómo definirías la condición fundamental del ser humano?*")
-    ser_humano = st.radio(
-        "Selecciona la premisa con la que más te identifiques:",
-        [
-            "Un individuo autónomo y racional que busca maximizar su propio bienestar e interés particular.",
-            "Un ser social e histórico cuya conciencia se forma a través del trabajo material y las relaciones colectivas.",
-            "Un ser profundamente enraizado en su comunidad, su cultura, su familia y una herencia de valores tradicionales.",
-            "Un dueño absoluto de su propio cuerpo y de su voluntad, que rechaza cualquier imposición externa.",
-            "Un espíritu libre y soberano que no acepta ninguna autoridad, ley institucional o moral impuesta.",
-            "Un eslabón inseparable de la tierra, la naturaleza y el bienestar colectivo de su pueblo originario."
-        ],
-        key="ser_choice"
-    )
+    # BLOQUE 1: EL CONCEPTO DE SER HUMANO
+    st.header("Bloque 1: El Concepto de Ser Humano")
+    
+    st.markdown("*1. Motor de la acción: ¿Qué impulsa fundamentalmente al ser humano en su vida en común?*")
+    p1 = st.radio("Selecciona una opción:", [
+        "La búsqueda racional de su propio interés y beneficio particular.",
+        "La necesidad material y su transformación a través del trabajo colectivo.",
+        "El sentido de pertenencia a una comunidad orgánica, la familia y la tradición.",
+        "El impulso irrenunciable hacia la soberanía absoluta de su propio cuerpo y voluntad."
+    ], key="p1_choice")
+
+    st.markdown("*2. Naturaleza y devenir: ¿Cómo consideras la condición fundamental de las personas?*")
+    p2 = st.radio("Selecciona una opción:", [
+        "Un individuo cuyos derechos y autonomía preceden a cualquier sociedad.",
+        "Un sujeto histórico cuya conciencia cambia según las condiciones materiales.",
+        "Un heredero de tradiciones e instituciones que lo trascienden históricamente.",
+        "Un espíritu libre que rechaza de raíz toda imposición moral o legal externa."
+    ], key="p2_choice")
 
     st.markdown("---")
 
-    # 2. CONCEPTO DE SOCIEDAD
-    st.header("Paso 2: El Concepto de Sociedad")
-    st.markdown("*¿Cómo se entienden las personas y de dónde nace el vínculo social?*")
-    sociedad = st.radio(
-        "Selecciona tu premisa sobre la sociedad:",
-        [
-            "Mediante un pacto o acuerdo contractual entre ciudadanos libres que buscan proteger sus intereses.",
-            "Mediante un conflicto permanente y estructural entre grupos sociales según quién posee los medios de producción.",
-            "Mediante una comunidad orgánica unida por lazos históricos, culturales, espirituales o de lealtad tradicional.",
-            "Mediante la cooperación libre, voluntaria y sin coacción institucional entre individuos soberanos.",
-            "Mediante la reciprocidad, el parentesco y la integración armónica con la comunidad y el territorio."
-        ],
-        key="soc_choice"
-    )
+    # BLOQUE 2: EL VÍNCULO SOCIAL
+    st.header("Bloque 2: El Vínculo Social")
+    
+    st.markdown("*3. Origen del lazo: ¿Cómo se constituye fundamentalmente la sociedad?*")
+    p3 = st.radio("Selecciona una opción:", [
+        "Mediante un contrato voluntario entre ciudadanos para proteger intereses.",
+        "Mediante un conflicto estructural e histórico entre clases sociales.",
+        "Mediante lazos históricos, culturales y espirituales preexistentes.",
+        "Mediante la cooperación libre y espontánea, sin coacción institucional."
+    ], key="p3_choice")
+
+    st.markdown("*4. Regla de convivencia: ¿Qué debe regular la vida en común?*")
+    p4 = st.radio("Selecciona una opción:", [
+        "El imperio de la ley impersonal, los contratos y la neutralidad institucional.",
+        "La superación de las contradicciones de clase mediante la acción colectiva.",
+        "La fidelidad a los valores compartidos, las costumbres y la autoridad tradicional.",
+        "La autonomía absoluta de cada asociación voluntaria o comuna libre."
+    ], key="p4_choice")
 
     st.markdown("---")
 
-    # 3. CONCEPTO DE NACIÓN
-    st.header("Paso 3: El Concepto de Nación")
-    st.markdown("*¿Cuál es el fundamento de la identidad colectiva o la pertenencia?*")
-    nacion = st.radio(
-        "Selecciona tu premisa sobre la nación:",
-        [
-            "Una asociación de ciudadanos bajo el imperio de la ley, abierta e integradora sin importar orígenes.",
-            "Una comunidad de destino histórico, cultural o identitario que debe defender su soberanía y tradiciones.",
-            "Una construcción artificial que divide a la clase trabajadora; la verdadera lealtad es internacional.",
-            "Un orden político innecesario; la pertenencia se basa en comunas libres o asociaciones voluntarias.",
-            "Una colectividad arraigada a la tierra ancestral y a la soberanía de los pueblos originarios."
-        ],
-        key="nac_choice"
-    )
+    # BLOQUE 3: NACIÓN E IDENTIDAD
+    st.header("Bloque 3: Nación e Identidad")
+    
+    st.markdown("*5. Fundamento de pertenencia: ¿Qué define la identidad colectiva o la pertenencia?*")
+    p5 = st.radio("Selecciona una opción:", [
+        "La adhesión cívica a un conjunto de leyes y derechos universales abiertos.",
+        "Una comunidad de destino histórico, cultural y lingüístico soberano.",
+        "Ninguna frontera; la verdadera lealtad es de clase internacional.",
+        "El arraigo profundo a la tierra ancestral y a los pueblos originarios."
+    ], key="p5_choice")
+
+    st.markdown("*6. Escala de lealtad: ¿Dónde debe depositarse la lealtad política primordial?*")
+    p6 = st.radio("Selecciona una opción:", [
+        "En las instituciones democráticas globales o el derecho cosmopolita.",
+        "En la defensa de la soberanía y tradiciones de la propia nación.",
+        "En la solidaridad internacional de los trabajadores contra el capital.",
+        "En la autogestión de las comunidades locales y territoriales."
+    ], key="p6_choice")
 
     st.markdown("---")
 
-    # 4. CONCEPTO DE ESTADO
-    st.header("Paso 4: El Concepto de Estado y Gobierno")
-    st.markdown("*¿Cómo debe organizarse la autoridad política y el poder?*")
-    estado = st.radio(
-        "Selecciona tu premisa sobre el Estado:",
-        [
-            "Un árbitro neutral limitado por la ley y la división de poderes para garantizar las libertades individuales.",
-            "Un instrumento de dominación de clase que debe ser transformado o superado mediante la praxis revolucionaria.",
-            "Un custodio soberano del orden, la seguridad y la supervivencia colectiva frente a amenazas (amigo/enemigo).",
-            "Una estructura ilegítima y coactiva que debe ser disuelta o reemplazada por contratos privados y autogestión.",
-            "Un sistema de autoridad basado en el servicio comunal, la rotación de cargos y el mandar obedeciendo."
-        ],
-        key="est_choice"
-    )
+    # BLOQUE 4: EL ESTADO Y LA AUTORIDAD
+    st.header("Bloque 4: El Estado y la Autoridad")
+    
+    st.markdown("*7. Naturaleza del poder: ¿Qué rol debe cumplir la autoridad política y el Estado?*")
+    p7 = st.radio("Selecciona una opción:", [
+        "Ser un árbitro neutral y mínimo que garantice la libertad individual.",
+        "Funcionar como un aparato de dominación de clase a transformar/superar.",
+        "Actuar como custodio soberano del orden frente a las amenazas externas.",
+        "Ser desmantelado por completo por ser una estructura coactiva e ilegítima."
+    ], key="p7_choice")
+
+    st.markdown("*8. Forma de autoridad: ¿Cómo debe ejercerse el mando?*")
+    p8 = st.radio("Selecciona una opción:", [
+        "Mediante representantes elegidos bajo estrictas normas de control legal.",
+        "Mediante la dirección revolucionaria orientada a la justicia social.",
+        "Mediante la jerarquía legítima basada en el honor, la historia y el orden.",
+        "Mediante la rotación de cargos y el mandato colectivo horizontal."
+    ], key="p8_choice")
 
     st.markdown("---")
 
-    # 5. CONCEPTO DE ECONOMÍA
-    st.header("Paso 5: La Economía")
-    st.markdown("*¿Cómo debe organizarse la producción y el reparto de la riqueza?*")
-    economia = st.radio(
-        "Selecciona tu modelo económico ideal:",
-        [
-            "Propiedad privada garantizada, libre mercado de precios y competencia económica sin trabas estatales.",
-            "Propiedad social y planificación organizada de la producción para satisfacer las necesidades de toda la sociedad.",
-            "Economía mixta regulada, donde el Estado interviene para asegurar el bienestar social y la equidad básica.",
-            "Contratos estrictamente privados y voluntarios, eliminando monopolios estatales, impuestos y bancos centrales.",
-            "Reciprocidad, trueque justo, trabajo comunitario y protección colectiva de los recursos naturales (Buen Vivir)."
-        ],
-        key="eco_choice"
-    )
+    # BLOQUE 5: ECONOMÍA Y RIQUEZA
+    st.header("Bloque 5: Economía y Riqueza")
+    
+    st.markdown("*9. Modelo de producción: ¿Cómo debe organizarse la riqueza?*")
+    p9 = st.radio("Selecciona una opción:", [
+        "Mediante la propiedad privada inviolable y el libre mercado competitivo.",
+        "Mediante la propiedad social y la planificación centralizada/social.",
+        "Mediante contratos estrictamente privados, sin impuestos ni Estado.",
+        "Mediante la reciprocidad, el trueque y el trabajo comunitario."
+    ], key="p9_choice")
+
+    st.markdown("*10. Criterio de distribución: ¿Qué debe guiar el reparto de bienes?*")
+    p10 = st.radio("Selecciona una opción:", [
+        "La productividad y el mérito individual medidos por el mercado.",
+        "La satisfacción planificada de las necesidades de toda la sociedad.",
+        "La protección de la propiedad distribuida y la economía familiar.",
+        "El equilibrio ecológico y la sustentabilidad de la vida comunitaria."
+    ], key="p10_choice")
 
     st.markdown("---")
 
-    # 6. PROYECTO HISTÓRICO Y GEOPOLÍTICA
-    st.header("Paso 6: El Proyecto Histórico y el Tablero Global")
-    st.markdown("*¿Cómo se proyecta este modelo hacia el mundo exterior y el futuro?*")
-    proyecto = st.radio(
-        "Selecciona tu visión del proyecto histórico global:",
-        [
-            "Integración global del mercado, apertura de fronteras y gobernanza a través de instituciones supranacionales.",
-            "Un sistema multipolar de grandes bloques civilizacionales o potencias soberanas que defienden sus espacios.",
-            "Superación global del capitalismo mediante la emancipación universal y la solidaridad internacional de los pueblos.",
-            "Defensa radical de la pluralidad cultural y espiritual de cada civilización frente a la homogenización global.",
-            "Construcción de autonomías locales autogestionadas en red, superando el sistema de Estados nacionales."
-        ],
-        key="pro_choice"
-    )
+    # BLOQUE 6: GEOPOLÍTICA Y PROYECTO HISTÓRICO
+    st.header("Bloque 6: Geopolítica y Proyecto Histórico")
+    
+    st.markdown("*11. Arquitectura global: ¿Cómo debe estructurarse el orden geopolítico mundial?*")
+    p11 = st.radio("Selecciona una opción:", [
+        "Mediante la integración global de los mercados y la gobernanza supranacional.",
+        "Mediante un sistema multipolar de grandes bloques soberanos o civilizacionales.",
+        "Mediante la superación global del capitalismo por la solidaridad internacional.",
+        "Mediante redes de autonomías locales autogestionadas al margen de los Estados."
+    ], key="p11_choice")
+
+    st.markdown("*12. Seguridad y soberanía exterior: ¿Cuál debe ser la prioridad en las relaciones internacionales?*")
+    p12 = st.radio("Selecciona una opción:", [
+        "La apertura comercial, la interdependencia y la disolución de barreras arancelarias.",
+        "La defensa estricta de la soberanía nacional y la supervivencia frente al enemigo.",
+        "La emancipación universal de los pueblos oprimidos frente al imperialismo global.",
+        "La desmilitarización y la cooperación horizontal entre comunas y pueblos libres."
+    ], key="p12_choice")
 
     submitted = st.form_submit_button("Ejecutar Análisis y Modelamiento Metacognitivo")
 
-# --- PROCESAMIENTO Y DIAGNÓSTICO FORMATIVO ---
+# --- PROCESAMIENTO Y DIAGNÓSTICO FORMATIVO CON PUNTAJE PONDERADO ---
 if submitted:
     st.markdown("---")
     st.header("📊 Radiografía Tabular de tu Edificio Conceptual")
@@ -124,14 +147,14 @@ if submitted:
     tabla_resumen = pd.DataFrame({
         "Dimensión del Esquema": [
             "1. Concepto de Ser Humano",
-            "2. Concepto de Sociedad",
-            "3. Concepto de Nación",
-            "4. Concepto de Estado",
-            "5. Economía",
-            "6. Proyecto Histórico"
+            "2. Vínculo Social",
+            "3. Nación e Identidad",
+            "4. Estado y Autoridad",
+            "5. Economía y Riqueza",
+            "6. Geopolítica y Proyecto"
         ],
         "Elección del Estudiante": [
-            ser_humano, sociedad, nacion, estado, economia, proyecto
+            p1, p3, p5, p7, p9, p11
         ]
     })
     st.table(tabla_resumen)
@@ -139,570 +162,52 @@ if submitted:
     st.markdown("---")
     st.header("🔍 Diagnóstico Crítico y Modelamiento Metacognitivo")
 
-    # Detección de perfiles puros para las 7 vertientes
-    es_liberal = ("individuo autónomo" in ser_humano) and ("pacto o acuerdo" in sociedad or "propiedad privada garantizada" in economia)
-    es_marxista = ("ser social e histórico" in ser_humano or "conflicto permanente" in sociedad) and ("propiedad social" in economia)
-    es_tradicional = ("profundamente enraizado" in ser_humano or "comunidad orgánica" in sociedad) and ("custodio soberano" in estado or "grandes bloques" in proyecto)
-    es_libertario = ("dueño absoluto" in ser_humano) and ("contratos estrictamente privados" in economia)
-    es_anarquista = ("espíritu libre y soberano" in ser_humano or "cooperación libre" in sociedad) and ("estructura ilegítima" in estado)
-    es_comunitario = ("eslabón inseparable de la tierra" in ser_humano) and ("reciprocidad" in economia)
+    # Sistema de puntaje por cada una de las grandes matrices teóricas
+    puntos = {
+        "liberal": 0,
+        "marxista": 0,
+        "tradicional": 0,
+        "libertario": 0,
+        "anarquista": 0,
+        "comunitario": 0
+    }
 
-    # Detección de tensiones específicas (Cruces de vertientes híbridas)
-    tension_tradicional_liberal = ("enraizado" in ser_humano or "comunidad orgánica" in sociedad) and ("propiedad privada garantizada" in economia or "libre mercado" in economia)
-    tension_libertario_estatista = ("dueño absoluto" in ser_humano) and ("economía mixta" in economia or "Estado" in estado)
-
-    # --- CASO A: TENSIONES ESPECÍFICAS (PERFILES HÍBRIDOS / MIXTOS) ---
-    if tension_tradicional_liberal:
-        st.warning("⚠️ Diagnóstico: Perfil Híbrido — Cruce entre Tradicionalismo Orgánico y Liberalismo de Mercado")
-        st.markdown("""
-        **1. Precisión de las vertientes en colisión:**  
-        Estás mezclando los fundamentos del **Conservadurismo Orgánico / Tradicionalismo** (en tu concepto de ser humano y sociedad) con las premisas del **Liberalismo Clásico y Capitalismo de Mercado** (en tu modelo económico).
-        
-        **2. Graduación de la tensión (Qué entra en contradicción vs. qué puede ser complementario):**  
-        * *Lo complementario:* En la política práctica, ambas corrientes suelen aliarse tácticamente frente a proyectos colectivistas radicales en nombre de la libertad individual y el orden institucional.
-        * *Lo irreconciliable (La contradicción profunda):* A nivel ontológico, chocan violentamente. El capitalismo de mercado opera como un disolvente social que mercantiliza la vida, corroe las tradiciones locales y desarraiga a las comunidades que tu antropología busca proteger. Pretender defender el enraizamiento mediante la lógica de un mercado absoluto es una contradicción teórica mayor.
-        
-        **3. Modelamiento Metacognitivo (Cómo reestructurar tu postura desde el Concepto de Ser Humano):**  
-        Para resolver esta incoherencia y dar consistencia a tu edificio político, debes volver obligatoriamente al **Paso 1 (Concepto de Ser Humano)** y ponderar qué principio tiene primacía para ti:  
-        * *Opción A (Girar hacia el Liberalismo):* Si concluyes que el individuo autónomo y maximizador es lo primario, debes aceptar que las tradiciones secundan al mercado y ceden ante su dinámica.  
-        * *Opción B (Girar hacia el Tradicionalismo/Comunitarismo):* Si concluyes que la comunidad enraizada y el orden orgánico son lo primario, debes subordinar la economía al bien común moral (mirando hacia el distributismo o el socialcristianismo histórico).
-        
-        **Movimientos, partidos y referentes históricos y chilenos:**  
-        * *Corrientes:* El distributismo, la democracia cristiana de base social, el conservadurismo social.  
-        * *Figuras y referentes:* Wilhelm Röpke, G.K. Chesterton; en el pensamiento chileno, el pensamiento social de Jaime Eyzaguirre o el corporativismo moderado.
-        """)
-        
-        st.subheader("📚 Itinerario Bibliográfico Enriquecido (Aporte Temático y Guía de Lectura):")
-        st.markdown("**Fuentes Principales (Autores Clásicos):**")
-        st.markdown("- Karl Polanyi, *La gran transformación* (Aporte: Explica cómo el mercado desbocado destruye las instituciones sociales. Leer: Capítulos 4 al 6: *Sistemas económicos y el surgimiento del mercado*).")
-        st.markdown("- G.K. Chesterton, *Esbozo de la cordura* (Aporte: Fundamenta la propiedad distribuida frente al capitalismo centralizado. Leer: Primera parte, Capítulos 1 al 3).")
-        st.markdown("**Comentarios y Ensayos Críticos:**")
-        st.markdown("- Wilhelm Röpke, *La crisis de nuestro tiempo* (Aporte: Diagnóstico sobre la masificación y el rescate de la economía humana. Leer: Capítulo 3: *La desintegración económica y social*).")
-        st.markdown("- Michael Sandel, *Lo que el dinero no puede comprar* (Aporte: Límites morales de los mercados en la vida comunitaria. Leer: Introducción y Capítulo 1).")
-        st.markdown("- Jaime Eyzaguirre, *Fisonomía histórica de Chile* (Aporte: Raíces orgánicas e institucionales de la sociedad hispanochilena. Leer: Capítulos sobre la fundación colonial y corporativa).")
-
-    elif tension_libertario_estatista:
-        st.warning("⚠️ Diagnóstico: Perfil Híbrido — Cruce entre Libertarismo Radical y Estatismo / Reformismo")
-        st.markdown("""
-        **1. Precisión de las vertientes en colisión:**  
-        Estás combinando el **Anarcocapitalismo / Libertarismo Radical** (en tu concepto de autopropiedad absoluta) con elementos del **Estatismo Regulador o la Economía Mixta**.
-        
-        **2. Graduación de la tensión:**  
-        * *Lo complementario:* Ambas posturas valoran la seguridad jurídica formal.
-        * *Lo irreconciliable:* Para el libertarismo estricto, el Estado es una organización criminal institucionalizada basada en el monopolio de la coacción y los impuestos. Tolerar intervenciones estatales invalida el axioma moral de la autopropiedad.
-        
-        **3. Modelamiento Metacognitivo:**  
-        Vuelve al **Concepto de Ser Humano**: 
-        * *Opción A:* Asumir la soberanía personal intransigente (rechazando todo impuesto y Estado).  
-        * *Opción B:* Adoptar un liberalismo pragmático que acepta un Estado mínimo arbitral.
-        
-        **Movimientos y referentes:**  
-        * *Corrientes:* Minarquismo, libertarismo pragmático.  
-        * *Figuras:* Murray Rothbard, Robert Nozick.
-        """)
-        
-        st.subheader("📚 Itinerario Bibliográfico Enriquecido (Aporte Temático y Guía de Lectura):")
-        st.markdown("**Fuentes Principales:**")
-        st.markdown("- Murray Rothbard, *Ética de la libertad* (Aporte: Fundamentación de los derechos naturales libertarios. Leer: Parte I: Ley natural).")
-        st.markdown("**Comentarios y Ensayos Críticos:**")
-        st.markdown("- Robert Nozick, *Anarquía, estado y utopía* (Aporte: Defensa crítica del Estado mínimo frente al anarcocapitalismo. Leer: Capítulo 3: *Las granjas morales del Estado*).")
-        st.markdown("- Ayn Rand, *La virtud del egoísmo* (Aporte: Justificación ética del interés propio y el capitalismo de laissez-faire. Leer: Ensayos 1 al 3).")
-
-    # --- CASOS B A G: PERFILES COHERENTES ---
-    elif es_liberal:
-        st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Liberalismo Clásico")
-        st.markdown("""
-        **1. Explicación reveladora de tu postura (A qué adhiere tu perfil):**  
-        Tus respuestas revelan una adhesión profunda a la **Tradición Liberal Clásica**. Sin saberlo necesariamente con etiquetas académicas, operas bajo la convicción de que el individuo precede a la sociedad. Para ti, los seres humanos son agentes dueños de su propia racionalidad, y la convivencia política no busca imponer un modelo moral o espiritual único, sino garantizar un marco neutral de leyes donde cada quien pueda perseguir su felicidad sin interferencias arbitrarias.
-        
-        **2. Modelamiento de Profundización (Cómo robustecer y llevar al siguiente nivel tus ideas):**  
-        Partiendo de tu concepción de ser humano autónomo, tu siguiente dilema intelectual para profundizar consiste en elegir tu ruta doctrinal de despliegue:  
-        * *Opción A (Despliegue hacia el Liberalismo Social / Reformista):* Asumir que la libertad formal requiere garantías materiales básicas proporcionadas por el Estado mediante impuestos moderados y provisión pública de derechos (asegurando igualdad de oportunidades).  
-        * *Opción B (Despliegue hacia el Liberalismo Mínimo / Ortodoxo):* Endurecer el principio de no agresión fiscal, apostando por un Estado estrictamente limitado a la seguridad y la justicia, confiando la superación de la pobreza exclusivamente al dinamismo del libre mercado y la beneficencia civil.
-        
-        **Movimientos y referentes históricos y chilenos:**  
-        * *Movimientos:* Liberalismo político, reformismo republicano.  
-        * *Figuras:* John Locke, Adam Smith; en Chile, pensadores del liberalismo clásico decimonónico como José Victorino Lastarria y Valentín Letelier.
-        """)
-        st.subheader("📚 Itinerario Bibliográfico Enriquecido (Aporte Temático y Guía de Lectura):")
-        st.markdown("**Fuentes Principales:**")
-        st.markdown("- John Locke, *Segundo tratado sobre el gobierno civil* (Aporte: Origen del contrato social y la propiedad. Leer: Capítulos 2, 5 y 8).")
-        st.markdown("- Adam Smith, *La riqueza de las naciones* (Aporte: Funcionamiento del mercado y división del trabajo. Leer: Capítulos 1 al 3 del Libro I).")
-        st.markdown("**Comentarios y Ensayos Críticos:**")
-        st.markdown("- Friedrich Hayek, *Los fundamentos de la libertad* (Aporte: Defensa del orden espontáneo de mercado. Leer: Capítulos 1 al 4).")
-        st.markdown("- Alexis de Tocqueville, *La democracia en América* (Aporte: Análisis de los peligros del centralismo y el valor de la libertad civil. Leer: Volumen II, Segunda Parte).")
-
-    elif es_marxista:
-        st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Marxismo y Teoría Crítica")
-        st.markdown("""
-        **1. Explicación reveladora de tu postura (A qué adhiere tu perfil):**  
-        Te sitúas firmemente en la órbita del **Materialismo Histórico y la Teoría Crítica**. Tu visión rechaza que la política o la sociedad sean el resultado de contratos abstractos o naturalezas humanas fijas. Para ti, el ser humano es un producto social moldeado por las condiciones materiales de producción y el trabajo; por ende, la injusticia no es un fallo moral individual, sino una contradicción estructural de las relaciones de clase.
-        
-        **2. Modelamiento de Profundización (Cómo robustecer y llevar al siguiente nivel tus ideas):**  
-        Partiendo de tu premisa materialista, tu ruta de profundización te enfrenta a las siguientes opciones estratégicas:  
-        * *Opción A (Vía Gramsciana / Hegemónica):* Enfocar la transformación en la construcción paciente de un "bloque histórico" y una nueva hegemonía cultural y democrática dentro de las instituciones de la sociedad civil.  
-        * *Opción B (Vía Revolucionaria / Ortodoxa):* Sostener que la superación del capital exige la ruptura frontal con el Estado burgués y la toma centralizada de los resortes de la producción para reorganizar la economía bajo planificación social estricta.
-        
-        **Movimientos y referentes históricos y chilenos:**  
-        * *Movimientos:* Comunismo histórico, sindicalismo revolucionario y de clase.  
-        * *Figuras:* Karl Marx, Antonio Gramsci; en Chile, Luis Emilio Recabarren, Clotario Blest y los ensayos críticos de Luis Corvalán o el pensamiento de la UP.
-        """)
-        st.subheader("📚 Itinerario Bibliográfico Enriquecido (Aporte Temático y Guía de Lectura):")
-        st.markdown("**Fuentes Principales:**")
-        st.markdown("- Karl Marx, *El Capital* (Aporte: Análisis de la plusvalía y la mercancía. Leer: Sección 1, Capítulo 1).")
-        st.markdown("- Karl Marx y Friedrich Engels, *Manifiesto del Partido Comunista* (Aporte: Lucha de clases e itinerario histórico del proletariado. Leer: Capítulo 1: *Burgueses y proletarios*).")
-        st.markdown("**Comentarios y Ensayos Críticos:**")
-        st.markdown("- Antonio Gramsci, *Cuadernos de la cárcel* (Aporte: Hegemonía cultural y bloque histórico. Leer: Antología sobre el Estado y los intelectuales).")
-        st.markdown("- Ernst Mandel, *El pensamiento económico de Karl Marx* (Aporte: Clarificación de las crisis sistémicas y la ley del valor. Leer: Capítulos 1 al 3).")
-
-    elif es_tradicional:
-        st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Tradicionalismo y Geopolítica Soberana")
-        st.markdown("""
-        **1. Explicación reveladora de tu postura (A qué adhiere tu perfil):**  
-        Adhieres de manera consistente al **Realismo Político, el Conservadurismo Orgánico y la Geopolítica de los Grandes Espacios**. Rechazas el individualismo abstracto y el universalismo globalizador. Para ti, el ser humano no nace flotando en el vacío, sino enraizado a una comunidad histórica, a una cultura, a una lengua y a lealtades espirituales o nacionales que debe custodiar frente al caos exterior.
-        
-        **2. Modelamiento de Profundización (Cómo robustecer y llevar al siguiente nivel tus ideas):**  
-        Partiendo de tu concepto de enraizamiento y soberanía, tu profundización te exige definir tu arquitectura geopolítica e institucional:  
-        * *Opción A (Vía Estado-Nación Soberano):* Enfocar la defensa de la identidad nacional fortaleciendo el Estado nacional centralizado, protegiendo las fronteras económicas y apostando al realismo clásico frente a potencias extranjeras.  
-        * *Opción B (Vía Multipolaridad Civilizacional / Cuarta Teoría):* Elevar la mirada hacia un mundo policéntrico de grandes civilizaciones (*Großraum*) que rechazan frontalmente la hegemonía de la modernidad occidental liberal, blindando los valores tradicionales de cada cultura.
-        
-        **Movimientos y referentes históricos y chilenos:**  
-        * *Movimientos:* Soberanismos nacionales, realismo geopolítico.  
-        * *Figuras:* Thomas Hobbes, Carl Schmitt; en Chile, la tradición del realismo geopolítico militar y estamental (ej. Ramón Cañas Montalva y su obra *Geopolítica de Chile*).
-        """)
-        st.subheader("📚 Itinerario Bibliográfico Enriquecido (Aporte Temático y Guía de Lectura):")
-        st.markdown("**Fuentes Principales:**")
-        st.markdown("- Thomas Hobbes, *Leviatán* (Aporte: Necesidad de la soberanía fuerte para evitar el caos. Leer: Capítulos 13, 17 y 18).")
-        st.markdown("- Carl Schmitt, *El concepto de lo político* (Aporte: La distinción amigo/enemigo. Leer: Capítulos 1 al 3).")
-        st.markdown("**Comentarios y Ensayos Críticos:**")
-        st.markdown("- Aleksandr Dugin, *La cuarta teoría política* (Aporte: Crítica al globalismo y defensa del *Großraum*. Leer: Capítulos iniciales).")
-        st.markdown("- Ramón Cañas Montalva, *Geopolítica de Chile* (Aporte: Estrategia territorial y soberanía bioceánica del Estado chileno. Leer: Capítulos sobre espacios vitales y proyección antártica).")
-
-    elif es_libertario:
-        st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Anarcocapitalismo / Libertarismo")
-        st.markdown("""
-        **1. Explicación reveladora de tu postura (A qué adhiere tu perfil):**  
-        Tu perfil se enmarca de forma radical en el **Libertarismo de Mercado y la Autopropiedad**. Operas bajo el axioma moral de que cada ser humano es dueño absoluto de su propio cuerpo y de los frutos de su trabajo. Para ti, cualquier monopolio de coacción institucional (impuestos, regulaciones estatales, bancos centrales) constituye una violación ilegítima de la libertad natural.
-        
-        **2. Modelamiento de Profundización (Cómo robustecer y llevar al siguiente nivel tus ideas):**  
-        Partiendo del axioma de la autopropiedad, tu profundización doctrinal te lleva a elegir entre dos caminos de aplicación:  
-        * *Opción A (La vía anarcocapitalista radical):* Eliminar por completo el Estado y su monopolio de la fuerza, confiando la seguridad, la justicia y la moneda a agencias privadas de libre mercado y contratos voluntarios.  
-        * *Opción B (La vía minarquista / liberal de ley y orden):* Aceptar la necesidad pragmática de un Estado mínimo estrictamente limitado a la defensa nacional, la policía y los tribunales de justicia, prohibiendo toda intervención económica adicional.
-        
-        **Movimientos y referentes:**  
-        * *Movimientos:* Escuela austríaca de economía, movimiento libertario.  
-        * *Figuras:* Murray Rothbard, Ludwig von Mises.
-        """)
-        st.subheader("📚 Itinerario Bibliográfico Enriquecido (Aporte Temático y Guía de Lectura):")
-        st.markdown("**Fuentes Principales:**")
-        st.markdown("- Murray Rothbard, *Ética de la libertad* (Aporte: Fundamentación de los derechos naturales libertarios. Leer: Parte I: Ley natural).")
-        st.markdown("- Ludwig von Mises, *La acción humana* (Aporte: Tratado metodológico de la praxeología y el mercado libre. Leer: Capítulos 1 al 3).")
-        st.markdown("**Comentarios y Ensayos Críticos:**")
-        st.markdown("- Jesús Huerta de Soto, *Socialismo, cálculo económico y función empresarial* (Aporte: Imposibilidad del socialismo y defensa de la función empresarial libre. Leer: Capítulos 1 y 2).")
-
-    elif es_anarquista:
-        st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Anarquismo Clásico")
-        st.markdown("""
-        **1. Explicación reveladora de tu postura (A qué adhiere tu perfil):**  
-        Adhieres sin ambages a las premisas del **Anarquismo Autonomista y Ácrata**. Tu edificio intelectual sostiene que la libertad humana y la dominación jerárquica (estatal, capitalista o religiosa) son absolutamente incompatibles. Rechazas la idea de que el orden requiera de mandos verticales, apostando por la capacidad innata de la sociedad para organizarse horizontalmente.
-        
-        **2. Modelamiento de Profundización (Cómo robustecer y llevar al siguiente nivel tus ideas):**  
-        Partiendo del rechazo a la autoridad coactiva, tu profundización exige definir los mecanismos de integración social:  
-        * *Opción A (Vía Anarcosindicalista):* Organizar la producción y la vida económica mediante sindicatos de trabajadores autogestionados y federados que suplanten al capital y al Estado.  
-        * *Opción B (Vía Comunalista / Ayuda Mutua):* Apostar por el municipalismo libertario y redes de comunas autónomas basadas en la cooperación ecológica y el apoyo mutuo vecinal.
-        
-        **Movimientos y referentes históricos y chilenos:**  
-        * *Movimientos:* Anarcosindicalismo de principios del siglo XX en Chile, comunas autónomas.  
-        * *Figuras:* Piotr Kropotkin, Mijaíl Bakunin; en Chile, los precursores de la prensa obrera y mutualista ácrata.
-        """)
-        st.subheader("📚 Itinerario Bibliográfico Enriquecido (Aporte Temático y Guía de Lectura):")
-        st.markdown("**Fuentes Principales:**")
-        st.markdown("- Piotr Kropotkin, *La ayuda mutua* (Aporte: Factor evolutivo de la cooperación social sin estado. Leer: Introducción y Conclusión).")
-        st.markdown("- Mijaíl Bakunin, *Dios y el Estado* (Aporte: Crítica radical a la autoridad teológica y política. Leer: Texto completo fragmentado).")
-        st.markdown("**Comentarios y Ensayos Críticos:**")
-        st.markdown("- Daniel Guérin, *El anarquismo* (Aporte: Síntesis histórica de la praxis ácrata. Leer: Capítulos introductorios).")
-        st.markdown("- Colin Ward, *Anarchy in Action* (Aporte: Ejemplos prácticos de autoorganización cotidiana sin estado. Leer: Capítulos 1 al 3).")
-
-    elif es_comunitario:
-        st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Ontología Comunitaria y del Buen Vivir")
-        st.markdown("""
-        **1. Explicación reveladora de tu postura (A qué adhiere tu perfil):**  
-        Te alineas de manera íntegra con la **Ontología Comunitaria, el Indigenismo y el Buen Vivir (Sumak Kawsay)**. Rechazas la visión del ser humano como un átomo aislado del mercado. Para ti, la persona es un nodo inalienable de un tejido vivo que incluye a la comunidad humana, los antepasados y el territorio natural.
-        
-        **2. Modelamiento de Profundización (Cómo robustecer y llevar al siguiente nivel tus ideas):**  
-        Partiendo de la matriz comunitaria y territorial, tu profundización se bifurca en:  
-        * *Opción A (Vía Autonomía Territorial y Comunal):* Consolidar el autogobierno local, la justicia comunitaria y la propiedad colectiva de la tierra frente al extractivismo global.  
-        * *Opción B (Vía Socialismo Comunitario / Indoamericano):* Articular las comunidades originarias con un proyecto político estatal plurinacional que transforme las estructuras de dominación económica a escala nacional.
-        
-        **Movimientos y referentes históricos y latinoamericanos:**  
-        * *Movimientos:* Zapatismo, movimientos originarios andinos.  
-        * *Figuras:* José Carlos Mariátegui, Alberto Acosta, teóricos del Sumak Kawsay.
-        """)
-        st.subheader("📚 Itinerario Bibliográfico Enriquecido (Aporte Temático y Guía de Lectura):")
-        st.markdown("**Fuentes Principales:**")
-        st.markdown("- José Carlos Mariátegui, *7 ensayos de interpretación de la realidad peruana* (Aporte: El problema del indio y la raíz comunitaria agraria. Leer: Ensayo sobre el problema agrario).")
-        st.markdown("**Comentarios y Ensayos Críticos:**")
-        st.markdown("- Alberto Acosta, *El buen vivir: Sumak Kawsay* (Aporte: Alternativas al desarrollo capitalista desde la cosmovisión comunitaria. Leer: Capítulos 1 y 2).")
-        st.markdown("- Álvaro García Linera, *Forma valor y forma comunidad* (Aporte: Articulación entre la teoría del valor de Marx y las comunidades indígenas andinas. Leer: Introducción).")
-
-    import streamlit as st
-import pandas as pd
-
-st.set_page_config(page_title="Arqueología Antropológica Política", page_icon="🏛️", layout="wide")
-
-st.title("🏛️ Simulador de Arqueología Antropológica Política")
-st.markdown("---")
-st.write("""
-**Bienvenido al laboratorio de arqueología conceptual.** Inspirado en el flujo deductivo del pensamiento político, este simulador parte de tu **concepto de ser humano** para descender por las capas de la sociedad, la nación, el estado, la economía y el proyecto histórico. 
-Tómate tu tiempo en cada dilema. Al finalizar, obtendrás una radiografía tabular, un diagnóstico crítico de tensiones y un riguroso modelamiento metacognitivo guiado por fuentes clásicas y pensadores de nuestra tradición hispanoamericana y chilena.
-""")
-
-# --- FORMULARIO DE DECISIONES SECUENCIALES (6 PASOS) ---
-with st.form("formulario_arqueologia"):
+    # Ponderación basada en las opciones seleccionadas (Opción 0=Liberal, 1=Marxista, 2=Tradicional/Comunitario, 3=Libertario/Anarquista)
+    respuestas = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12]
     
-    # 1. CONCEPTO DE SER HUMANO
-    st.header("Paso 1: El Concepto de Ser Humano")
-    st.markdown("*Antes de estructurar la política, ¿cómo definirías la condición fundamental del ser humano?*")
-    ser_humano = st.radio(
-        "Selecciona la premisa con la que más te identifiques:",
-        [
-            "Un individuo autónomo y racional que busca maximizar su propio bienestar e interés particular.",
-            "Un ser social e histórico cuya conciencia se forma a través del trabajo material y las relaciones colectivas.",
-            "Un ser profundamente enraizado en su comunidad, su cultura, su familia y una herencia de valores tradicionales.",
-            "Un dueño absoluto de su propio cuerpo y de su voluntad, que rechaza cualquier imposición externa.",
-            "Un espíritu libre y soberano que no acepta ninguna autoridad, ley institucional o moral impuesta.",
-            "Un eslabón inseparable de la tierra, la naturaleza y el bienestar colectivo de su pueblo originario."
-        ],
-        key="ser_choice"
-    )
+    for r in respuestas:
+        if "interés" in r or "contrato voluntario" in r or "adhesión cívica" in r or "árbitro" in r or "propiedad privada" in r or "integración global" in r:
+            puntos["liberal"] += 1
+        elif "material" in r or "conflicto" in r or "clase internacional" in r or "dominación" in r or "planificación" in r or "superación global" in r:
+            puntos["marxista"] += 1
+        elif "comunidad orgánica" in r or "lazos históricos" in r or "comunidad de destino" in r or "custodio soberano" in r or "multipolar" in r:
+            puntos["tradicional"] += 1
+        elif "soberanía absoluta" in r or "cooperación libre" in r or "desmantelado" in r or "contratos estrictamente privados" in r:
+            puntos["libertario"] += 1
+        elif "espíritu libre" in r or "comuna libre" in r or "rotación de cargos" in r or "autonomías locales" in r:
+            puntos["anarquista"] += 1
+        elif "eslabón" in r or "reciprocidad" in r or "tierra ancestral" in r or "trabajo comunitario" in r:
+            puntos["comunitario"] += 1
 
-    st.markdown("---")
+    max_vertiente = max(puntos, key=puntos.get)
+    max_puntaje = puntos[max_vertiente]
+    es_coherente = max_puntaje >= 6  # Umbral de consistencia sobre 12 preguntas
 
-    # 2. CONCEPTO DE SOCIEDAD
-    st.header("Paso 2: El Concepto de Sociedad")
-    st.markdown("*¿Cómo se entienden las personas y de dónde nace el vínculo social?*")
-    sociedad = st.radio(
-        "Selecciona tu premisa sobre la sociedad:",
-        [
-            "Mediante un pacto o acuerdo contractual entre ciudadanos libres que buscan proteger sus intereses.",
-            "Mediante un conflicto permanente y estructural entre grupos sociales según quién posee los medios de producción.",
-            "Mediante una comunidad orgánica unida por lazos históricos, culturales, espirituales o de lealtad tradicional.",
-            "Mediante la cooperación libre, voluntaria y sin coacción institucional entre individuos soberanos.",
-            "Mediante la reciprocidad, el parentesco y la integración armónica con la comunidad y el territorio."
-        ],
-        key="soc_choice"
-    )
-
-    st.markdown("---")
-
-    # 3. CONCEPTO DE NACIÓN
-    st.header("Paso 3: El Concepto de Nación")
-    st.markdown("*¿Cuál es el fundamento de la identidad colectiva o la pertenencia?*")
-    nacion = st.radio(
-        "Selecciona tu premisa sobre la nación:",
-        [
-            "Una asociación de ciudadanos bajo el imperio de la ley, abierta e integradora sin importar orígenes.",
-            "Una comunidad de destino histórico, cultural o identitario que debe defender su soberanía y tradiciones.",
-            "Una construcción artificial que divide a la clase trabajadora; la verdadera lealtad es internacional.",
-            "Un orden político innecesario; la pertenencia se basa en comunas libres o asociaciones voluntarias.",
-            "Una colectividad arraigada a la tierra ancestral y a la soberanía de los pueblos originarios."
-        ],
-        key="nac_choice"
-    )
-
-    st.markdown("---")
-
-    # 4. CONCEPTO DE ESTADO
-    st.header("Paso 4: El Concepto de Estado y Gobierno")
-    st.markdown("*¿Cómo debe organizarse la autoridad política y el poder?*")
-    estado = st.radio(
-        "Selecciona tu premisa sobre el Estado:",
-        [
-            "Un árbitro neutral limitado por la ley y la división de poderes para garantizar las libertades individuales.",
-            "Un instrumento de dominación de clase que debe ser transformado o superado mediante la praxis revolucionaria.",
-            "Un custodio soberano del orden, la seguridad y la supervivencia colectiva frente a amenazas (amigo/enemigo).",
-            "Una estructura ilegítima y coactiva que debe ser disuelta o reemplazada por contratos privados y autogestión.",
-            "Un sistema de autoridad basado en el servicio comunal, la rotación de cargos y el mandar obedeciendo."
-        ],
-        key="est_choice"
-    )
-
-    st.markdown("---")
-
-    # 5. CONCEPTO DE ECONOMÍA
-    st.header("Paso 5: La Economía")
-    st.markdown("*¿Cómo debe organizarse la producción y el reparto de la riqueza?*")
-    economia = st.radio(
-        "Selecciona tu modelo económico ideal:",
-        [
-            "Propiedad privada garantizada, libre mercado de precios y competencia económica sin trabas estatales.",
-            "Propiedad social y planificación organizada de la producción para satisfacer las necesidades de toda la sociedad.",
-            "Economía mixta regulada, donde el Estado interviene para asegurar el bienestar social y la equidad básica.",
-            "Contratos estrictamente privados y voluntarios, eliminando monopolios estatales, impuestos y bancos centrales.",
-            "Reciprocidad, trueque justo, trabajo comunitario y protección colectiva de los recursos naturales (Buen Vivir)."
-        ],
-        key="eco_choice"
-    )
-
-    st.markdown("---")
-
-    # 6. PROYECTO HISTÓRICO Y GEOPOLÍTICA
-    st.header("Paso 6: El Proyecto Histórico y el Tablero Global")
-    st.markdown("*¿Cómo se proyecta este modelo hacia el mundo exterior y el futuro?*")
-    proyecto = st.radio(
-        "Selecciona tu visión del proyecto histórico global:",
-        [
-            "Integración global del mercado, apertura de fronteras y gobernanza a través de instituciones supranacionales.",
-            "Un sistema multipolar de grandes bloques civilizacionales o potencias soberanas que defienden sus espacios.",
-            "Superación global del capitalismo mediante la emancipación universal y la solidaridad internacional de los pueblos.",
-            "Defensa radical de la pluralidad cultural y espiritual de cada civilización frente a la homogenización global.",
-            "Construcción de autonomías locales autogestionadas en red, superando el sistema de Estados nacionales."
-        ],
-        key="pro_choice"
-    )
-
-    submitted = st.form_submit_button("Ejecutar Análisis y Modelamiento Metacognitivo")
-
-# --- PROCESAMIENTO Y DIAGNÓSTICO FORMATIVO ---
-if submitted:
-    st.markdown("---")
-    st.header("📊 Radiografía Tabular de tu Edificio Conceptual")
-
-    tabla_resumen = pd.DataFrame({
-        "Dimensión del Esquema": [
-            "1. Concepto de Ser Humano",
-            "2. Concepto de Sociedad",
-            "3. Concepto de Nación",
-            "4. Concepto de Estado",
-            "5. Economía",
-            "6. Proyecto Histórico"
-        ],
-        "Elección del Estudiante": [
-            ser_humano, sociedad, nacion, estado, economia, proyecto
-        ]
-    })
-    st.table(tabla_resumen)
-
-    st.markdown("---")
-    st.header("🔍 Diagnóstico Crítico y Modelamiento Metacognitivo")
-
-    # Detección de perfiles puros para las 7 vertientes
-    es_liberal = ("individuo autónomo" in ser_humano) and ("pacto o acuerdo" in sociedad or "propiedad privada garantizada" in economia)
-    es_marxista = ("ser social e histórico" in ser_humano or "conflicto permanente" in sociedad) and ("propiedad social" in economia)
-    es_tradicional = ("profundamente enraizado" in ser_humano or "comunidad orgánica" in sociedad) and ("custodio soberano" in estado or "grandes bloques" in proyecto)
-    es_libertario = ("dueño absoluto" in ser_humano) and ("contratos estrictamente privados" in economia)
-    es_anarquista = ("espíritu libre y soberano" in ser_humano or "cooperación libre" in sociedad) and ("estructura ilegítima" in estado)
-    es_comunitario = ("eslabón inseparable de la tierra" in ser_humano) and ("reciprocidad" in economia)
-
-    # Detección de tensiones específicas (Cruces de vertientes híbridas)
-    tension_tradicional_liberal = ("enraizado" in ser_humano or "comunidad orgánica" in sociedad) and ("propiedad privada garantizada" in economia or "libre mercado" in economia)
-    tension_libertario_estatista = ("dueño absoluto" in ser_humano) and ("economía mixta" in economia or "Estado" in estado)
-
-    # --- CASO A: TENSIONES ESPECÍFICAS (PERFILES HÍBRIDOS / MIXTOS) ---
-    if tension_tradicional_liberal:
-        st.warning("⚠️ Diagnóstico: Perfil Híbrido — Cruce entre Tradicionalismo Orgánico y Liberalismo de Mercado")
-        st.markdown("""
-        **1. Precisión de las vertientes en colisión:**  
-        Estás mezclando los fundamentos del **Conservadurismo Orgánico / Tradicionalismo** (en tu concepto de ser humano y sociedad) con las premisas del **Liberalismo Clásico y Capitalismo de Mercado** (en tu modelo económico).
-        
-        **2. Graduación de la tensión (Qué entra en contradicción vs. qué puede ser complementario):**  
-        * *Lo complementario:* En la política práctica, ambas corrientes suelen aliarse tácticamente frente a proyectos colectivistas radicales en nombre de la libertad individual y el orden institucional.
-        * *Lo irreconciliable (La contradicción profunda):* A nivel ontológico, chocan violentamente. El capitalismo de mercado opera como un disolvente social que mercantiliza la vida, corroe las tradiciones locales y desarraiga a las comunidades que tu antropología busca proteger. Pretender defender el enraizamiento mediante la lógica de un mercado absoluto es una contradicción teórica mayor.
-        
-        **3. Modelamiento Metacognitivo (Cómo reestructurar tu postura desde el Concepto de Ser Humano):**  
-        Para resolver esta incoherencia y dar consistencia a tu edificio político, debes volver obligatoriamente al **Paso 1 (Concepto de Ser Humano)** y ponderar qué principio tiene primacía para ti:  
-        * *Opción A (Girar hacia el Liberalismo):* Si concluyes que el individuo autónomo y maximizador es lo primario, debes aceptar que las tradiciones secundan al mercado y ceden ante su dinámica.  
-        * *Opción B (Girar hacia el Tradicionalismo/Comunitarismo):* Si concluyes que la comunidad enraizada y el orden orgánico son lo primario, debes subordinar la economía al bien común moral (mirando hacia el distributismo o el socialcristianismo histórico).
-        
-        **Movimientos, partidos y referentes históricos y chilenos:**  
-        * *Corrientes:* El distributismo, la democracia cristiana de base social, el conservadurismo social.  
-        * *Figuras y referentes:* Wilhelm Röpke, G.K. Chesterton; en el pensamiento chileno, el pensamiento social de Jaime Eyzaguirre o el corporativismo moderado.
-        """)
-        
-        st.subheader("📚 Itinerario Bibliográfico Enriquecido (Aporte Temático y Guía de Lectura):")
-        st.markdown("**Fuentes Principales (Autores Clásicos):**")
-        st.markdown("- Karl Polanyi, *La gran transformación* (Aporte: Explica cómo el mercado desbocado destruye las instituciones sociales. Leer: Capítulos 4 al 6: *Sistemas económicos y el surgimiento del mercado*).")
-        st.markdown("- G.K. Chesterton, *Esbozo de la cordura* (Aporte: Fundamenta la propiedad distribuida frente al capitalismo centralizado. Leer: Primera parte, Capítulos 1 al 3).")
-        st.markdown("**Comentarios y Ensayos Críticos:**")
-        st.markdown("- Wilhelm Röpke, *La crisis de nuestro tiempo* (Aporte: Diagnóstico sobre la masificación y el rescate de la economía humana. Leer: Capítulo 3: *La desintegración económica y social*).")
-        st.markdown("- Michael Sandel, *Lo que el dinero no puede comprar* (Aporte: Límites morales de los mercados en la vida comunitaria. Leer: Introducción y Capítulo 1).")
-        st.markdown("- Jaime Eyzaguirre, *Fisonomía histórica de Chile* (Aporte: Raíces orgánicas e institucionales de la sociedad hispanochilena. Leer: Capítulos sobre la fundación colonial y corporativa).")
-
-    elif tension_libertario_estatista:
-        st.warning("⚠️ Diagnóstico: Perfil Híbrido — Cruce entre Libertarismo Radical y Estatismo / Reformismo")
-        st.markdown("""
-        **1. Precisión de las vertientes en colisión:**  
-        Estás combinando el **Anarcocapitalismo / Libertarismo Radical** (en tu concepto de autopropiedad absoluta) con elementos del **Estatismo Regulador o la Economía Mixta**.
-        
-        **2. Graduación de la tensión:**  
-        * *Lo complementario:* Ambas posturas valoran la seguridad jurídica formal.
-        * *Lo irreconciliable:* Para el libertarismo estricto, el Estado es una organización criminal institucionalizada basada en el monopolio de la coacción y los impuestos. Tolerar intervenciones estatales invalida el axioma moral de la autopropiedad.
-        
-        **3. Modelamiento Metacognitivo:**  
-        Vuelve al **Concepto de Ser Humano**: 
-        * *Opción A:* Asumir la soberanía personal intransigente (rechazando todo impuesto y Estado).  
-        * *Opción B:* Adoptar un liberalismo pragmático que acepta un Estado mínimo arbitral.
-        
-        **Movimientos y referentes:**  
-        * *Corrientes:* Minarquismo, libertarismo pragmático.  
-        * *Figuras:* Murray Rothbard, Robert Nozick.
-        """)
-        
-        st.subheader("📚 Itinerario Bibliográfico Enriquecido (Aporte Temático y Guía de Lectura):")
-        st.markdown("**Fuentes Principales:**")
-        st.markdown("- Murray Rothbard, *Ética de la libertad* (Aporte: Fundamentación de los derechos naturales libertarios. Leer: Parte I: Ley natural).")
-        st.markdown("**Comentarios y Ensayos Críticos:**")
-        st.markdown("- Robert Nozick, *Anarquía, estado y utopía* (Aporte: Defensa crítica del Estado mínimo frente al anarcocapitalismo. Leer: Capítulo 3: *Las granjas morales del Estado*).")
-        st.markdown("- Ayn Rand, *La virtud del egoísmo* (Aporte: Justificación ética del interés propio y el capitalismo de laissez-faire. Leer: Ensayos 1 al 3).")
-
-    # --- CASOS B A G: PERFILES COHERENTES ---
-    elif es_liberal:
-        st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Liberalismo Clásico")
-        st.markdown("""
-        **1. Explicación reveladora de tu postura (A qué adhiere tu perfil):**  
-        Tus respuestas revelan una adhesión profunda a la **Tradición Liberal Clásica**. Sin saberlo necesariamente con etiquetas académicas, operas bajo la convicción de que el individuo precede a la sociedad. Para ti, los seres humanos son agentes dueños de su propia racionalidad, y la convivencia política no busca imponer un modelo moral o espiritual único, sino garantizar un marco neutral de leyes donde cada quien pueda perseguir su felicidad sin interferencias arbitrarias.
-        
-        **2. Modelamiento de Profundización (Cómo robustecer y llevar al siguiente nivel tus ideas):**  
-        Partiendo de tu concepción de ser humano autónomo, tu siguiente dilema intelectual para profundizar consiste en elegir tu ruta doctrinal de despliegue:  
-        * *Opción A (Despliegue hacia el Liberalismo Social / Reformista):* Asumir que la libertad formal requiere garantías materiales básicas proporcionadas por el Estado mediante impuestos moderados y provisión pública de derechos (asegurando igualdad de oportunidades).  
-        * *Opción B (Despliegue hacia el Liberalismo Mínimo / Ortodoxo):* Endurecer el principio de no agresión fiscal, apostando por un Estado estrictamente limitado a la seguridad y la justicia, confiando la superación de la pobreza exclusivamente al dinamismo del libre mercado y la beneficencia civil.
-        
-        **Movimientos y referentes históricos y chilenos:**  
-        * *Movimientos:* Liberalismo político, reformismo republicano.  
-        * *Figuras:* John Locke, Adam Smith; en Chile, pensadores del liberalismo clásico decimonónico como José Victorino Lastarria y Valentín Letelier.
-        """)
-        st.subheader("📚 Itinerario Bibliográfico Enriquecido (Aporte Temático y Guía de Lectura):")
-        st.markdown("**Fuentes Principales:**")
-        st.markdown("- John Locke, *Segundo tratado sobre el gobierno civil* (Aporte: Origen del contrato social y la propiedad. Leer: Capítulos 2, 5 y 8).")
-        st.markdown("- Adam Smith, *La riqueza de las naciones* (Aporte: Funcionamiento del mercado y división del trabajo. Leer: Capítulos 1 al 3 del Libro I).")
-        st.markdown("**Comentarios y Ensayos Críticos:**")
-        st.markdown("- Friedrich Hayek, *Los fundamentos de la libertad* (Aporte: Defensa del orden espontáneo de mercado. Leer: Capítulos 1 al 4).")
-        st.markdown("- Alexis de Tocqueville, *La democracia en América* (Aporte: Análisis de los peligros del centralismo y el valor de la libertad civil. Leer: Volumen II, Segunda Parte).")
-
-    elif es_marxista:
-        st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Marxismo y Teoría Crítica")
-        st.markdown("""
-        **1. Explicación reveladora de tu postura (A qué adhiere tu perfil):**  
-        Te sitúas firmemente en la órbita del **Materialismo Histórico y la Teoría Crítica**. Tu visión rechaza que la política o la sociedad sean el resultado de contratos abstractos o naturalezas humanas fijas. Para ti, el ser humano es un producto social moldeado por las condiciones materiales de producción y el trabajo; por ende, la injusticia no es un fallo moral individual, sino una contradicción estructural de las relaciones de clase.
-        
-        **2. Modelamiento de Profundización (Cómo robustecer y llevar al siguiente nivel tus ideas):**  
-        Partiendo de tu premisa materialista, tu ruta de profundización te enfrenta a las siguientes opciones estratégicas:  
-        * *Opción A (Vía Gramsciana / Hegemónica):* Enfocar la transformación en la construcción paciente de un "bloque histórico" y una nueva hegemonía cultural y democrática dentro de las instituciones de la sociedad civil.  
-        * *Opción B (Vía Revolucionaria / Ortodoxa):* Sostener que la superación del capital exige la ruptura frontal con el Estado burgués y la toma centralizada de los resortes de la producción para reorganizar la economía bajo planificación social estricta.
-        
-        **Movimientos y referentes históricos y chilenos:**  
-        * *Movimientos:* Comunismo histórico, sindicalismo revolucionario y de clase.  
-        * *Figuras:* Karl Marx, Antonio Gramsci; en Chile, Luis Emilio Recabarren, Clotario Blest y los ensayos críticos de Luis Corvalán o el pensamiento de la UP.
-        """)
-        st.subheader("📚 Itinerario Bibliográfico Enriquecido (Aporte Temático y Guía de Lectura):")
-        st.markdown("**Fuentes Principales:**")
-        st.markdown("- Karl Marx, *El Capital* (Aporte: Análisis de la plusvalía y la mercancía. Leer: Sección 1, Capítulo 1).")
-        st.markdown("- Karl Marx y Friedrich Engels, *Manifiesto del Partido Comunista* (Aporte: Lucha de clases e itinerario histórico del proletariado. Leer: Capítulo 1: *Burgueses y proletarios*).")
-        st.markdown("**Comentarios y Ensayos Críticos:**")
-        st.markdown("- Antonio Gramsci, *Cuadernos de la cárcel* (Aporte: Hegemonía cultural y bloque histórico. Leer: Antología sobre el Estado y los intelectuales).")
-        st.markdown("- Ernst Mandel, *El pensamiento económico de Karl Marx* (Aporte: Clarificación de las crisis sistémicas y la ley del valor. Leer: Capítulos 1 al 3).")
-
-    elif es_tradicional:
-        st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Tradicionalismo y Geopolítica Soberana")
-        st.markdown("""
-        **1. Explicación reveladora de tu postura (A qué adhiere tu perfil):**  
-        Adhieres de manera consistente al **Realismo Político, el Conservadurismo Orgánico y la Geopolítica de los Grandes Espacios**. Rechazas el individualismo abstracto y el universalismo globalizador. Para ti, el ser humano no nace flotando en el vacío, sino enraizado a una comunidad histórica, a una cultura, a una lengua y a lealtades espirituales o nacionales que debe custodiar frente al caos exterior.
-        
-        **2. Modelamiento de Profundización (Cómo robustecer y llevar al siguiente nivel tus ideas):**  
-        Partiendo de tu concepto de enraizamiento y soberanía, tu profundización te exige definir tu arquitectura geopolítica e institucional:  
-        * *Opción A (Vía Estado-Nación Soberano):* Enfocar la defensa de la identidad nacional fortaleciendo el Estado nacional centralizado, protegiendo las fronteras económicas y apostando al realismo clásico frente a potencias extranjeras.  
-        * *Opción B (Vía Multipolaridad Civilizacional / Cuarta Teoría):* Elevar la mirada hacia un mundo policéntrico de grandes civilizaciones (*Großraum*) que rechazan frontalmente la hegemonía de la modernidad occidental liberal, blindando los valores tradicionales de cada cultura.
-        
-        **Movimientos y referentes históricos y chilenos:**  
-        * *Movimientos:* Soberanismos nacionales, realismo geopolítico.  
-        * *Figuras:* Thomas Hobbes, Carl Schmitt; en Chile, la tradición del realismo geopolítico militar y estamental (ej. Ramón Cañas Montalva y su obra *Geopolítica de Chile*).
-        """)
-        st.subheader("📚 Itinerario Bibliográfico Enriquecido (Aporte Temático y Guía de Lectura):")
-        st.markdown("**Fuentes Principales:**")
-        st.markdown("- Thomas Hobbes, *Leviatán* (Aporte: Necesidad de la soberanía fuerte para evitar el caos. Leer: Capítulos 13, 17 y 18).")
-        st.markdown("- Carl Schmitt, *El concepto de lo político* (Aporte: La distinción amigo/enemigo. Leer: Capítulos 1 al 3).")
-        st.markdown("**Comentarios y Ensayos Críticos:**")
-        st.markdown("- Aleksandr Dugin, *La cuarta teoría política* (Aporte: Crítica al globalismo y defensa del *Großraum*. Leer: Capítulos iniciales).")
-        st.markdown("- Ramón Cañas Montalva, *Geopolítica de Chile* (Aporte: Estrategia territorial y soberanía bioceánica del Estado chileno. Leer: Capítulos sobre espacios vitales y proyección antártica).")
-
-    elif es_libertario:
-        st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Anarcocapitalismo / Libertarismo")
-        st.markdown("""
-        **1. Explicación reveladora de tu postura (A qué adhiere tu perfil):**  
-        Tu perfil se enmarca de forma radical en el **Libertarismo de Mercado y la Autopropiedad**. Operas bajo el axioma moral de que cada ser humano es dueño absoluto de su propio cuerpo y de los frutos de su trabajo. Para ti, cualquier monopolio de coacción institucional (impuestos, regulaciones estatales, bancos centrales) constituye una violación ilegítima de la libertad natural.
-        
-        **2. Modelamiento de Profundización (Cómo robustecer y llevar al siguiente nivel tus ideas):**  
-        Partiendo del axioma de la autopropiedad, tu profundización doctrinal te lleva a elegir entre dos caminos de aplicación:  
-        * *Opción A (La vía anarcocapitalista radical):* Eliminar por completo el Estado y su monopolio de la fuerza, confiando la seguridad, la justicia y la moneda a agencias privadas de libre mercado y contratos voluntarios.  
-        * *Opción B (La vía minarquista / liberal de ley y orden):* Aceptar la necesidad pragmática de un Estado mínimo estrictamente limitado a la defensa nacional, la policía y los tribunales de justicia, prohibiendo toda intervención económica adicional.
-        
-        **Movimientos y referentes:**  
-        * *Movimientos:* Escuela austríaca de economía, movimiento libertario.  
-        * *Figuras:* Murray Rothbard, Ludwig von Mises.
-        """)
-        st.subheader("📚 Itinerario Bibliográfico Enriquecido (Aporte Temático y Guía de Lectura):")
-        st.markdown("**Fuentes Principales:**")
-        st.markdown("- Murray Rothbard, *Ética de la libertad* (Aporte: Fundamentación de los derechos naturales libertarios. Leer: Parte I: Ley natural).")
-        st.markdown("- Ludwig von Mises, *La acción humana* (Aporte: Tratado metodológico de la praxeología y el mercado libre. Leer: Capítulos 1 al 3).")
-        st.markdown("**Comentarios y Ensayos Críticos:**")
-        st.markdown("- Jesús Huerta de Soto, *Socialismo, cálculo económico y función empresarial* (Aporte: Imposibilidad del socialismo y defensa de la función empresarial libre. Leer: Capítulos 1 y 2).")
-
-    elif es_anarquista:
-        st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Anarquismo Clásico")
-        st.markdown("""
-        **1. Explicación reveladora de tu postura (A qué adhiere tu perfil):**  
-        Adhieres sin ambages a las premisas del **Anarquismo Autonomista y Ácrata**. Tu edificio intelectual sostiene que la libertad humana y la dominación jerárquica (estatal, capitalista o religiosa) son absolutamente incompatibles. Rechazas la idea de que el orden requiera de mandos verticales, apostando por la capacidad innata de la sociedad para organizarse horizontalmente.
-        
-        **2. Modelamiento de Profundización (Cómo robustecer y llevar al siguiente nivel tus ideas):**  
-        Partiendo del rechazo a la autoridad coactiva, tu profundización exige definir los mecanismos de integración social:  
-        * *Opción A (Vía Anarcosindicalista):* Organizar la producción y la vida económica mediante sindicatos de trabajadores autogestionados y federados que suplanten al capital y al Estado.  
-        * *Opción B (Vía Comunalista / Ayuda Mutua):* Apostar por el municipalismo libertario y redes de comunas autónomas basadas en la cooperación ecológica y el apoyo mutuo vecinal.
-        
-        **Movimientos y referentes históricos y chilenos:**  
-        * *Movimientos:* Anarcosindicalismo de principios del siglo XX en Chile, comunas autónomas.  
-        * *Figuras:* Piotr Kropotkin, Mijaíl Bakunin; en Chile, los precursores de la prensa obrera y mutualista ácrata.
-        """)
-        st.subheader("📚 Itinerario Bibliográfico Enriquecido (Aporte Temático y Guía de Lectura):")
-        st.markdown("**Fuentes Principales:**")
-        st.markdown("- Piotr Kropotkin, *La ayuda mutua* (Aporte: Factor evolutivo de la cooperación social sin estado. Leer: Introducción y Conclusión).")
-        st.markdown("- Mijaíl Bakunin, *Dios y el Estado* (Aporte: Crítica radical a la autoridad teológica y política. Leer: Texto completo fragmentado).")
-        st.markdown("**Comentarios y Ensayos Críticos:**")
-        st.markdown("- Daniel Guérin, *El anarquismo* (Aporte: Síntesis histórica de la praxis ácrata. Leer: Capítulos introductorios).")
-        st.markdown("- Colin Ward, *Anarchy in Action* (Aporte: Ejemplos prácticos de autoorganización cotidiana sin estado. Leer: Capítulos 1 al 3).")
-
-    elif es_comunitario:
-        st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Ontología Comunitaria y del Buen Vivir")
-        st.markdown("""
-        **1. Explicación reveladora de tu postura (A qué adhiere tu perfil):**  
-        Te alineas de manera íntegra con la **Ontología Comunitaria, el Indigenismo y el Buen Vivir (Sumak Kawsay)**. Rechazas la visión del ser humano como un átomo aislado del mercado. Para ti, la persona es un nodo inalienable de un tejido vivo que incluye a la comunidad humana, los antepasados y el territorio natural.
-        
-        **2. Modelamiento de Profundización (Cómo robustecer y llevar al siguiente nivel tus ideas):**  
-        Partiendo de la matriz comunitaria y territorial, tu profundización se bifurca en:  
-        * *Opción A (Vía Autonomía Territorial y Comunal):* Consolidar el autogobierno local, la justicia comunitaria y la propiedad colectiva de la tierra frente al extractivismo global.  
-        * *Opción B (Vía Socialismo Comunitario / Indoamericano):* Articular las comunidades originarias con un proyecto político estatal plurinacional que transforme las estructuras de dominación económica a escala nacional.
-        
-        **Movimientos y referentes históricos y latinoamericanos:**  
-        * *Movimientos:* Zapatismo, movimientos originarios andinos.  
-        * *Figuras:* José Carlos Mariátegui, Alberto Acosta, teóricos del Sumak Kawsay.
-        """)
-        st.subheader("📚 Itinerario Bibliográfico Enriquecido (Aporte Temático y Guía de Lectura):")
-        st.markdown("**Fuentes Principales:**")
-        st.markdown("- José Carlos Mariátegui, *7 ensayos de interpretación de la realidad peruana* (Aporte: El problema del indio y la raíz comunitaria agraria. Leer: Ensayo sobre el problema agrario).")
-        st.markdown("**Comentarios y Ensayos Críticos:**")
-        st.markdown("- Alberto Acosta, *El buen vivir: Sumak Kawsay* (Aporte: Alternativas al desarrollo capitalista desde la cosmovisión comunitaria. Leer: Capítulos 1 y 2).")
-        st.markdown("- Álvaro García Linera, *Forma valor y forma comunidad* (Aporte: Articulación entre la teoría del valor de Marx y las comunidades indígenas andinas. Leer: Introducción).")
-
-    else:
+    # --- DIAGNÓSTICO FINAL ---
+    if not es_coherente:
         st.warning("⚠️ Diagnóstico: Perfil Híbrido / En Cruzamiento Doctrinal")
         st.markdown("""
         **1. Precisión de las vertientes en juego:**  
-        Tus respuestas combinan elementos de diversas tradiciones intelectuales sin encasillarte en un solo bloque doctrinal, cruzando miradas del liberalismo, el socialismo, el comunitarismo o el realismo.
+        Tus respuestas combinan elementos de diversas tradiciones intelectuales sin un dominio absoluto de un solo bloque, cruzando premisas que provienen de distintas familias doctrinales.
         
         **2. Análisis Crítico y Graduación de Tensiones:**  
-        Este cuadro plural es propio de una etapa de exploración teórica abierta. Sin embargo, en el rigor de la ciencia política, la ausencia de un anclaje deductivo estricto desde tu **Concepto de Ser Humano** hacia el Estado y la economía genera cortocircuitos doctrinales en la práctica. Lo que suele vivirse como pragmatismo, desde la teoría pura implica aceptar premisas ontológicas que se neutralizan mutuamente.
+        * *Lo complementario:* En la acción política pragmática, es habitual tomar herramientas de distintas tradiciones para resolver problemas coyunturales.
+        * *Lo irreconciliable (La ambigüedad teórica):* A nivel de la arquitectura conceptual, este cruce genera un cortocircuito. Estás aceptando simultáneamente premisas que se neutralizan entre sí.
         
         **3. Modelamiento Metacognitivo (Cómo reestructurar tu postura):**  
-        Para ordenar y dar consistencia a tu pensamiento, parte estrictamente del **Paso 1 (Concepto de Ser Humano)**: define qué principio tiene mayor peso ontológico irrenunciable para ti (el individuo autónomo y soberano, el trabajador social transformador, o el miembro enraizado de una comunidad histórica). Una vez fijado ese "supuesto necesario", observa obligatoriamente cómo las demás capas del esquema (sociedad, estado, economía y proyecto histórico) deben subordinarse de forma lógica a esa raíz fundante para superar la ambigüedad.
+        Para ordenar y dar consistencia lógica a tu pensamiento, debes volver al **Bloque 1 (Ser Humano)** y decidir cuál de tus elecciones ejerce el "supuesto necesario" que funda tu doctrina:  
+        * *Opción A (Girar hacia el Eje Individualista / Contractual):* Alinear las capas siguientes hacia el mercado y el pacto legal neutral.  
+        * *Opción B (Girar hacia el Eje Colectivo / Comunitario u Orgánico):* Subordinar la economía a la planificación o a la reciprocidad comunitaria.
         
         **Movimientos y referentes históricos y chilenos de referencia transversal:**  
         * *Corrientes:* Pensamiento institucionalista, reformismo democrático.  
@@ -713,7 +218,107 @@ if submitted:
         st.markdown("- Norberto Bobbio, *Derecha e izquierda* (Aporte: Criterios analíticos para clasificar las familias políticas. Leer: Capítulos 1 al 3).")
         st.markdown("**Comentarios y Ensayos Críticos:**")
         st.markdown("- Michael Sandel, *El descontento con la democracia* (Aporte: Crítica al liberalismo procedimental y rescate comunitarista. Leer: Introducción).")
-        st.markdown("- Chantal Mouffe, *En torno a lo político* (Aporte: La dimensión agonística de la política. Leer: Capítulos 1 y 2).")
-        st.markdown("- Isaiah Berlin, *Cuatro ensayos sobre la libertad* (Aporte: Distinción fundamental entre libertad negativa y positiva. Leer: Ensayo sobre los dos conceptos de libertad).")
+
+    elif max_vertiente == "liberal":
+        st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Liberalismo Clásico")
+        st.markdown("""
+        **1. Explicación reveladora de tu postura (A qué adhiere tu perfil):**  
+        Tus respuestas revelan una adhesión profunda a la **Tradición Liberal Clásica**. Operas bajo la convicción de que el individuo precede a la sociedad. Para ti, la convivencia política garantiza un marco neutral de leyes donde cada quien persigue su propia felicidad.
+        
+        **2. Modelamiento de Profundización (Cómo robustecer y llevar al siguiente nivel tus ideas):**  
+        * *Opción A (Liberalismo Social / Reformista):* Asumir que la libertad formal requiere garantías materiales básicas proporcionadas por el Estado mediante impuestos moderados.  
+        * *Opción B (Liberalismo Mínimo / Ortodoxo):* Endurecer el principio de no agresión fiscal, apostando por un Estado estrictamente limitado a la seguridad y la justicia.
+        
+        **Movimientos y referentes históricos y chilenos:**  
+        * *Movimientos:* Liberalismo político, reformismo republicano.  
+        * *Figuras:* John Locke, Adam Smith; en Chile: José Victorino Lastarria.
+        """)
+        st.subheader("📚 Itinerario Bibliográfico Enriquecido:")
+        st.markdown("- John Locke, *Segundo tratado sobre el gobierno civil* (Aporte: Contrato social y propiedad. Leer: Capítulos 2, 5 y 8).")
+        st.markdown("- Adam Smith, *La riqueza de las naciones* (Aporte: Mercado y división del trabajo. Leer: Capítulos 1 al 3).")
+        st.markdown("- Friedrich Hayek, *Los fundamentos de la libertad* (Aporte: Orden espontáneo de mercado. Leer: Capítulos 1 al 4).")
+
+    elif max_vertiente == "marxista":
+        st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Marxismo y Teoría Crítica")
+        st.markdown("""
+        **1. Explicación reveladora de tu postura (A qué adhiere tu perfil):**  
+        Te sitúas firmemente en la órbita del **Materialismo Histórico y la Teoría Crítica**. Para ti, el ser humano es un producto social moldeado por las condiciones materiales y el trabajo; la injusticia es una contradicción estructural de las relaciones de clase.
+        
+        **2. Modelamiento de Profundización (Cómo robustecer y llevar al siguiente nivel tus ideas):**  
+        * *Opción A (Vía Gramsciana / Hegemónica):* Construcción paciente de un bloque histórico y hegemonía cultural en la sociedad civil.  
+        * *Opción B (Vía Revolucionaria / Ortodoxa):* Ruptura frontal con el Estado burgués y planificación social centralizada de la economía.
+        
+        **Movimientos y referentes históricos y chilenos:**  
+        * *Movimientos:* Comunismo histórico, sindicalismo de clase.  
+        * *Figuras:* Karl Marx, Antonio Gramsci; en Chile: Luis Emilio Recabarren y Clotario Blest.
+        """)
+        st.subheader("📚 Itinerario Bibliográfico Enriquecido:")
+        st.markdown("- Karl Marx, *El Capital* (Aporte: Análisis de la plusvalía y la mercancía. Leer: Sección 1, Capítulo 1).")
+        st.markdown("- Antonio Gramsci, *Cuadernos de la cárcel* (Aporte: Hegemonía cultural y bloque histórico. Leer: Antología sobre el Estado).")
+
+    elif max_vertiente == "tradicional":
+        st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Tradicionalismo y Geopolítica Soberana")
+        st.markdown("""
+        **1. Explicación reveladora de tu postura (A qué adhiere tu perfil):**  
+        Adhieres al **Realismo Político y Conservadurismo Orgánico**. El ser humano está enraizado a una comunidad histórica, cultura y lealtades espirituales o nacionales que debe custodiar frente al caos exterior.
+        
+        **2. Modelamiento de Profundización:**  
+        * *Opción A (Vía Estado-Nación Soberano):* Fortalecimiento del Estado nacional centralizado y protección de fronteras económicas.  
+        * *Opción B (Vía Multipolaridad Civilizacional):* Mundo policéntrico de grandes civilizaciones (*Großraum*) frente al globalismo.
+        
+        **Movimientos y referentes:**  
+        * *Figuras:* Thomas Hobbes, Carl Schmitt; en Chile: Ramón Cañas Montalva.
+        """)
+        st.subheader("📚 Itinerario Bibliográfico Enriquecido:")
+        st.markdown("- Thomas Hobbes, *Leviatán* (Aporte: Soberanía fuerte para evitar el caos. Leer: Capítulos 13, 17 y 18).")
+        st.markdown("- Carl Schmitt, *El concepto de lo político* (Aporte: La distinción amigo/enemigo. Leer: Capítulos 1 al 3).")
+
+    elif max_vertiente == "libertario":
+        st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Anarcocapitalismo / Libertarismo")
+        st.markdown("""
+        **1. Explicación reveladora de tu postura:**  
+        Tu perfil se enmarca en el **Libertarismo de Mercado y la Autopropiedad**. Todo individuo es dueño absoluto de su cuerpo y trabajo; cualquier monopolio coactivo estatal es ilegítimo.
+        
+        **2. Modelamiento de Profundización:**  
+        * *Opción A (Anarcocapitalismo radical):* Eliminar el Estado y confiar la seguridad y moneda al mercado libre.  
+        * *Opción B (Minarquismo):* Estado mínimo limitado a la seguridad y tribunales.
+        
+        **Movimientos y referentes:**  
+        * *Figuras:* Murray Rothbard, Ludwig von Mises.
+        """)
+        st.subheader("📚 Itinerario Bibliográfico Enriquecido:")
+        st.markdown("- Murray Rothbard, *Ética de la libertad* (Aporte: Derechos naturales libertarios. Leer: Parte I).")
+
+    elif max_vertiente == "anarquista":
+        st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Anarquismo Clásico")
+        st.markdown("""
+        **1. Explicación reveladora de tu postura:**  
+        Adhieres al **Anarquismo Autonomista**. La libertad humana y la dominación jerárquica son incompatibles; el orden surge de la cooperación voluntaria y la ayuda mutua.
+        
+        **2. Modelamiento de Profundización:**  
+        * *Opción A (Anarcosindicalismo):* Producción económica mediante sindicatos autogestionados.  
+        * *Opción B (Comunalismo):* Municipalismo libertario y redes de comunas autónomas.
+        
+        **Movimientos y referentes:**  
+        * *Figuras:* Piotr Kropotkin, Mijaíl Bakunin.
+        """)
+        st.subheader("📚 Itinerario Bibliográfico Enriquecido:")
+        st.markdown("- Piotr Kropotkin, *La ayuda mutua* (Aporte: Cooperación sin estado. Leer: Introducción y Conclusión).")
+
+    elif max_vertiente == "comunitario":
+        st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Ontología Comunitaria y del Buen Vivir")
+        st.markdown("""
+        **1. Explicación reveladora de tu postura:**  
+        Te alineas con la **Ontología Comunitaria y el Buen Vivir**. La persona es un nodo inalienable de un tejido vivo que incluye a la comunidad y al territorio.
+        
+        **2. Modelamiento de Profundización:**  
+        * *Opción A (Autonomía Territorial):* Autogobierno local y propiedad colectiva frente al extractivismo.  
+        * *Opción B (Socialismo Comunitario):* Proyecto estatal plurinacional.
+        
+        **Movimientos y referentes:**  
+        * *Figuras:* José Carlos Mariátegui, Alberto Acosta.
+        """)
+        st.subheader("📚 Itinerario Bibliográfico Enriquecido:")
+        st.markdown("- José Carlos Mariátegui, *7 ensayos de interpretación de la realidad peruana* (Aporte: Raíz comunitaria agraria).")
 
     st.balloons()
