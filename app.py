@@ -6,7 +6,7 @@ st.title("🏛️ Simulador de Arqueología Antropológica Política")
 st.markdown("---")
 st.write("""
 **Bienvenido al ejercicio de arqueología conceptual.** Inspirado en el flujo deductivo del pensamiento político, este simulador parte de tu **concepto de ser humano** para descender por las capas de la sociedad, el estado, la economía y el proyecto histórico. 
-Tómate tu tiempo. Al finalizar, obtendrás una radiografía tabular, un diagnóstico de coherencia y una guía de modelamiento intelectual.
+Tómate tu tiempo. Al finalizar, obtendrás una radiografía tabular, un diagnóstico crítico de tensiones y un riguroso modelamiento metacognitivo.
 """)
 
 # --- FORMULARIO DE DECISIONES SECUENCIALES (6 PASOS) ---
@@ -53,7 +53,7 @@ with st.form("formulario_arqueologia"):
     nacion = st.radio(
         "Selecciona tu premisa sobre la nación:",
         [
-            "Una asociación de ciudadanos bajo el imperio de la ley, abierta e integradora sin importar losorkígenes.",
+            "Una asociación de ciudadanos bajo el imperio de la ley, abierta e integradora sin importar orígenes.",
             "Una comunidad de destino histórico, cultural o identitario que debe defender su soberanía y tradiciones.",
             "Una construcción artificial que divide a la clase trabajadora; la verdadera lealtad es internacional.",
             "Un orden político innecesario; la pertenencia se basa en comunas libres o asociaciones voluntarias.",
@@ -120,7 +120,6 @@ if submitted:
     st.markdown("---")
     st.header("📊 Radiografía Tabular de tu Edificio Conceptual")
 
-    # Mostrar las respuestas en formato de tabla clara
     import pandas as pd
     tabla_resumen = pd.DataFrame({
         "Dimensión del Esquema": [
@@ -138,9 +137,9 @@ if submitted:
     st.table(tabla_resumen)
 
     st.markdown("---")
-    st.header("🔍 Diagnóstico Crítico y Cruce de Vertientes")
+    st.header("🔍 Diagnóstico Crítico y Modelamiento Metacognitivo")
 
-    # Detección de perfiles principales y cruces híbridos
+    # Detección de perfiles puros
     es_liberal = ("individuo autónomo" in ser_humano) and ("pacto o acuerdo" in sociedad or "propiedad privada garantizada" in economia)
     es_marxista = ("ser social e histórico" in ser_humano or "conflicto permanente" in sociedad) and ("propiedad social" in economia)
     es_tradicional = ("profundamente enraizado" in ser_humano or "comunidad orgánica" in sociedad) and ("custodio soberano" in estado or "grandes bloques" in proyecto)
@@ -148,31 +147,33 @@ if submitted:
     es_anarquista = ("espíritu libre y soberano" in ser_humano or "cooperación libre" in sociedad) and ("estructura ilegítima" in estado)
     es_comunitario = ("eslabón inseparable de la tierra" in ser_humano) and ("reciprocidad" in economia)
 
-    # Detección de tensiones específicas (mezclas de vertientes)
+    # Detecciones de tensiones específicas (Cruces de vertientes)
     tension_tradicional_liberal = ("enraizado" in ser_humano or "comunidad orgánica" in sociedad) and ("propiedad privada garantizada" in economia or "libre mercado" in economia)
     tension_libertario_estatista = ("dueño absoluto" in ser_humano) and ("economía mixta" in economia or "Estado" in estado)
+    tension_socialdemocrata_radical = ("individuo autónomo" in ser_humano) and ("planificación" in economia or "propiedad social" in economia)
 
-    # --- CASO A: PERFIL HÍBRIDO / TENSIONADO (CON PRECISIÓN DE VERTIENTES) ---
+    # --- CASO A: TENSIONES ESPECÍFICAS (PERFILES HÍBRIDOS / MIXTOS) ---
     if tension_tradicional_liberal:
-        st.warning("⚠️ Diagnóstico: Perfil Híbrido en Tensión Teórica")
+        st.warning("⚠️ Diagnóstico: Perfil Híbrido — Cruce entre Tradicionalismo Orgánico y Liberalismo de Mercado")
         st.markdown("""
-        **Precisión del cruce ideológico:**  
-        Estás cruzando y mezclando el **Tradicionalismo / Conservadurismo Orgánico** (en tu concepto de ser humano y sociedad) con el **Liberalismo Clásico / Capitalismo de Mercado** (en tu modelo económico).
+        **1. Precisión de las vertientes en colisión:**  
+        Estás mezclando los fundamentos del **Conservadurismo Orgánico / Tradicionalismo** (en tus pasos 1 y 2 sobre el ser humano y la comunidad) con las premisas del **Liberalismo Clásico y Capitalismo de Mercado** (en tu paso 5 sobre la economía).
         
-        **Análisis Crítico y Metacognición:**  
-        Esta mezcla es sumamente común en la política contemporánea, pero teológicamente e históricamente genera una contradicción profunda. Estás intentando proteger los lazos comunitarios, la familia y la tradición (valores caros al tradicionalismo), pero adoptas un motor económico (el libre mercado absoluto) que funciona como un solvente universal de las tradiciones, mercantilizando las relaciones humanas y desraizando los vínculos comunitarios.
+        **2. Graduación de la tensión (Qué entra en contradicción vs. qué puede ser complementario):**  
+        * *Lo complementario:* En la superficie política práctica, ambas corrientes suelen aliarse tácticamente frente a proyectos colectivistas o estatistas radicales en nombre de la libertad y el orden institucional.
+        * *Lo irreconciliable (La contradicción profunda):* A nivel ontológico e histórico, chocan de forma violenta. El capitalismo de mercado opera como un motor de desintegración social que mercantiliza la vida, disuelve las lealtades familiares, erosiona las tradiciones locales y desarraiga a las comunidades. Pretender defender el enraizamiento orgánico mediante los mecanismos de un mercado absoluto es teóricamente contradictorio.
         
-        **Modelamiento recomendado para aclarar tu postura:**  
-        Para resolver esta incoherencia y definir qué tiene más peso para ti, debes volver al **Concepto de Ser Humano**:  
-        * *Si decides que lo primordial es el individuo propietario y maximizador:* Debes aceptar que las tradiciones secundan al mercado y ceden ante él.  
-        * *Si decides que lo primordial es la comunidad enraizada y el orden orgánico:* Debes subordinar la economía de mercado al bien común y a la moral tradicional (mirando hacia el distributismo o el corporativismo social).
+        **3. Modelamiento Metacognitivo (Cómo reestructurar tu postura desde el Concepto de Ser Humano):**  
+        Para resolver esta tensión y dar consistencia a tu edificio político, debes volver obligatoriamente al **Paso 1 (Concepto de Ser Humano)** y preguntarte qué valor tiene el peso fundante para ti:  
+        * **Opción A (Girar hacia el Liberalismo):** Si concluyes que el individuo autónomo y maximizador es lo primario, debes aceptar que las tradiciones y los vínculos comunitarios son secundarios y deben subordinarse a las leyes del libre mercado.  
+        * **Opción B (Girar hacia el Tradicionalismo/Comunitarismo):** Si concluyes que el ser humano enraizado y la comunidad orgánica son lo primario, debes subordinar la economía al bien común moral, limitando o regulando el mercado desregulado (mirando hacia doctrinas como el distributismo o el corporativismo social).
         
-        **Movimientos y personajes históricos que han intentado articular (o debatir) este cruce:**
-        * *Corrientes:* El distributismo, la democracia cristiana de base social, el conservadurismo popular.
-        * *Figuras:* Wilhelm Röpke, G.K. Chesterton.
+        **Movimientos y personajes históricos que han intentado abordar este cruce:**  
+        * *Corrientes:* El distributismo, la democracia cristiana de base social, el conservadurismo popular de posguerra.  
+        * *Figuras:* Wilhelm Röpke, G.K. Chesterton, Konrad Adenauer.
         """)
         
-        st.subheader("📚 Itinerario Bibliográfico:")
+        st.subheader("📚 Itinerario Bibliográfico Riguroso:")
         st.markdown("**Fuentes Principales (Autores Clásicos):**")
         st.markdown("- Karl Polanyi, *La gran transformación*")
         st.markdown("- G.K. Chesterton, *Esbozo de la cordura*")
@@ -181,19 +182,20 @@ if submitted:
         st.markdown("- Michael Sandel, *Lo que el dinero no puede comprar*")
 
     elif tension_libertario_estatista:
-        st.warning("⚠️ Diagnóstico: Perfil Híbrido en Tensión Teórica")
+        st.warning("⚠️ Diagnóstico: Perfil Híbrido — Cruce entre Libertarismo Radical y Estatismo / Reformismo")
         st.markdown("""
-        **Precisión del cruce ideológico:**  
-        Estás cruzando el **Libertarismo Radical / Autopropiedad** con elementos de intervención estatal o institucionalidad reguladora.
+        **1. Precisión de las vertientes en colisión:**  
+        Estás combinando el **Anarcocapitalismo / Libertarismo Radical** (en tu concepto de autopropiedad absoluta) con elementos del **Estatismo Regulador o la Economía Mixta** (en tus opciones sobre estado o economía).
         
-        **Análisis Crítico y Metacognición:**  
-        Sostienes que el individuo es dueño absoluto de sí mismo y rechazas la coacción, pero al mismo tiempo dejas espacio para regulaciones o estructuras estatales. Para el libertarismo estricto, cualquier grado de coacción estatal anula el axioma de la autopropiedad.
+        **2. Graduación de la tensión:**  
+        * *Lo complementario:* Ambas posturas valoran la vigencia formal del orden legal y la estabilidad institucional frente al caos.
+        * *Lo irreconciliable:* Para el libertarismo estricto, el Estado es una agencia ilegítima de agresión basada en el monopolio de la coacción y los impuestos. Tolerar intervenciones estatales o regulaciones anula el axioma moral de la autopropiedad.
         
-        **Modelamiento recomendado para aclarar tu postura:**  
-        Vuelve a tu **Concepto de Ser Humano**: decide si la soberanía personal es intransigente (lo que te obligaría a rechazar todo impuesto y regulador estatal) o si aceptas un arbitraje estatal mínimo por pragmatismo social.
+        **3. Modelamiento Metacognitivo:**  
+        Vuelve al **Concepto de Ser Humano**: define si la soberanía individual es absoluta e intransigente (lo que exige rechazar cualquier forma de coerción estatal) o si adoptas un pragmatismo liberal reformista que acepta un Estado mínimo regulador.
         """)
         
-        st.subheader("📚 Itinerario Bibliográfico:")
+        st.subheader("📚 Itinerario Bibliográfico Riguroso:")
         st.markdown("**Fuentes Principales:**")
         st.markdown("- Murray Rothbard, *Ética de la libertad*")
         st.markdown("**Comentarios y Ensayos Críticos:**")
@@ -205,14 +207,14 @@ if submitted:
         st.markdown("""
         **Ideas Fundantes y Modelamiento Coherente:**  
         Tu edificio conceptual es plenamente consistente con el **Liberalismo Clásico**. 
-        * *Concepto de ser humano:* Agente racional, autónomo y titular de derechos.
-        * *Deducción doctrinal:* Sociedad contractual, Estado neutral garante de leyes y economía de libre mercado global.
+        * *Concepto de ser humano:* Agente racional, autónomo y titular de derechos inalienables.
+        * *Deducción doctrinal:* Sociedad contractual, Estado neutral garante de leyes y economía de libre mercado.
         
         **Movimientos y figuras históricas:**  
         * *Movimientos:* Liberalismo decimonónico, reformismo republicano.
         * *Personajes:* John Locke, Adam Smith, Alexis de Tocqueville.
         """)
-        st.subheader("📚 Itinerario Bibliográfico:")
+        st.subheader("📚 Itinerario Bibliográfico Riguroso:")
         st.markdown("**Fuentes Principales:**")
         st.markdown("- John Locke, *Segundo tratado sobre el gobierno civil*")
         st.markdown("- Adam Smith, *La riqueza de las naciones*")
@@ -231,7 +233,7 @@ if submitted:
         * *Movimientos:* Comunismo histórico, sindicalismo revolucionario.
         * *Personajes:* Karl Marx, Vladimir Lenin, Antonio Gramsci.
         """)
-        st.subheader("📚 Itinerario Bibliográfico:")
+        st.subheader("📚 Itinerario Bibliográfico Riguroso:")
         st.markdown("**Fuentes Principales:**")
         st.markdown("- Karl Marx, *El Capital*")
         st.markdown("**Comentarios y Ensayos Críticos:**")
@@ -249,7 +251,7 @@ if submitted:
         * *Movimientos:* Soberanismos nacionales, tradicionalismo político.
         * *Personajes:* Thomas Hobbes, Carl Schmitt, Charles de Gaulle.
         """)
-        st.subheader("📚 Itinerario Bibliográfico:")
+        st.subheader("📚 Itinerario Bibliográfico Riguroso:")
         st.markdown("**Fuentes Principales:**")
         st.markdown("- Thomas Hobbes, *Leviatán*")
         st.markdown("- Carl Schmitt, *El concepto de lo político*")
@@ -268,7 +270,7 @@ if submitted:
         * *Movimientos:* Movimiento libertario austríaco.
         * *Personajes:* Murray Rothbard, Ludwig von Mises.
         """)
-        st.subheader("📚 Itinerario Bibliográfico:")
+        st.subheader("📚 Itinerario Bibliográfico Riguroso:")
         st.markdown("**Fuentes Principales:**")
         st.markdown("- Murray Rothbard, *Ética de la libertad*")
         st.markdown("**Comentarios y Ensayos Críticos:**")
@@ -286,7 +288,7 @@ if submitted:
         * *Movimientos:* Anarcosindicalismo, comunas autónomas.
         * *Personajes:* Piotr Kropotkin, Mijaíl Bakunin.
         """)
-        st.subheader("📚 Itinerario Bibliográfico:")
+        st.subheader("📚 Itinerario Bibliográfico Riguroso:")
         st.markdown("**Fuentes Principales:**")
         st.markdown("- Piotr Kropotkin, *La ayuda mutua*")
         st.markdown("**Comentarios y Ensayos Críticos:**")
@@ -304,22 +306,30 @@ if submitted:
         * *Movimientos:* Movimientos indígenas de los Andes, zapatismo.
         * *Personajes:* José Carlos Mariátegui, líderes comunitarios del Buen Vivir.
         """)
-        st.subheader("📚 Itinerario Bibliográfico:")
+        st.subheader("📚 Itinerario Bibliográfico Riguroso:")
         st.markdown("**Fuentes Principales:**")
         st.markdown("- José Carlos Mariátegui, *7 ensayos de interpretación de la realidad peruana*")
         st.markdown("**Comentarios y Ensayos Críticos:**")
         st.markdown("- Álvaro García Linera, *Forma valor y forma comunidad*")
 
     else:
-        st.info("ℹ️ Diagnóstico: Perfil Ecléctico en Exploración")
+        st.info("ℹ️ Diagnóstico: Perfil Ecléctico / En Exploración Conceptual")
         st.markdown("""
-        **Análisis Crítico y Metacognición:**  
-        Tus respuestas combinan múltiples tradiciones sin anclarse rígidamente en un solo bloque. Para clarificar tu postura, te invitamos a modelar tu pensamiento partiendo de tu **concepto de ser humano** y observando cómo fluyen las demás capas.
+        **1. Precisión de las vertientes en juego:**  
+        Tus respuestas combinan múltiples tradiciones sin encasillarse en una estructura cerrada, cruzando elementos de diversas escuelas sobre la naturaleza del poder, la sociedad y la economía.
+        
+        **2. Análisis Crítico y Graduación de Tensiones:**  
+        Este eclecticismo refleja una mente en plena exploración teórica. Sin embargo, al no anclar claramente las capas inferiores (sociedad y estado) al supuesto necesario inicial (tu **Concepto de Ser Humano**), el edificio corre el riesgo de volverse incoherente en la práctica política.
+        
+        **3. Modelamiento Metacognitivo:**  
+        Para ordenar tu pensamiento, modela tu postura partiendo estrictamente del **Paso 1 (Concepto de Ser Humano)**: define qué principio tiene mayor peso ontológico para ti (el individuo soberano, el trabajador social o el miembro enraizado de una comunidad) y observa cómo las demás capas del esquema deben subordinarse lógicamente a esa elección fundante.
         """)
-        st.subheader("📚 Itinerario Bibliográfico:")
-        st.markdown("**Fuentes Principales:**")
+        st.subheader("📚 Itinerario Bibliográfico Riguroso:")
+        st.markdown("**Fuentes Principales (Autores Clásicos):**")
         st.markdown("- Norberto Bobbio, *Derecha e izquierda*")
+        st.markdown("- Isaiah Berlin, *Cuatro ensayos sobre la libertad*")
         st.markdown("**Comentarios y Ensayos Críticos:**")
         st.markdown("- Michael Sandel, *El descontento con la democracia*")
+        st.markdown("- Chantal Mouffe, *En torno a lo político*")
 
     st.balloons()
