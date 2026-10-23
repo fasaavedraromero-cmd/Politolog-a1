@@ -10,7 +10,7 @@ st.write("""
 Tómate tu tiempo en cada dilema. Al finalizar, obtendrás una radiografía tabular, un diagnóstico crítico de tensiones y un riguroso modelamiento metacognitivo guiado por fuentes clásicas y pensadores de nuestra tradición hispanoamericana y chilena.
 """)
 
-# --- FORMULARIO DE DECISIONES SECUENCIALES (6 BLOQUES / 12 MICRO-PREGUNTAS - OPCIONES ALEATORIZADAS) ---
+# --- FORMULARIO DE DECISIONES SECUENCIALES (6 BLOQUES / 12 MICRO-PREGUNTAS - VISUALMENTE LIMPIO) ---
 with st.form("formulario_arqueologia"):
     
     # BLOQUE 1: EL CONCEPTO DE SER HUMANO
@@ -18,18 +18,18 @@ with st.form("formulario_arqueologia"):
     
     st.markdown("*1. Motor de la acción: ¿Qué impulsa fundamentalmente al ser humano en su vida en común?*")
     p1 = st.radio("Selecciona una opción:", [
-        "C) El sentido de pertenencia a una comunidad orgánica, la familia y la tradición.",
-        "A) La búsqueda racional de su propio interés y beneficio particular.",
-        "D) El impulso irrenunciable hacia la soberanía absoluta de su propio cuerpo y voluntad.",
-        "B) La necesidad material y su transformación a través del trabajo colectivo."
+        "El sentido de pertenencia a una comunidad orgánica, la familia y la tradición.",
+        "La búsqueda racional de su propio interés y beneficio particular.",
+        "El impulso irrenunciable hacia la soberanía absoluta de su propio cuerpo y voluntad.",
+        "La necesidad material y su transformación a través del trabajo colectivo."
     ], key="p1_choice")
 
     st.markdown("*2. Naturaleza y devenir: ¿Cómo consideras la condición fundamental de las personas?*")
     p2 = st.radio("Selecciona una opción:", [
-        "B) Un sujeto histórico cuya conciencia cambia según las condiciones materiales.",
-        "D) Un espíritu libre que rechaza de raíz toda imposición moral o legal externa.",
-        "A) Un individuo cuyos derechos y autonomía preceden a cualquier sociedad.",
-        "C) Un heredero de tradiciones e instituciones que lo trascienden históricamente."
+        "Un sujeto histórico cuya conciencia cambia según las condiciones materiales.",
+        "Un espíritu libre que rechaza de raíz toda imposición moral o legal externa.",
+        "Un individuo cuyos derechos y autonomía preceden a cualquier sociedad.",
+        "Un heredero de tradiciones e instituciones que lo trascienden históricamente."
     ], key="p2_choice")
 
     st.markdown("---")
@@ -39,18 +39,18 @@ with st.form("formulario_arqueologia"):
     
     st.markdown("*3. Origen del lazo: ¿Cómo se constituye fundamentalmente la sociedad?*")
     p3 = st.radio("Selecciona una opción:", [
-        "D) Mediante la cooperación libre y espontánea, sin coacción institucional.",
-        "B) Mediante un conflicto estructural e histórico entre clases sociales.",
-        "A) Mediante un contrato voluntario entre ciudadanos para proteger intereses.",
-        "C) Mediante lazos históricos, culturales y espirituales preexistentes."
+        "Mediante la cooperación libre y espontánea, sin coacción institucional.",
+        "Mediante un conflicto estructural e histórico entre clases sociales.",
+        "Mediante un contrato voluntario entre ciudadanos para proteger intereses.",
+        "Mediante lazos históricos, culturales y espirituales preexistentes."
     ], key="p3_choice")
 
     st.markdown("*4. Regla de convivencia: ¿Qué debe regular la vida en común?*")
     p4 = st.radio("Selecciona una opción:", [
-        "C) La fidelidad a los valores compartidos, las costumbres y la autoridad tradicional.",
-        "A) El imperio de la ley impersonal, los contratos y la neutralidad institucional.",
-        "D) La autonomía absoluta de cada asociación voluntaria o comuna libre.",
-        "B) La superación de las contradicciones de clase mediante la acción colectiva."
+        "La fidelidad a los valores compartidos, las costumbres y la autoridad tradicional.",
+        "El imperio de la ley impersonal, los contratos y la neutralidad institucional.",
+        "La autonomía absoluta de cada asociación voluntaria o comuna libre.",
+        "La superación de las contradicciones de clase mediante la acción colectiva."
     ], key="p4_choice")
 
     st.markdown("---")
@@ -60,18 +60,18 @@ with st.form("formulario_arqueologia"):
     
     st.markdown("*5. Fundamento de pertenencia: ¿Qué define la identidad colectiva o la pertenencia?*")
     p5 = st.radio("Selecciona una opción:", [
-        "B) Una comunidad de destino histórico, cultural y lingüístico soberano.",
-        "D) El arraigo profundo a la tierra ancestral y a los pueblos originarios.",
-        "A) La adhesión cívica a un conjunto de leyes y derechos universales abiertos.",
-        "C) Ninguna frontera; la verdadera lealtad es de clase internacional."
+        "Una comunidad de destino histórico, cultural y lingüístico soberano.",
+        "El arraigo profundo a la tierra ancestral y a los pueblos originarios.",
+        "La adhesión cívica a un conjunto de leyes y derechos universales abiertos.",
+        "Ninguna frontera; la verdadera lealtad es de clase internacional."
     ], key="p5_choice")
 
     st.markdown("*6. Escala de lealtad: ¿Dónde debe depositarse la lealtad política primordial?*")
     p6 = st.radio("Selecciona una opción:", [
-        "C) En la solidaridad internacional de los trabajadores contra el capital.",
-        "A) En las instituciones democráticas globales o el derecho cosmopolita.",
-        "D) En la autogestión de las comunidades locales y territoriales.",
-        "B) En la defensa de la soberanía y tradiciones de la propia nación."
+        "En la solidaridad internacional de los trabajadores contra el capital.",
+        "En las instituciones democráticas globales o el derecho cosmopolita.",
+        "En la autogestión de las comunidades locales y territoriales.",
+        "En la defensa de la soberanía y tradiciones de la propia nación."
     ], key="p6_choice")
 
     st.markdown("---")
@@ -81,18 +81,18 @@ with st.form("formulario_arqueologia"):
     
     st.markdown("*7. Naturaleza del poder: ¿Qué rol debe cumplir la autoridad política y el Estado?*")
     p7 = st.radio("Selecciona una opción:", [
-        "D) Ser desmantelado por completo por ser una estructura coactiva e ilegítima.",
-        "A) Ser un árbitro neutral y mínimo que garantice la libertad individual.",
-        "C) Actuar como custodio soberano del orden frente a las amenazas externas.",
-        "B) Funcionar como un aparato de dominación de clase a transformar/superar."
+        "Ser desmantelado por completo por ser una estructura coactiva e ilegítima.",
+        "Ser un árbitro neutral y mínimo que garantice la libertad individual.",
+        "Actuar como custodio soberano del orden frente a las amenazas externas.",
+        "Funcionar como un aparato de dominación de clase a transformar/superar."
     ], key="p7_choice")
 
     st.markdown("*8. Forma de autoridad: ¿Cómo debe ejercerse el mando?*")
     p8 = st.radio("Selecciona una opción:", [
-        "B) Mediante la dirección revolucionaria orientada a la justicia social.",
-        "D) Mediante la rotación de cargos y el mandato colectivo horizontal.",
-        "C) Mediante la jerarquía legítima basada en el honor, la historia y el orden.",
-        "A) Mediante representantes elegidos bajo estrictas normas de control legal."
+        "Mediante la dirección revolucionaria orientada a la justicia social.",
+        "Mediante la rotación de cargos y el mandato colectivo horizontal.",
+        "Mediante la jerarquía legítima basada en el honor, la historia y el orden.",
+        "Mediante representantes elegidos bajo estrictas normas de control legal."
     ], key="p8_choice")
 
     st.markdown("---")
@@ -102,18 +102,18 @@ with st.form("formulario_arqueologia"):
     
     st.markdown("*9. Modelo de producción: ¿Cómo debe organizarse la riqueza?*")
     p9 = st.radio("Selecciona una opción:", [
-        "C) Mediante la reciprocidad, el trueque y el trabajo comunitario.",
-        "A) Mediante la propiedad privada inviolable y el libre mercado competitivo.",
-        "D) Mediante contratos estrictamente privados, sin impuestos ni Estado.",
-        "B) Mediante la propiedad social y la planificación centralizada/social."
+        "Mediante la reciprocidad, el trueque y el trabajo comunitario.",
+        "Mediante la propiedad privada inviolable y el libre mercado competitivo.",
+        "Mediante contratos estrictamente privados, sin impuestos ni Estado.",
+        "Mediante la propiedad social y la planificación centralizada/social."
     ], key="p9_choice")
 
     st.markdown("*10. Criterio de distribución: ¿Qué debe guiar el reparto de bienes?*")
     p10 = st.radio("Selecciona una opción:", [
-        "B) La satisfacción planificada de las necesidades de toda la sociedad.",
-        "D) El equilibrio ecológico y la sustentabilidad de la vida comunitaria.",
-        "A) La productividad y el mérito individual medidos por el mercado.",
-        "C) La protección de la propiedad distribuida y la economía familiar."
+        "La satisfacción planificada de las necesidades de toda la sociedad.",
+        "El equilibrio ecológico y la sustentabilidad de la vida comunitaria.",
+        "La productividad y el mérito individual medidos por el mercado.",
+        "La protección de la propiedad distribuida y la economía familiar."
     ], key="p10_choice")
 
     st.markdown("---")
@@ -123,23 +123,23 @@ with st.form("formulario_arqueologia"):
     
     st.markdown("*11. Arquitectura global: ¿Cómo debe estructurarse el orden geopolítico mundial?*")
     p11 = st.radio("Selecciona una opción:", [
-        "B) Mediante la superación global del capitalismo por la solidaridad internacional.",
-        "D) Mediante redes de autonomías locales autogestionadas al margen de los Estados.",
-        "A) Mediante la integración global de los mercados y la gobernanza supranacional.",
-        "C) Mediante un sistema multipolar de grandes bloques soberanos o civilizacionales."
+        "Mediante la superación global del capitalismo por la solidaridad internacional.",
+        "Mediante redes de autonomías locales autogestionadas al margen de los Estados.",
+        "Mediante la integración global de los mercados y la gobernanza supranacional.",
+        "Mediante un sistema multipolar de grandes bloques soberanos o civilizacionales."
     ], key="p11_choice")
 
     st.markdown("*12. Seguridad y soberanía exterior: ¿Cuál debe ser la prioridad en las relaciones internacionales?*")
     p12 = st.radio("Selecciona una opción:", [
-        "C) La emancipación universal de los pueblos oprimidos frente al imperialismo global.",
-        "A) La apertura comercial, la interdependencia y la disolución de barreras arancelarias.",
-        "D) La desmilitarización y la cooperación horizontal entre comunas y pueblos libres.",
-        "B) La defensa estricta de la soberanía nacional y la supervivencia frente al enemigo."
+        "La emancipación universal de los pueblos oprimidos frente al imperialismo global.",
+        "La apertura comercial, la interdependencia y la disolución de barreras arancelarias.",
+        "La desmilitarización y la cooperación horizontal entre comunas y pueblos libres.",
+        "La defensa estricta de la soberanía nacional y la supervivencia frente al enemigo."
     ], key="p12_choice")
 
     submitted = st.form_submit_button("Ejecutar Análisis y Modelamiento Metacognitivo")
 
-# --- PROCESAMIENTO Y DIAGNÓSTICO FORMATIVO CON PUNTAJE PONDERADO SEGURO ---
+# --- PROCESAMIENTO Y DIAGNÓSTICO FORMATIVO CON MAPEO INTERNO SEGURO ---
 if submitted:
     st.markdown("---")
     st.header("📊 Radiografía Tabular de tu Edificio Conceptual")
@@ -162,7 +162,6 @@ if submitted:
     st.markdown("---")
     st.header("🔍 Diagnóstico Crítico y Modelamiento Metacognitivo")
 
-    # Inicialización limpia y explícita de los acumuladores de puntaje
     puntos = {
         "liberal": 0.0,
         "marxista": 0.0,
@@ -174,17 +173,20 @@ if submitted:
 
     respuestas = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12]
     
+    # Motor interno basado en palabras clave únicas de cada opción (sin necesidad de letras visibles)
     for r in respuestas:
-        if r.startswith("A)"):
+        if "interés y beneficio" in r or "contrato voluntario" in r or "adhesión cívica" in r or "árbitro neutral" in r or "propiedad privada inviolable" in r or "integración global de los mercados" in r:
             puntos["liberal"] += 1.0
-        elif r.startswith("B)"):
+        elif "necesidad material" in r or "conflicto estructural" in r or "verdadera lealtad es de clase" in r or "aparato de dominación" in r or "propiedad social y la planificación" in r or "superación global del capitalismo" in r:
             puntos["marxista"] += 1.0
-        elif r.startswith("C)"):
-            puntos["tradicional"] += 0.5
-            puntos["comunitario"] += 0.5
-        elif r.startswith("D)"):
-            puntos["anarquista"] += 0.5
-            puntos["libertario"] += 0.5
+        elif "comunidad orgánica" in r or "lazos históricos, culturales y espirituales" in r or "comunidad de destino histórico" in r or "custodio soberano del orden" in r or "sistema multipolar" in r or "defensa estricta de la soberanía nacional" in r:
+            puntos["tradicional"] += 1.0
+        elif "soberanía absoluta de su propio cuerpo" in r or "cooperación libre y espontánea, sin coacción" in r or "desmantelado por completo" in r or "contratos estrictamente privados" in r:
+            puntos["libertario"] += 1.0
+        elif "espíritu libre que rechaza de raíz" in r or "autonomía absoluta de cada asociación" in r or "autogestión de las comunidades locales" in r or "rotación de cargos" in r or "redes de autonomías locales" in r or "cooperación horizontal entre comunas" in r:
+            puntos["anarquista"] += 1.0
+        elif "eslabón" in r or "reciprocidad, el trueque" in r or "tierra ancestral" in r or "equilibrio ecológico" in r:
+            puntos["comunitario"] += 1.0
 
     vertientes_ordenadas = sorted(puntos.items(), key=lambda x: x[1], reverse=True)
     v1, p_v1 = vertientes_ordenadas[0]
