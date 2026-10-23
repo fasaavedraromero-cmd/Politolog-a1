@@ -165,20 +165,21 @@ if submitted:
         **3. Modelamiento Metacognitivo (Cómo reestructurar tu postura desde el Concepto de Ser Humano):**  
         Para resolver esta incoherencia y dar consistencia a tu edificio político, debes volver obligatoriamente al **Paso 1 (Concepto de Ser Humano)** y ponderar qué principio tiene primacía para ti:  
         * *Opción A (Girar hacia el Liberalismo):* Si concluyes que el individuo autónomo y maximizador es lo primario, debes aceptar que las tradiciones secundan al mercado y ceden ante su dinámica.  
-        * *Opción B (Girar hacia el Tradicionalismo/Comunitarismo):* Si concluyes que la comunidad enraizada y el orden orgánico son lo primario, debes subordinar la economía al bien común moral (mirando hacia el distributismo o el corporativismo social).
+        * *Opción B (Girar hacia el Tradicionalismo/Comunitarismo):* Si concluyes que la comunidad enraizada y el orden orgánico son lo primario, debes subordinar la economía al bien común moral (mirando hacia el distributismo o el socialcristianismo histórico).
         
         **Movimientos, partidos y referentes históricos y chilenos:**  
         * *Corrientes:* El distributismo, la democracia cristiana de base social, el conservadurismo social.  
         * *Figuras y referentes:* Wilhelm Röpke, G.K. Chesterton; en el pensamiento chileno, el pensamiento social de Jaime Eyzaguirre o el corporativismo moderado.
         """)
         
-        st.subheader("📚 Itinerario Bibliográfico con Aporte Temático y Guía de Lectura:")
+        st.subheader("📚 Itinerario Bibliográfico Enriquecido (Aporte Temático y Guía de Lectura):")
         st.markdown("**Fuentes Principales (Autores Clásicos):**")
         st.markdown("- Karl Polanyi, *La gran transformación* (Aporte: Explica cómo el mercado desbocado destruye las instituciones sociales. Leer: Capítulos 4 al 6: *Sistemas económicos y el surgimiento del mercado*).")
         st.markdown("- G.K. Chesterton, *Esbozo de la cordura* (Aporte: Fundamenta la propiedad distribuida frente al capitalismo centralizado. Leer: Primera parte, Capítulos 1 al 3).")
         st.markdown("**Comentarios y Ensayos Críticos:**")
         st.markdown("- Wilhelm Röpke, *La crisis de nuestro tiempo* (Aporte: Diagnóstico sobre la masificación y el rescate de la economía humana. Leer: Capítulo 3: *La desintegración económica y social*).")
         st.markdown("- Michael Sandel, *Lo que el dinero no puede comprar* (Aporte: Límites morales de los mercados en la vida comunitaria. Leer: Introducción y Capítulo 1).")
+        st.markdown("- Jaime Eyzaguirre, *Fisonomía histórica de Chile* (Aporte: Raíces orgánicas e institucionales de la sociedad hispanochilena. Leer: Capítulos sobre la fundación colonial y corporativa).")
 
     elif tension_libertario_estatista:
         st.warning("⚠️ Diagnóstico: Perfil Híbrido — Cruce entre Libertarismo Radical y Estatismo / Reformismo")
@@ -200,13 +201,14 @@ if submitted:
         * *Figuras:* Murray Rothbard, Robert Nozick.
         """)
         
-        st.subheader("📚 Itinerario Bibliográfico con Aporte Temático y Guía de Lectura:")
+        st.subheader("📚 Itinerario Bibliográfico Enriquecido (Aporte Temático y Guía de Lectura):")
         st.markdown("**Fuentes Principales:**")
         st.markdown("- Murray Rothbard, *Ética de la libertad* (Aporte: Fundamentación de los derechos naturales libertarios. Leer: Parte I: Ley natural).")
         st.markdown("**Comentarios y Ensayos Críticos:**")
         st.markdown("- Robert Nozick, *Anarquía, estado y utopía* (Aporte: Defensa crítica del Estado mínimo frente al anarcocapitalismo. Leer: Capítulo 3: *Las granjas morales del Estado*).")
+        st.markdown("- Ayn Rand, *La virtud del egoísmo* (Aporte: Justificación ética del interés propio y el capitalismo de laissez-faire. Leer: Ensayos 1 al 3).")
 
-    # --- CASOS B A G: PERFILES COHERENTES (CON EXPLICACIÓN PROFUNDA Y MODELAMIENTO DE PROFUNDIZACIÓN) ---
+    # --- CASOS B A G: PERFILES COHERENTES ---
     elif es_liberal:
         st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Liberalismo Clásico")
         st.markdown("""
@@ -220,14 +222,15 @@ if submitted:
         
         **Movimientos y referentes históricos y chilenos:**  
         * *Movimientos:* Liberalismo político, reformismo republicano.  
-        * *Figuras:* John Locke, Adam Smith; en Chile, pensadores del liberalismo clásico decimonónico como José Victorino Lastarria.
+        * *Figuras:* John Locke, Adam Smith; en Chile, pensadores del liberalismo clásico decimonónico como José Victorino Lastarria y Valentín Letelier.
         """)
-        st.subheader("📚 Itinerario Bibliográfico con Aporte Temático y Guía de Lectura:")
+        st.subheader("📚 Itinerario Bibliográfico Enriquecido (Aporte Temático y Guía de Lectura):")
         st.markdown("**Fuentes Principales:**")
         st.markdown("- John Locke, *Segundo tratado sobre el gobierno civil* (Aporte: Origen del contrato social y la propiedad. Leer: Capítulos 2, 5 y 8).")
         st.markdown("- Adam Smith, *La riqueza de las naciones* (Aporte: Funcionamiento del mercado y división del trabajo. Leer: Capítulos 1 al 3 del Libro I).")
         st.markdown("**Comentarios y Ensayos Críticos:**")
         st.markdown("- Friedrich Hayek, *Los fundamentos de la libertad* (Aporte: Defensa del orden espontáneo de mercado. Leer: Capítulos 1 al 4).")
+        st.markdown("- Alexis de Tocqueville, *La democracia en América* (Aporte: Análisis de los peligros del centralismo y el valor de la libertad civil. Leer: Volumen II, Segunda Parte).")
 
     elif es_marxista:
         st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Marxismo y Teoría Crítica")
@@ -242,13 +245,15 @@ if submitted:
         
         **Movimientos y referentes históricos y chilenos:**  
         * *Movimientos:* Comunismo histórico, sindicalismo revolucionario y de clase.  
-        * *Figuras:* Karl Marx, Antonio Gramsci; en Chile, Luis Emilio Recabarren y Clotario Blest.
+        * *Figuras:* Karl Marx, Antonio Gramsci; en Chile, Luis Emilio Recabarren, Clotario Blest y los ensayos críticos de Luis Corvalán o el pensamiento de la UP.
         """)
-        st.subheader("📚 Itinerario Bibliográfico con Aporte Temático y Guía de Lectura:")
+        st.subheader("📚 Itinerario Bibliográfico Enriquecido (Aporte Temático y Guía de Lectura):")
         st.markdown("**Fuentes Principales:**")
         st.markdown("- Karl Marx, *El Capital* (Aporte: Análisis de la plusvalía y la mercancía. Leer: Sección 1, Capítulo 1).")
+        st.markdown("- Karl Marx y Friedrich Engels, *Manifiesto del Partido Comunista* (Aporte: Lucha de clases e itinerario histórico del proletariado. Leer: Capítulo 1: *Burgueses y proletarios*).")
         st.markdown("**Comentarios y Ensayos Críticos:**")
         st.markdown("- Antonio Gramsci, *Cuadernos de la cárcel* (Aporte: Hegemonía cultural y bloque histórico. Leer: Antología sobre el Estado y los intelectuales).")
+        st.markdown("- Ernst Mandel, *El pensamiento económico de Karl Marx* (Aporte: Clarificación de las crisis sistémicas y la ley del valor. Leer: Capítulos 1 al 3).")
 
     elif es_tradicional:
         st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Tradicionalismo y Geopolítica Soberana")
@@ -263,14 +268,15 @@ if submitted:
         
         **Movimientos y referentes históricos y chilenos:**  
         * *Movimientos:* Soberanismos nacionales, realismo geopolítico.  
-        * *Figuras:* Thomas Hobbes, Carl Schmitt; en Chile, la tradición del realismo geopolítico militar y estamental (ej. Ramón Cañas Montalva).
+        * *Figuras:* Thomas Hobbes, Carl Schmitt; en Chile, la tradición del realismo geopolítico militar y estamental (ej. Ramón Cañas Montalva y su obra *Geopolítica de Chile*).
         """)
-        st.subheader("📚 Itinerario Bibliográfico con Aporte Temático y Guía de Lectura:")
+        st.subheader("📚 Itinerario Bibliográfico Enriquecido (Aporte Temático y Guía de Lectura):")
         st.markdown("**Fuentes Principales:**")
         st.markdown("- Thomas Hobbes, *Leviatán* (Aporte: Necesidad de la soberanía fuerte para evitar el caos. Leer: Capítulos 13, 17 y 18).")
         st.markdown("- Carl Schmitt, *El concepto de lo político* (Aporte: La distinción amigo/enemigo. Leer: Capítulos 1 al 3).")
         st.markdown("**Comentarios y Ensayos Críticos:**")
         st.markdown("- Aleksandr Dugin, *La cuarta teoría política* (Aporte: Crítica al globalismo y defensa del *Großraum*. Leer: Capítulos iniciales).")
+        st.markdown("- Ramón Cañas Montalva, *Geopolítica de Chile* (Aporte: Estrategia territorial y soberanía bioceánica del Estado chileno. Leer: Capítulos sobre espacios vitales y proyección antártica).")
 
     elif es_libertario:
         st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Anarcocapitalismo / Libertarismo")
@@ -287,9 +293,10 @@ if submitted:
         * *Movimientos:* Escuela austríaca de economía, movimiento libertario.  
         * *Figuras:* Murray Rothbard, Ludwig von Mises.
         """)
-        st.subheader("📚 Itinerario Bibliográfico con Aporte Temático y Guía de Lectura:")
+        st.subheader("📚 Itinerario Bibliográfico Enriquecido (Aporte Temático y Guía de Lectura):")
         st.markdown("**Fuentes Principales:**")
         st.markdown("- Murray Rothbard, *Ética de la libertad* (Aporte: Fundamentación de los derechos naturales libertarios. Leer: Parte I: Ley natural).")
+        st.markdown("- Ludwig von Mises, *La acción humana* (Aporte: Tratado metodológico de la praxeología y el mercado libre. Leer: Capítulos 1 al 3).")
         st.markdown("**Comentarios y Ensayos Críticos:**")
         st.markdown("- Jesús Huerta de Soto, *Socialismo, cálculo económico y función empresarial* (Aporte: Imposibilidad del socialismo y defensa de la función empresarial libre. Leer: Capítulos 1 y 2).")
 
@@ -306,13 +313,15 @@ if submitted:
         
         **Movimientos y referentes históricos y chilenos:**  
         * *Movimientos:* Anarcosindicalismo de principios del siglo XX en Chile, comunas autónomas.  
-        * *Figuras:* Piotr Kropotkin, Mijaíl Bakunin; en Chile, los precursores del movimiento obrero ácrata.
+        * *Figuras:* Piotr Kropotkin, Mijaíl Bakunin; en Chile, los precursores de la prensa obrera y mutualista ácrata.
         """)
-        st.subheader("📚 Itinerario Bibliográfico con Aporte Temático y Guía de Lectura:")
+        st.subheader("📚 Itinerario Bibliográfico Enriquecido (Aporte Temático y Guía de Lectura):")
         st.markdown("**Fuentes Principales:**")
         st.markdown("- Piotr Kropotkin, *La ayuda mutua* (Aporte: Factor evolutivo de la cooperación social sin estado. Leer: Introducción y Conclusión).")
+        st.markdown("- Mijaíl Bakunin, *Dios y el Estado* (Aporte: Crítica radical a la autoridad teológica y política. Leer: Texto completo fragmentado).")
         st.markdown("**Comentarios y Ensayos Críticos:**")
         st.markdown("- Daniel Guérin, *El anarquismo* (Aporte: Síntesis histórica de la praxis ácrata. Leer: Capítulos introductorios).")
+        st.markdown("- Colin Ward, *Anarchy in Action* (Aporte: Ejemplos prácticos de autoorganización cotidiana sin estado. Leer: Capítulos 1 al 3).")
 
     elif es_comunitario:
         st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Ontología Comunitaria y del Buen Vivir")
@@ -329,11 +338,12 @@ if submitted:
         * *Movimientos:* Zapatismo, movimientos originarios andinos.  
         * *Figuras:* José Carlos Mariátegui, Alberto Acosta, teóricos del Sumak Kawsay.
         """)
-        st.subheader("📚 Itinerario Bibliográfico con Aporte Temático y Guía de Lectura:")
+        st.subheader("📚 Itinerario Bibliográfico Enriquecido (Aporte Temático y Guía de Lectura):")
         st.markdown("**Fuentes Principales:**")
         st.markdown("- José Carlos Mariátegui, *7 ensayos de interpretación de la realidad peruana* (Aporte: El problema del indio y la raíz comunitaria agraria. Leer: Ensayo sobre el problema agrario).")
         st.markdown("**Comentarios y Ensayos Críticos:**")
         st.markdown("- Alberto Acosta, *El buen vivir: Sumak Kawsay* (Aporte: Alternativas al desarrollo capitalista desde la cosmovisión comunitaria. Leer: Capítulos 1 y 2).")
+        st.markdown("- Álvaro García Linera, *Forma valor y forma comunidad* (Aporte: Articulación entre la teoría del valor de Marx y las comunidades indígenas andinas. Leer: Introducción).")
 
     else:
         st.warning("⚠️ Diagnóstico: Perfil Híbrido / Ecléctico en Exploración Conceptual Avanzada")
@@ -351,11 +361,12 @@ if submitted:
         * *Corrientes:* Pensamiento institucionalista, reformismo democrático.  
         * *Figuras:* Norberto Bobbio, Michael Sandel.
         """)
-        st.subheader("📚 Itinerario Bibliográfico con Aporte Temático y Guía de Lectura:")
+        st.subheader("📚 Itinerario Bibliográfico Enriquecido (Aporte Temático y Guía de Lectura):")
         st.markdown("**Fuentes Principales (Autores Clásicos):**")
         st.markdown("- Norberto Bobbio, *Derecha e izquierda* (Aporte: Criterios analíticos para clasificar las familias políticas. Leer: Capítulos 1 al 3).")
         st.markdown("**Comentarios y Ensayos Críticos:**")
         st.markdown("- Michael Sandel, *El descontento con la democracia* (Aporte: Crítica al liberalismo procedimental y rescate comunitarista. Leer: Introducción).")
         st.markdown("- Chantal Mouffe, *En torno a lo político* (Aporte: La dimensión agonística de la política. Leer: Capítulos 1 y 2).")
+        st.markdown("- Isaiah Berlin, *Cuatro ensayos sobre la libertad* (Aporte: Distinción fundamental entre libertad negativa y positiva. Leer: Ensayo sobre los dos conceptos de libertad).")
 
     st.balloons()
