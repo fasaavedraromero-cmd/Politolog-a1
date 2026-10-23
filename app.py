@@ -164,8 +164,8 @@ if submitted:
         
         **3. Modelamiento Metacognitivo (Cómo reestructurar tu postura desde el Concepto de Ser Humano):**  
         Para resolver esta incoherencia y dar consistencia a tu edificio político, debes volver obligatoriamente al **Paso 1 (Concepto de Ser Humano)** y ponderar qué principio tiene primacía para ti:  
-        * *Si tu base es el individuo maximizador:* Debes aceptar que las tradiciones secundan al mercado y ceden ante su dinámica.  
-        * *Si tu base es la comunidad enraizada:* Debes subordinar la economía al bien común moral y a la regulación comunitaria (mirando hacia el distributismo o el socialcristianismo histórico).
+        * *Opción A (Girar hacia el Liberalismo):* Si concluyes que el individuo autónomo y maximizador es lo primario, debes aceptar que las tradiciones secundan al mercado y ceden ante su dinámica.  
+        * *Opción B (Girar hacia el Tradicionalismo/Comunitarismo):* Si concluyes que la comunidad enraizada y el orden orgánico son lo primario, debes subordinar la economía al bien común moral (mirando hacia el distributismo o el corporativismo social).
         
         **Movimientos, partidos y referentes históricos y chilenos:**  
         * *Corrientes:* El distributismo, la democracia cristiana de base social, el conservadurismo social.  
@@ -191,10 +191,12 @@ if submitted:
         * *Lo irreconciliable:* Para el libertarismo estricto, el Estado es una organización criminal institucionalizada basada en el monopolio de la coacción y los impuestos. Tolerar intervenciones estatales invalida el axioma moral de la autopropiedad.
         
         **3. Modelamiento Metacognitivo:**  
-        Vuelve al **Concepto de Ser Humano**: define si la soberanía personal es intransigente (rechazando todo impuesto) o si adoptas un liberalismo reformista que acepta un Estado mínimo arbitral.
+        Vuelve al **Concepto de Ser Humano**: 
+        * *Opción A:* Asumir la soberanía personal intransigente (rechazando todo impuesto y Estado).  
+        * *Opción B:* Adoptar un liberalismo pragmático que acepta un Estado mínimo arbitral.
         
         **Movimientos y referentes:**  
-        * *Corrientes:* Minarquismo, libertarismo pragmático.
+        * *Corrientes:* Minarquismo, libertarismo pragmático.  
         * *Figuras:* Murray Rothbard, Robert Nozick.
         """)
         
@@ -204,17 +206,20 @@ if submitted:
         st.markdown("**Comentarios y Ensayos Críticos:**")
         st.markdown("- Robert Nozick, *Anarquía, estado y utopía* (Aporte: Defensa crítica del Estado mínimo frente al anarcocapitalismo. Leer: Capítulo 3: *Las granjas morales del Estado*).")
 
-    # --- CASOS B A G: PERFILES COHERENTES (LAS 7 VERTIENTES) ---
+    # --- CASOS B A G: PERFILES COHERENTES (CON EXPLICACIÓN PROFUNDA Y MODELAMIENTO DE PROFUNDIZACIÓN) ---
     elif es_liberal:
         st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Liberalismo Clásico")
         st.markdown("""
-        **Ideas Fundantes y Modelamiento Coherente:**  
-        Tu edificio conceptual es plenamente consistente con la **Tradición Liberal**. 
-        * *Concepto de ser humano:* Agente racional, autónomo y titular de derechos inalienables.
-        * *Deducción doctrinal:* Sociedad contractual, Estado neutral garante de leyes y libre mercado.
+        **1. Explicación reveladora de tu postura (A qué adhiere tu perfil):**  
+        Tus respuestas revelan una adhesión profunda a la **Tradición Liberal Clásica**. Sin saberlo necesariamente con etiquetas académicas, operas bajo la convicción de que el individuo precede a la sociedad. Para ti, los seres humanos son agentes dueños de su propia racionalidad, y la convivencia política no busca imponer un modelo moral o espiritual único, sino garantizar un marco neutral de leyes donde cada quien pueda perseguir su felicidad sin interferencias arbitrarias.
+        
+        **2. Modelamiento de Profundización (Cómo robustecer y llevar al siguiente nivel tus ideas):**  
+        Partiendo de tu concepción de ser humano autónomo, tu siguiente dilema intelectual para profundizar consiste en elegir tu ruta doctrinal de despliegue:  
+        * *Opción A (Despliegue hacia el Liberalismo Social / Reformista):* Asumir que la libertad formal requiere garantías materiales básicas proporcionadas por el Estado mediante impuestos moderados y provisión pública de derechos (asegurando igualdad de oportunidades).  
+        * *Opción B (Despliegue hacia el Liberalismo Mínimo / Ortodoxo):* Endurecer el principio de no agresión fiscal, apostando por un Estado estrictamente limitado a la seguridad y la justicia, confiando la superación de la pobreza exclusivamente al dinamismo del libre mercado y la beneficencia civil.
         
         **Movimientos y referentes históricos y chilenos:**  
-        * *Movimientos:* Liberalismo político, reformismo republicano.
+        * *Movimientos:* Liberalismo político, reformismo republicano.  
         * *Figuras:* John Locke, Adam Smith; en Chile, pensadores del liberalismo clásico decimonónico como José Victorino Lastarria.
         """)
         st.subheader("📚 Itinerario Bibliográfico con Aporte Temático y Guía de Lectura:")
@@ -222,18 +227,21 @@ if submitted:
         st.markdown("- John Locke, *Segundo tratado sobre el gobierno civil* (Aporte: Origen del contrato social y la propiedad. Leer: Capítulos 2, 5 y 8).")
         st.markdown("- Adam Smith, *La riqueza de las naciones* (Aporte: Funcionamiento del mercado y división del trabajo. Leer: Capítulos 1 al 3 del Libro I).")
         st.markdown("**Comentarios y Ensayos Críticos:**")
-        st.markdown("- Friedrich Hayek, *Los fundamentos de la libertad* (Aporte: Defensa del orden espontáneo de mercado. Leer: Capítulos 1 y 4).")
+        st.markdown("- Friedrich Hayek, *Los fundamentos de la libertad* (Aporte: Defensa del orden espontáneo de mercado. Leer: Capítulos 1 al 4).")
 
     elif es_marxista:
         st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Marxismo y Teoría Crítica")
         st.markdown("""
-        **Ideas Fundantes y Modelamiento Coherente:**  
-        Tu edificio conceptual sigue la línea del **Materialismo Histórico y la Teoría Crítica**.
-        * *Concepto de ser humano:* Ser social constituido por el trabajo y la producción material.
-        * *Deducción doctrinal:* Sociedad dividida en clases, superación del Estado burgués y planificación social de la economía.
+        **1. Explicación reveladora de tu postura (A qué adhiere tu perfil):**  
+        Te sitúas firmemente en la órbita del **Materialismo Histórico y la Teoría Crítica**. Tu visión rechaza que la política o la sociedad sean el resultado de contratos abstractos o naturalezas humanas fijas. Para ti, el ser humano es un producto social moldeado por las condiciones materiales de producción y el trabajo; por ende, la injusticia no es un fallo moral individual, sino una contradicción estructural de las relaciones de clase.
+        
+        **2. Modelamiento de Profundización (Cómo robustecer y llevar al siguiente nivel tus ideas):**  
+        Partiendo de tu premisa materialista, tu ruta de profundización te enfrenta a las siguientes opciones estratégicas:  
+        * *Opción A (Vía Gramsciana / Hegemónica):* Enfocar la transformación en la construcción paciente de un "bloque histórico" y una nueva hegemonía cultural y democrática dentro de las instituciones de la sociedad civil.  
+        * *Opción B (Vía Revolucionaria / Ortodoxa):* Sostener que la superación del capital exige la ruptura frontal con el Estado burgués y la toma centralizada de los resortes de la producción para reorganizar la economía bajo planificación social estricta.
         
         **Movimientos y referentes históricos y chilenos:**  
-        * *Movimientos:* Comunismo histórico, sindicalismo revolucionario y de clase.
+        * *Movimientos:* Comunismo histórico, sindicalismo revolucionario y de clase.  
         * *Figuras:* Karl Marx, Antonio Gramsci; en Chile, Luis Emilio Recabarren y Clotario Blest.
         """)
         st.subheader("📚 Itinerario Bibliográfico con Aporte Temático y Guía de Lectura:")
@@ -245,13 +253,16 @@ if submitted:
     elif es_tradicional:
         st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Tradicionalismo y Geopolítica Soberana")
         st.markdown("""
-        **Ideas Fundantes y Modelamiento Coherente:**  
-        Tus respuestas convergen en el **Realismo Político y Conservadurismo Orgánico**.
-        * *Concepto de ser humano:* Ser enraizado a una comunidad y un orden histórico.
-        * *Deducción doctrinal:* Soberanía política, Estado custodio frente al conflicto y orden multipolar de civilizaciones.
+        **1. Explicación reveladora de tu postura (A qué adhiere tu perfil):**  
+        Adhieres de manera consistente al **Realismo Político, el Conservadurismo Orgánico y la Geopolítica de los Grandes Espacios**. Rechazas el individualismo abstracto y el universalismo globalizador. Para ti, el ser humano no nace flotando en el vacío, sino enraizado a una comunidad histórica, a una cultura, a una lengua y a lealtades espirituales o nacionales que debe custodiar frente al caos exterior.
+        
+        **2. Modelamiento de Profundización (Cómo robustecer y llevar al siguiente nivel tus ideas):**  
+        Partiendo de tu concepto de enraizamiento y soberanía, tu profundización te exige definir tu arquitectura geopolítica e institucional:  
+        * *Opción A (Vía Estado-Nación Soberano):* Enfocar la defensa de la identidad nacional fortaleciendo el Estado nacional centralizado, protegiendo las fronteras económicas y apostando al realismo clásico frente a potencias extranjeras.  
+        * *Opción B (Vía Multipolaridad Civilizacional / Cuarta Teoría):* Elevar la mirada hacia un mundo policéntrico de grandes civilizaciones (*Großraum*) que rechazan frontalmente la hegemonía de la modernidad occidental liberal, blindando los valores tradicionales de cada cultura.
         
         **Movimientos y referentes históricos y chilenos:**  
-        * *Movimientos:* Soberanismos nacionales, realismo geopolítico.
+        * *Movimientos:* Soberanismos nacionales, realismo geopolítico.  
         * *Figuras:* Thomas Hobbes, Carl Schmitt; en Chile, la tradición del realismo geopolítico militar y estamental (ej. Ramón Cañas Montalva).
         """)
         st.subheader("📚 Itinerario Bibliográfico con Aporte Temático y Guía de Lectura:")
@@ -264,13 +275,16 @@ if submitted:
     elif es_libertario:
         st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Anarcocapitalismo / Libertarismo")
         st.markdown("""
-        **Ideas Fundantes y Modelamiento Coherente:**  
-        Tu perfil responde al **Libertarismo Radical de Mercado**.
-        * *Concepto de ser humano:* Propietario absoluto de su cuerpo y voluntad.
-        * *Deducción doctrinal:* Rechazo total al Estado, contratos voluntarios y banca libre.
+        **1. Explicación reveladora de tu postura (A qué adhiere tu perfil):**  
+        Tu perfil se enmarca de forma radical en el **Libertarismo de Mercado y la Autopropiedad**. Operas bajo el axioma moral de que cada ser humano es dueño absoluto de su propio cuerpo y de los frutos de su trabajo. Para ti, cualquier monopolio de coacción institucional (impuestos, regulaciones estatales, bancos centrales) constituye una violación ilegítima de la libertad natural.
+        
+        **2. Modelamiento de Profundización (Cómo robustecer y llevar al siguiente nivel tus ideas):**  
+        Partiendo del axioma de la autopropiedad, tu profundización doctrinal te lleva a elegir entre dos caminos de aplicación:  
+        * *Opción A (La vía anarcocapitalista radical):* Eliminar por completo el Estado y su monopolio de la fuerza, confiando la seguridad, la justicia y la moneda a agencias privadas de libre mercado y contratos voluntarios.  
+        * *Opción B (La vía minarquista / liberal de ley y orden):* Aceptar la necesidad pragmática de un Estado mínimo estrictamente limitado a la defensa nacional, la policía y los tribunales de justicia, prohibiendo toda intervención económica adicional.
         
         **Movimientos y referentes:**  
-        * *Movimientos:* Escuela austríaca de economía, movimiento libertario.
+        * *Movimientos:* Escuela austríaca de economía, movimiento libertario.  
         * *Figuras:* Murray Rothbard, Ludwig von Mises.
         """)
         st.subheader("📚 Itinerario Bibliográfico con Aporte Temático y Guía de Lectura:")
@@ -282,13 +296,16 @@ if submitted:
     elif es_anarquista:
         st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Anarquismo Clásico")
         st.markdown("""
-        **Ideas Fundantes y Modelamiento Coherente:**  
-        Tu edificio conceptual es coherente con el **Anarquismo Autonomista**.
-        * *Concepto de ser humano:* Espíritu libre incompatible con la jerarquía.
-        * *Deducción doctrinal:* Acción directa, ayuda mutua y federación horizontal sin Estado.
+        **1. Explicación reveladora de tu postura (A qué adhiere tu perfil):**  
+        Adhieres sin ambages a las premisas del **Anarquismo Autonomista y Ácrata**. Tu edificio intelectual sostiene que la libertad humana y la dominación jerárquica (estatal, capitalista o religiosa) son absolutamente incompatibles. Rechazas la idea de que el orden requiera de mandos verticales, apostando por la capacidad innata de la sociedad para organizarse horizontalmente.
+        
+        **2. Modelamiento de Profundización (Cómo robustecer y llevar al siguiente nivel tus ideas):**  
+        Partiendo del rechazo a la autoridad coactiva, tu profundización exige definir los mecanismos de integración social:  
+        * *Opción A (Vía Anarcosindicalista):* Organizar la producción y la vida económica mediante sindicatos de trabajadores autogestionados y federados que suplanten al capital y al Estado.  
+        * *Opción B (Vía Comunalista / Ayuda Mutua):* Apostar por el municipalismo libertario y redes de comunas autónomas basadas en la cooperación ecológica y el apoyo mutuo vecinal.
         
         **Movimientos y referentes históricos y chilenos:**  
-        * *Movimientos:* Anarcosindicalismo de principios del siglo XX en Chile, comunas autónomas.
+        * *Movimientos:* Anarcosindicalismo de principios del siglo XX en Chile, comunas autónomas.  
         * *Figuras:* Piotr Kropotkin, Mijaíl Bakunin; en Chile, los precursores del movimiento obrero ácrata.
         """)
         st.subheader("📚 Itinerario Bibliográfico con Aporte Temático y Guía de Lectura:")
@@ -300,13 +317,16 @@ if submitted:
     elif es_comunitario:
         st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Ontología Comunitaria y del Buen Vivir")
         st.markdown("""
-        **Ideas Fundantes y Modelamiento Coherente:**  
-        Tus respuestas se sustentan en el **Comunitarismo Indigenista y del Buen Vivir**.
-        * *Concepto de ser humano:* Nodo inseparable de la comunidad y la tierra.
-        * *Deducción doctrinal:* Reciprocidad, mandar obedeciendo y defensa colectiva del territorio.
+        **1. Explicación reveladora de tu postura (A qué adhiere tu perfil):**  
+        Te alineas de manera íntegra con la **Ontología Comunitaria, el Indigenismo y el Buen Vivir (Sumak Kawsay)**. Rechazas la visión del ser humano como un átomo aislado del mercado. Para ti, la persona es un nodo inalienable de un tejido vivo que incluye a la comunidad humana, los antepasados y el territorio natural.
+        
+        **2. Modelamiento de Profundización (Cómo robustecer y llevar al siguiente nivel tus ideas):**  
+        Partiendo de la matriz comunitaria y territorial, tu profundización se bifurca en:  
+        * *Opción A (Vía Autonomía Territorial y Comunal):* Consolidar el autogobierno local, la justicia comunitaria y la propiedad colectiva de la tierra frente al extractivismo global.  
+        * *Opción B (Vía Socialismo Comunitario / Indoamericano):* Articular las comunidades originarias con un proyecto político estatal plurinacional que transforme las estructuras de dominación económica a escala nacional.
         
         **Movimientos y referentes históricos y latinoamericanos:**  
-        * *Movimientos:* Zapatismo, movimientos originarios andinos.
+        * *Movimientos:* Zapatismo, movimientos originarios andinos.  
         * *Figuras:* José Carlos Mariátegui, Alberto Acosta, teóricos del Sumak Kawsay.
         """)
         st.subheader("📚 Itinerario Bibliográfico con Aporte Temático y Guía de Lectura:")
