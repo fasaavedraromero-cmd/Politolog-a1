@@ -346,16 +346,16 @@ if submitted:
         st.markdown("- Álvaro García Linera, *Forma valor y forma comunidad* (Aporte: Articulación entre la teoría del valor de Marx y las comunidades indígenas andinas. Leer: Introducción).")
 
     else:
-        st.warning("⚠️ Diagnóstico: Perfil Híbrido / Ecléctico en Exploración Conceptual Avanzada")
+        st.warning("⚠️ Diagnóstico: Perfil Híbrido / En Cruzamiento Doctrinal")
         st.markdown("""
         **1. Precisión de las vertientes en juego:**  
-        Tus respuestas combinan elementos de diversas tradiciones intelectuales sin anclarse rígidamente en un solo bloque doctrinal, cruzando miradas del liberalismo, el socialismo, el comunitarismo o el realismo.
+        Tus respuestas combinan elementos de diversas tradiciones intelectuales sin encasillarte en un solo bloque doctrinal, cruzando miradas del liberalismo, el socialismo, el comunitarismo o el realismo.
         
         **2. Análisis Crítico y Graduación de Tensiones:**  
-        Este eclecticismo es propio de una etapa de profunda exploración teórica. Sin embargo, en el rigor de la ciencia política, la falta de un anclaje deductivo estricto desde tu **Concepto de Ser Humano** hacia el Estado y la economía genera cortocircuitos doctrinales en la práctica. Lo que para ti puede parecer pragmatismo, desde la teoría pura implica aceptar premisas ontológicas que se neutralizan entre sí.
+        Este cuadro plural es propio de una etapa de exploración teórica abierta. Sin embargo, en el rigor de la ciencia política, la ausencia de un anclaje deductivo estricto desde tu **Concepto de Ser Humano** hacia el Estado y la economía genera cortocircuitos doctrinales en la práctica. Lo que suele vivirse como pragmatismo, desde la teoría pura implica aceptar premisas ontológicas que se neutralizan mutuamente.
         
         **3. Modelamiento Metacognitivo (Cómo reestructurar tu postura):**  
-        Para ordenar y dar consistencia a tu pensamiento, parte estrictamente del **Paso 1 (Concepto de Ser Humano)**: define qué principio tiene mayor peso ontológico irrenunciable para ti (el individuo autónomo y soberano, el trabajador social transformador, o el miembro enraizado de una comunidad histórica). Una vez fijado ese "supuesto necesario", observa obligatoriamente cómo las demás capas del esquema (sociedad, estado, economía y proyecto histórico) deben subordinarse de forma lógica a esa raíz fundante para superar la incoherencia.
+        Para ordenar y dar consistencia a tu pensamiento, parte estrictamente del **Paso 1 (Concepto de Ser Humano)**: define qué principio tiene mayor peso ontológico irrenunciable para ti (el individuo autónomo y soberano, el trabajador social transformador, o el miembro enraizado de una comunidad histórica). Una vez fijado ese "supuesto necesario", observa obligatoriamente cómo las demás capas del esquema (sociedad, estado, economía y proyecto histórico) deben subordinarse de forma lógica a esa raíz fundante para superar la ambigüedad.
         
         **Movimientos y referentes históricos y chilenos de referencia transversal:**  
         * *Corrientes:* Pensamiento institucionalista, reformismo democrático.  
