@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 
 st.set_page_config(page_title="Arqueología Antropológica Política", page_icon="🏛️", layout="wide")
 
@@ -199,7 +200,7 @@ if submitted:
         
         st.subheader("📚 Itinerario Bibliográfico con Aporte Temático y Guía de Lectura:")
         st.markdown("**Fuentes Principales:**")
-        st.markdown("- Murray Rothbard, *Ética de la libertad* (Aporte: Deducción axiomática de los derechos de propiedad. Leer: Partes 1 y 2).")
+        st.markdown("- Murray Rothbard, *Ética de la libertad* (Aporte: Fundamentación de los derechos naturales libertarios. Leer: Parte I: Ley natural).")
         st.markdown("**Comentarios y Ensayos Críticos:**")
         st.markdown("- Robert Nozick, *Anarquía, estado y utopía* (Aporte: Defensa crítica del Estado mínimo frente al anarcocapitalismo. Leer: Capítulo 3: *Las granjas morales del Estado*).")
 
@@ -306,4 +307,31 @@ if submitted:
         
         **Movimientos y referentes históricos y latinoamericanos:**  
         * *Movimientos:* Zapatismo, movimientos originarios andinos.
-        * *Fig
+        * *Figuras:* José Carlos Mariátegui, Alberto Acosta, teóricos del Sumak Kawsay.
+        """)
+        st.subheader("📚 Itinerario Bibliográfico con Aporte Temático y Guía de Lectura:")
+        st.markdown("**Fuentes Principales:**")
+        st.markdown("- José Carlos Mariátegui, *7 ensayos de interpretación de la realidad peruana* (Aporte: El problema del indio y la raíz comunitaria agraria. Leer: Ensayo sobre el problema agrario).")
+        st.markdown("**Comentarios y Ensayos Críticos:**")
+        st.markdown("- Alberto Acosta, *El buen vivir: Sumak Kawsay* (Aporte: Alternativas al desarrollo capitalista desde la cosmovisión comunitaria. Leer: Capítulos 1 y 2).")
+
+    else:
+        st.info("ℹ️ Diagnóstico: Perfil Ecléctico / En Exploración Conceptual")
+        st.markdown("""
+        **1. Precisión de las vertientes en juego:**  
+        Tus respuestas combinan elementos de diversas tradiciones intelectuales sin anclarse rígidamente en un solo bloque doctrinal.
+        
+        **2. Análisis Crítico y Graduación de Tensiones:**  
+        Este eclecticismo es propio de una etapa exploratoria. Sin embargo, en la ciencia política, la falta de anclaje deductivo desde tu **Concepto de Ser Humano** hacia el Estado y la economía puede generar incoherencias operativas en el debate público.
+        
+        **3. Modelamiento Metacognitivo:**  
+        Para estructurar sólidamente tu postura, parte estrictamente del **Paso 1 (Concepto de Ser Humano)**: define qué principio tiene mayor peso ontológico para ti (el individuo autónomo, el trabajador social o el miembro enraizado de una comunidad) y observa cómo las demás capas del esquema deben subordinarse de forma lógica a esa elección fundante.
+        """)
+        st.subheader("📚 Itinerario Bibliográfico Riguroso:")
+        st.markdown("**Fuentes Principales (Autores Clásicos):**")
+        st.markdown("- Norberto Bobbio, *Derecha e izquierda* (Aporte: Criterios analíticos para clasificar las familias políticas. Leer: Capítulos 1 al 3).")
+        st.markdown("**Comentarios y Ensayos Críticos:**")
+        st.markdown("- Michael Sandel, *El descontento con la democracia* (Aporte: Crítica al liberalismo procedimental y rescate comunitarista. Leer: Introducción).")
+        st.markdown("- Chantal Mouffe, *En torno a lo político* (Aporte: La dimensión agonística de la política. Leer: Capítulos 1 y 2).")
+
+    st.balloons()
