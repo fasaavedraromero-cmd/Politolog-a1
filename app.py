@@ -188,7 +188,6 @@ if submitted:
         elif "eslabón" in r or "reciprocidad" in r or "tierra ancestral" in r or "trabajo comunitario" in r:
             puntos["comunitario"] += 1
 
-    # Detectar las dos vertientes con mayor puntaje para el cruce doctrinal en perfiles híbridos
     vertientes_ordenadas = sorted(puntos.items(), key=lambda x: x[1], reverse=True)
     v1, p_v1 = vertientes_ordenadas[0]
     v2, p_v2 = vertientes_ordenadas[1]
@@ -196,7 +195,6 @@ if submitted:
     max_puntaje = p_v1
     es_coherente = max_puntaje >= 6  # Umbral de consistencia sobre 12 preguntas
 
-    # Nombres legibles para las vertientes
     nombres_vertientes = {
         "liberal": "Liberalismo Clásico",
         "marxista": "Marxismo y Teoría Crítica",
@@ -211,30 +209,31 @@ if submitted:
         st.warning(f"⚠️ Diagnóstico: Perfil Híbrido — Entrecruzamiento Doctrinal entre {nombres_vertientes[v1]} y {nombres_vertientes[v2]}")
         st.markdown(f"""
         **1. Definiciones Fundamentales (Las vertientes en juego):**  
-        * **{nombres_vertientes[v1]}:** Matriz teórica que prioriza ciertos ejes del esquema, defendiendo premisas específicas sobre la organización de la sociedad, la autoridad y el orden global.
-        * **{nombres_vertientes[v2]}:** Segunda matriz doctrinal detectada en tus respuestas, la cual introduce principios alternativos o contrapuestos en la arquitectura de tus decisiones políticas.  
-        * *El cruce:* Estás combinando los fundamentos de ambas tradiciones sin un anclaje deductivo unificado, lo que genera un entrecruzamiento de premisas ontológicas y normativas.
+        * **{nombres_vertientes[v1]}:** Matriz teórica dominante en tus respuestas, centrada en sus propios ejes deductivos sobre la sociedad y la autoridad.
+        * **{nombres_vertientes[v2]}:** Segunda matriz doctrinal detectada, la cual introduce principios alternativos o contrapuestos en tu arquitectura conceptual.  
+        * *El cruce:* Estás combinando los fundamentos de ambas tradiciones sin un anclaje unificado, generando un choque entre sus respectivas premisas ontológicas.
 
         **2. Análisis Crítico y Graduación de Tensiones:**  
         * *Lo complementario:* En la acción política pragmática, es habitual tomar herramientas de distintas tradiciones para resolver problemas coyunturales.
-        * *Lo irreconciliable (La contradicción profunda):* A nivel de la arquitectura conceptual, este cruce genera un cortocircuito. Estás aceptando simultáneamente premisas que se neutralizan mutuamente en su deducción institucional y económica.
+        * *Lo irreconciliable (La contradicción profunda):* A nivel de la arquitectura conceptual, este cruce genera un cortocircuito. Estás aceptando simultáneamente premisas que se neutralizan mutuamente.
         
         **3. Modelamiento Metacognitivo (Cómo reestructurar tu postura):**  
         Para ordenar y dar consistencia lógica a tu pensamiento, debes volver al **Bloque 1 (Concepto de Ser Humano)** y decidir cuál de tus elecciones ejerce el "supuesto necesario" que funda tu doctrina:  
-        * *Opción A (Girar hacia el eje de {nombres_vertientes[v1]}):* Alinear deductivamente las capas siguientes hacia los postulados coherentes de esta matriz, descartando elementos contradictorios.  
+        * *Opción A (Girar hacia el eje de {nombres_vertientes[v1]}):* Alinear deductivamente las capas siguientes hacia los postulados coherentes de esta matriz.  
         * *Opción B (Girar hacia el eje de {nombres_vertientes[v2]}):* Reestructurar tu edificio conceptual subordinando la totalidad de las capas a los principios de esta segunda tradición.
         
-        **Movimientos y referentes históricos y chilenos de referencia transversal:**  
-        * *Corrientes:* Pensamiento institucionalista, reformismo democrático, síntesis doctrinales.  
-        * *Figuras:* Norberto Bobbio, Michael Sandel; en el debate nacional, ensayistas del institucionalismo chileno.
+        **Movimientos y referentes históricos y chilenos:**  
+        * *Corrientes:* Síntesis doctrinales, pensamiento institucionalista y reformista.  
+        * *Figuras:* Autores clásicos de ambas tradiciones en colisión.
         """)
-        
-        st.subheader("📚 Itinerario Bibliográfico Enriquecido (Aporte Temático y Guía de Lectura por Capítulos):")
-        st.markdown("**Fuentes Principales (Autores Clásicos y Metodológicos):**")
-        st.markdown("- Norberto Bobbio, *Derecha e izquierda* (Aporte: Criterios analíticos para clasificar las familias políticas y sus oposiciones. Leer: Capítulos 1 al 3).")
-        st.markdown("- Michael Sandel, *El descontento con la democracia* (Aporte: Crítica al liberalismo procedimental y rescate comunitarista. Leer: Introducción y Capítulo 1).")
-        st.markdown("- Chantal Mouffe, *En torno a lo político* (Aporte: La dimensión agonística y los antagonismos doctrinales. Leer: Capítulos 1 y 2).")
-        st.markdown("- Isaiah Berlin, *Cuatro ensayos sobre la libertad* (Aporte: Distinción fundamental entre libertad negativa y positiva. Leer: Ensayo sobre los dos conceptos de libertad).")
+        st.subheader("📚 Itinerario Bibliográfico Híbrido (Obras Clásicas de las Vertientes en Colisión):")
+        st.markdown(f"**Fuentes Fundamentales de {nombres_vertientes[v1]}:**")
+        st.markdown(f"- Obras y autores clásicos de la matriz **{nombres_vertientes[v1]}**.")
+        st.markdown(f"**Fuentes Fundamentales de {nombres_vertientes[v2]}:**")
+        st.markdown(f"- Obras y autores clásicos de la matriz **{nombres_vertientes[v2]}**.")
+        st.markdown("**Comentarios y Ensayos Críticos sobre Pluralismo y Tensiones Doctrinales:**")
+        st.markdown("1. Norberto Bobbio, *Derecha e izquierda* (Aporte: Criterios analíticos para clasificar las familias políticas. Leer: Capítulos 1 al 3).")
+        st.markdown("2. Chantal Mouffe, *En torno a lo político* (Aporte: La dimensión agonística y los antagonismos doctrinales inconciliables. Leer: Capítulos 1 y 2).")
 
     elif max_vertiente == "liberal":
         st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Liberalismo Clásico")
@@ -253,16 +252,16 @@ if submitted:
         * *Movimientos:* Liberalismo político, reformismo republicano.  
         * *Figuras:* John Locke, Adam Smith, Alexis de Tocqueville, Friedrich Hayek; en Chile: José Victorino Lastarria y Valentín Letelier.
         """)
-        st.subheader("📚 Itinerario Bibliográfico Enriquecido (Aporte Temático y Guía de Lectura por Capítulos):")
-        st.markdown("**Fuentes Principales (Autores Clásicos):**")
-        st.markdown("1. John Locke, *Segundo tratado sobre el gobierno civil* (Aporte: Origen del contrato social y la propiedad privada. Leer: Capítulos 2, 5 y 8).")
-        st.markdown("2. Adam Smith, *La riqueza de las naciones* (Aporte: Funcionamiento del mercado, precios y división del trabajo. Leer: Capítulos 1 al 3 del Libro I).")
-        st.markdown("3. Alexis de Tocqueville, *La democracia en América* (Aporte: Análisis de los peligros del centralismo y el valor de la libertad civil. Leer: Volumen II, Segunda Parte).")
-        st.markdown("4. Immanuel Kant, *Filosofía de la historia* (Aporte: El derecho cosmopolita y el Estado de derecho republicano. Leer: *Idea de una historia universal en sentido cosmopolita*).")
+        st.subheader("📚 Itinerario Bibliográfico Basal (4 Autores Clásicos y 4 Comentaristas con Capítulos):")
+        st.markdown("**Autores Clásicos (Doctrinarios):**")
+        st.markdown("1. John Locke, *Segundo tratado sobre el gobierno civil* (Aporte: Origen del contrato social, estado de naturaleza y propiedad privada. Leer: Capítulos 2, 5 y 8).")
+        st.markdown("2. Adam Smith, *La riqueza de las naciones* (Aporte: Funcionamiento del mercado, precios, mano invisible y división del trabajo. Leer: Capítulos 1 al 3 del Libro I).")
+        st.markdown("3. Alexis de Tocqueville, *La democracia en América* (Aporte: Análisis de los peligros del centralismo estatal y el valor insustituible de la libertad civil. Leer: Volumen II, Segunda Parte).")
+        st.markdown("4. Immanuel Kant, *Filosofía de la historia* (Aporte: El derecho cosmopolita, la paz perpetua y el Estado de derecho republicano. Leer: *Idea de una historia universal en sentido cosmopolita*).")
         st.markdown("**Comentarios y Ensayos Críticos:**")
-        st.markdown("1. Friedrich Hayek, *Los fundamentos de la libertad* (Aporte: Defensa rigurosa del orden espontáneo de mercado frente al constructivismo. Leer: Capítulos 1 al 4).")
+        st.markdown("1. Friedrich Hayek, *Los fundamentos de la libertad* (Aporte: Defensa rigurosa del orden espontáneo de mercado frente al constructivismo racionalista. Leer: Capítulos 1 al 4).")
         st.markdown("2. Robert Nozick, *Anarquía, estado y utopía* (Aporte: Justificación del Estado mínimo desde los derechos individuales inviolables. Leer: Capítulos 3 al 7).")
-        st.markdown("3. John Rawls, *Teoría de la justicia* (Aporte: El liberalismo político y la justicia como equidad. Leer: Capítulos 1 y 2: *El papel de la justicia* y *Los principios de la justicia*).")
+        st.markdown("3. John Rawls, *Teoría de la justicia* (Aporte: El liberalismo político contemporáneo y la justicia como equidad. Leer: Capítulos 1 y 2: *El papel de la justicia* y *Los principios de la justicia*).")
         st.markdown("4. Norberto Bobbio, *Liberalismo y democracia* (Aporte: Síntesis crítica de la relación histórica entre los derechos liberales y las formas democráticas. Leer: Capítulos 1 al 3).")
 
     elif max_vertiente == "marxista":
@@ -282,8 +281,8 @@ if submitted:
         * *Movimientos:* Comunismo histórico, sindicalismo de clase, internacionalismo proletario.  
         * *Figuras:* Karl Marx, Antonio Gramsci, Rosa Luxemburgo, Vladimir Lenin; en Chile: Luis Emilio Recabarren y Clotario Blest.
         """)
-        st.subheader("📚 Itinerario Bibliográfico Enriquecido (Aporte Temático y Guía de Lectura por Capítulos):")
-        st.markdown("**Fuentes Principales (Autores Clásicos):**")
+        st.subheader("📚 Itinerario Bibliográfico Basal (4 Autores Clásicos y 4 Comentaristas con Capítulos):")
+        st.markdown("**Autores Clásicos (Doctrinarios):**")
         st.markdown("1. Karl Marx, *El Capital* (Aporte: Análisis riguroso de la plusvalía, la mercancía y la explotación capitalista. Leer: Sección 1, Capítulos 1 y 2).")
         st.markdown("2. Karl Marx y Friedrich Engels, *Manifiesto del Partido Comunista* (Aporte: La lucha de clases como motor de la historia y crítica al orden burgués. Leer: Capítulo 1: *Burgueses y proletarios*).")
         st.markdown("3. Vladimir Lenin, *El Estado y la revolución* (Aporte: Naturaleza coercitiva del Estado burgués y estrategia de transición proletaria. Leer: Capítulos 1 y 3).")
@@ -309,10 +308,10 @@ if submitted:
         
         **Movimientos y referentes históricos y chilenos:**  
         * *Movimientos:* Soberanismos nacionales, realismo político clásico.  
-        * *Figuras:* Thomas Hobbes, Carl Schmitt, Juan Donoso Cortés, Julius Evola; en Chile: la tradición de geopolítica nacional y el pensamiento de Ramón Cañas Montalva.
+        * *Figuras:* Thomas Hobbes, Carl Schmitt, Juan Donoso Cortés, Edmund Burke; en Chile: la tradición de geopolítica nacional y el pensamiento de Ramón Cañas Montalva.
         """)
-        st.subheader("📚 Itinerario Bibliográfico Enriquecido (Aporte Temático y Guía de Lectura por Capítulos):")
-        st.markdown("**Fuentes Principales (Autores Clásicos):**")
+        st.subheader("📚 Itinerario Bibliográfico Basal (4 Autores Clásicos y 4 Comentaristas con Capítulos):")
+        st.markdown("**Autores Clásicos (Doctrinarios):**")
         st.markdown("1. Thomas Hobbes, *Leviatán* (Aporte: Necesidad fundacional de una soberanía fuerte e indivisible para evitar el caos. Leer: Capítulos 13, 17 y 18).")
         st.markdown("2. Carl Schmitt, *El concepto de lo político* (Aporte: Definición ontológica de la política a través de la distinción amigo/enemigo. Leer: Capítulos 1 al 3).")
         st.markdown("3. Juan Donoso Cortés, *Ensayos sobre el catolicismo, el liberalismo y el socialismo* (Aporte: Crítica teológica y política al racionalismo moderno. Leer: Ensayos fundamentales).")
@@ -340,8 +339,8 @@ if submitted:
         * *Movimientos:* Escuela austríaca de economía, movimiento libertario contemporáneo.  
         * *Figuras:* Murray Rothbard, Ludwig von Mises, Ayn Rand, Robert Nozick.
         """)
-        st.subheader("📚 Itinerario Bibliográfico Enriquecido (Aporte Temático y Guía de Lectura por Capítulos):")
-        st.markdown("**Fuentes Principales (Autores Clásicos):**")
+        st.subheader("📚 Itinerario Bibliográfico Basal (4 Autores Clásicos y 4 Comentaristas con Capítulos):")
+        st.markdown("**Autores Clásicos (Doctrinarios):**")
         st.markdown("1. Murray Rothbard, *Ética de la libertad* (Aporte: Deducción axiomática de los derechos de propiedad y la autopropiedad. Leer: Parte I: *Ley natural* y Parte II).")
         st.markdown("2. Ludwig von Mises, *La acción humana* (Aporte: Tratado fundamental de praxeología y demostración de la superioridad económica del mercado libre. Leer: Capítulos 1 al 4).")
         st.markdown("3. Ayn Rand, *La virtud del egoísmo* (Aporte: Justificación ética del interés propio y el capitalismo de laissez-faire. Leer: Ensayos 1 al 4).")
@@ -369,11 +368,11 @@ if submitted:
         * *Movimientos:* Anarcosindicalismo histórico, cooperativismo obrero.  
         * *Figuras:* Piotr Kropotkin, Mijaíl Bakunin, Pierre-Joseph Proudhon, Elisée Reclus; en Chile: la prensa mutualista y precursores del movimiento obrero ácrata.
         """)
-        st.subheader("📚 Itinerario Bibliográfico Enriquecido (Aporte Temático y Guía de Lectura por Capítulos):")
-        st.markdown("**Fuentes Principales (Autores Clásicos):**")
+        st.subheader("📚 Itinerario Bibliográfico Basal (4 Autores Clásicos y 4 Comentaristas con Capítulos):")
+        st.markdown("**Autores Clásicos (Doctrinarios):**")
         st.markdown("1. Piotr Kropotkin, *La ayuda mutua* (Aporte: Demostración histórica de la cooperación como factor evolutivo social al margen del Estado. Leer: Introducción y Conclusión).")
         st.markdown("2. Mijaíl Bakunin, *Dios y el Estado* (Aporte: Crítica frontal a la autoridad teológica, política y a los dogmas jerárquicos. Leer: Texto completo fragmentado).")
-        st.markdown("3. Pierre-Joseph Proudhon, *¿Qué es la propiedad?* (Aporte: La famosa tesis sobre la propiedad como dominación y el mutualismo económico. Leer: Capítulos 1 al 3).")
+        st.markdown("3. Pierre-Joseph Proudhon, *¿Qué es la propiedad?* (Aporte: La tesis sobre la propiedad como dominación y el mutualismo económico. Leer: Capítulos 1 al 3).")
         st.markdown("4. Elisée Reclus, *El hombre y la tierra* (Aporte: Relación simbiótica entre las comunidades humanas libres y el entorno ecológico. Leer: Introducción geográfica).")
         st.markdown("**Comentarios y Ensayos Críticos:**")
         st.markdown("1. Daniel Guérin, *El anarquismo* (Aporte: Síntesis histórica rigurosa de las corrientes y praxis ácratas mundiales. Leer: Capítulos introductorios).")
@@ -398,8 +397,8 @@ if submitted:
         * *Movimientos:* Zapatismo, confederaciones indígenas andinas, movimientos por el Buen Vivir.  
         * *Figuras:* José Carlos Mariátegui, Alberto Acosta, Álvaro García Linera, Fausto Reinaga.
         """)
-        st.subheader("📚 Itinerario Bibliográfico Enriquecido (Aporte Temático y Guía de Lectura por Capítulos):")
-        st.markdown("**Fuentes Principales (Autores Clásicos y Latinoamericanos):**")
+        st.subheader("📚 Itinerario Bibliográfico Basal (4 Autores Clásicos y 4 Comentaristas con Capítulos):")
+        st.markdown("**Autores Clásicos (Doctrinarios):**")
         st.markdown("1. José Carlos Mariátegui, *7 ensayos de interpretación de la realidad peruana* (Aporte: El problema del indio y la pervivencia del ayllu y la raíz comunitaria agraria. Leer: Ensayo sobre el problema agrario).")
         st.markdown("2. Alberto Acosta, *El buen vivir: Sumak Kawsay* (Aporte: Crítica al desarrollismo capitalista y formulación de alternativas desde la cosmovisión comunitaria. Leer: Capítulos 1 al 3).")
         st.markdown("3. Fausto Reinaga, *La revolución india* (Aporte: Conciencia amindia y reivindicación de civilización comunitaria frente al colonialismo. Leer: Capítulos esenciales).")
