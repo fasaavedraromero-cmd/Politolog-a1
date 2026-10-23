@@ -1,5 +1,4 @@
 import streamlit as st
-import pandas as pd
 
 st.set_page_config(page_title="Arqueología Antropológica Política", page_icon="🏛️", layout="wide")
 
