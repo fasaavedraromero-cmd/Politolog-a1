@@ -320,4 +320,109 @@ if submitted:
         * *Opción B (Vía Multipolaridad Civilizacional / Cuarta Teoría):* Elevar la mirada hacia un mundo policéntrico de grandes espacios civilizacionales (*Großraum*) que rechazan frontalmente el universalismo y la hegemonía de la modernidad occidental liberal.
         
         **Movimientos y referentes históricos y chilenos:**  
-        * *Movimientos:* Soberanismos nacionales, realismo
+        * *Movimientos:* Soberanismos nacionales, realismo político clásico.  
+        * *Figuras:* Thomas Hobbes, Carl Schmitt, Juan Donoso Cortés, Edmund Burke; en Chile: la tradición de geopolítica nacional y el pensamiento de Ramón Cañas Montalva.
+        """)
+        st.subheader("📚 Itinerario Bibliográfico Basal (4 Autores Clásicos y 4 Comentaristas con Capítulos):")
+        st.markdown("**Autores Clásicos (Doctrinarios):**")
+        st.markdown("1. Thomas Hobbes, *Leviatán* (Aporte: Necesidad fundacional de una soberanía fuerte e indivisible para evitar el caos. Leer: Capítulos 13, 17 y 18).")
+        st.markdown("2. Carl Schmitt, *El concepto de lo político* (Aporte: Definición ontológica de la política a través de la distinción amigo/enemigo. Leer: Capítulos 1 al 3).")
+        st.markdown("3. Juan Donoso Cortés, *Ensayos sobre el catolicismo, el liberalismo y el socialismo* (Aporte: Crítica teológica y política al racionalismo moderno. Leer: Ensayos fundamentales).")
+        st.markdown("4. Edmund Burke, *Reflexiones sobre la revolución en Francia* (Aporte: Defensa del orden consuetudinario, la historia y la prudencia frente al abstractismo político. Leer: Fragmentos esenciales sobre la herencia institucional).")
+        st.markdown("**Comentarios y Ensayos Críticos:**")
+        st.markdown("1. Aleksandr Dugin, *La cuarta teoría política* (Aporte: Crítica radical al globalismo liberal/marxista y defensa de los grandes espacios civilizacionales. Leer: Capítulos iniciales).")
+        st.markdown("2. Ramón Cañas Montalva, *Geopolítica de Chile* (Aporte: Estrategia territorial, bioceánica y antártica del Estado soberano. Leer: Capítulos sobre espacios vitales y soberanía nacional).")
+        st.markdown("3. Hans Morgenthau, *Política entre las naciones* (Aporte: Los principios rectores del realismo político y el interés nacional. Leer: Capítulos 1 y 2).")
+        st.markdown("4. Julien Freund, *L'essence du politique* (Aporte: Análisis sistemático de las constantes del mando, la obediencia y el espectro político. Leer: Capítulos sobre el poder y la autoridad).")
+
+    elif max_vertiente == "libertario":
+        st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Anarcocapitalismo / Libertarismo Radical")
+        st.markdown("""
+        **1. Definiciones Fundamentales (La vertiente en juego):**  
+        * **Libertarismo Radical y Anarcocapitalismo:** Doctrina basada en el axioma de la autopropiedad y el principio de no agresión. Sostiene que todo individuo es dueño absoluto de su cuerpo y de los frutos de su trabajo, considerando cualquier intervención estatal o tributaria como una forma ilegítima de coacción.
+        
+        **2. Explicación reveladora de tu postura (A qué adhiere tu perfil):**  
+        Tu perfil se alinea con la defensa intransigente del libre mercado absoluto y la soberanía individual radical, rechazando toda forma de monopolio estatal sobre la moneda, la justicia o la seguridad.
+        
+        **3. Modelamiento Metacognitivo (Despliegue y profundización de tu matriz):**  
+        Partiendo del axioma de la autopropiedad, tu profundización doctrinal te lleva a elegir entre dos caminos de aplicación:  
+        * *Opción A (La vía anarcocapitalista radical):* Abolición total del Estado y su monopolio de la fuerza, confiando la seguridad, la justicia y la emisión monetaria a agencias privadas de libre mercado y contratos voluntarios.  
+        * *Opción B (La vía minarquista / liberal de ley y orden):* Aceptación pragmática de un Estado mínimo estrictamente limitado a la defensa nacional, la policía y los tribunales, prohibiendo toda intervención económica adicional.
+        
+        **Movimientos y referentes:**  
+        * *Movimientos:* Escuela austríaca de economía, movimiento libertario contemporáneo.  
+        * *Figuras:* Murray Rothbard, Ludwig von Mises, Ayn Rand, Robert Nozick.
+        """)
+        st.subheader("📚 Itinerario Bibliográfico Basal (4 Autores Clásicos y 4 Comentaristas con Capítulos):")
+        st.markdown("**Autores Clásicos (Doctrinarios):**")
+        st.markdown("1. Murray Rothbard, *Ética de la libertad* (Aporte: Deducción axiomática de los derechos de propiedad y la autopropiedad. Leer: Parte I: *Ley natural* y Parte II).")
+        st.markdown("2. Ludwig von Mises, *La acción humana* (Aporte: Tratado fundamental de praxeología y demostración de la superioridad económica del mercado libre. Leer: Capítulos 1 al 4).")
+        st.markdown("3. Ayn Rand, *La virtud del egoísmo* (Aporte: Justificación ética del interés propio y el capitalismo de laissez-faire. Leer: Ensayos 1 al 4).")
+        st.markdown("4. Friedrich Hayek, *Camino de servidumbre* (Aporte: Demostración de cómo la planificación económica conduce inexorablemente al totalitarismo. Leer: Capítulos 1 al 5).")
+        st.markdown("**Comentarios y Ensayos Críticos:**")
+        st.markdown("1. Jesús Huerta de Soto, *Socialismo, cálculo económico y función empresarial* (Aporte: Imposibilidad teórica del socialismo y vindicación de la función empresarial. Leer: Capítulos 1 al 3).")
+        st.markdown("2. Robert Nozick, *Anarquía, estado y utopía* (Aporte: Defensa crítica del Estado mínimo frente a las pretensiones anarcocapitalistas. Leer: Capítulos 3 al 5).")
+        st.markdown("3. Hans-Hermann Hoppe, *Democracia: el Dios que fracasó* (Aporte: Crítica radical al sufragio universal y defensa de órdenes sociales de derecho privado. Leer: Capítulos 1 al 3).")
+        st.markdown("4. Tom Bethell, *The Noblest Triumph: Property and Prosperity through the Ages* (Aporte: Historia institucional de cómo la propiedad privada fundamenta la civilización. Leer: Introducción y conclusiones).")
+
+    elif max_vertiente == "anarquista":
+        st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Anarquismo Clásico / Autonomismo")
+        st.markdown("""
+        **1. Definiciones Fundamentales (La vertiente en juego):**  
+        * **Anarquismo Clásico y Autonomismo:** Tradición político-social que postula la incompatibilidad absoluta entre la libertad humana y toda estructura de dominación jerárquica (Estado, capitalismo, Iglesia). Propone la autoorganización horizontal, la ayuda mutua, el federalismo comunal y la acción directa.
+        
+        **2. Explicación reveladora de tu postura (A qué adhiere tu perfil):**  
+        Adhieres a una concepción donde el orden social no requiere de mandos verticales ni coacción institucional, sino de la cooperación voluntaria y la federación autónoma desde las bases.
+        
+        **3. Modelamiento Metacognitivo (Despliegue y profundización de tu matriz):**  
+        Partiendo del rechazo a la autoridad coactiva, tu profundización exige definir los mecanismos socioeconómicos de integración:  
+        * *Opción A (La vía anarcosindicalista):* Organizar la producción económica mediante sindicatos de trabajadores autogestionados y federados que suplanten tanto al capital privado como al Estado.  
+        * *Opción B (La vía comunalista / municipalismo libertario):* Apostar por redes de comunas autónomas autogestionadas basadas en la cooperación ecológica local, el mandato revocable y la ayuda mutua vecinal.
+        
+        **Movimientos y referentes históricos y chilenos:**  
+        * *Movimientos:* Anarcosindicalismo histórico, cooperativismo obrero.  
+        * *Figuras:* Piotr Kropotkin, Mijaíl Bakunin, Pierre-Joseph Proudhon, Elisée Reclus; en Chile: la prensa mutualista y precursores del movimiento obrero ácrata.
+        """)
+        st.subheader("📚 Itinerario Bibliográfico Basal (4 Autores Clásicos y 4 Comentaristas con Capítulos):")
+        st.markdown("**Autores Clásicos (Doctrinarios):**")
+        st.markdown("1. Piotr Kropotkin, *La ayuda mutua* (Aporte: Demostración histórica de la cooperación como factor evolutivo social al margen del Estado. Leer: Introducción y Conclusión).")
+        st.markdown("2. Mijaíl Bakunin, *Dios y el Estado* (Aporte: Crítica frontal a la autoridad teológica, política y a los dogmas jerárquicos. Leer: Texto completo fragmentado).")
+        st.markdown("3. Pierre-Joseph Proudhon, *¿Qué es la propiedad?* (Aporte: La tesis sobre la propiedad como dominación y el mutualismo económico. Leer: Capítulos 1 al 3).")
+        st.markdown("4. Elisée Reclus, *El hombre y la tierra* (Aporte: Relación simbiótica entre las comunidades humanas libres y el entorno ecológico. Leer: Introducción geográfica).")
+        st.markdown("**Comentarios y Ensayos Críticos:**")
+        st.markdown("1. Daniel Guérin, *El anarquismo* (Aporte: Síntesis histórica rigurosa de las corrientes y praxis ácratas mundiales. Leer: Capítulos introductorios).")
+        st.markdown("2. Colin Ward, *Anarchy in Action* (Aporte: Ejemplos prácticos y cotidianos de cómo la sociedad se autoorganiza sin necesidad de gobierno. Leer: Capítulos 1 al 4).")
+        st.markdown("3. Murray Bookchin, *The Ecology of Freedom* (Aporte: Fundamentación del municipalismo libertario y la ecología social. Leer: Capítulos sobre la jerarquía y la libertad).")
+        st.markdown("4. Rudolf Rocker, *Anarcosindicalismo* (Aporte: Expresa la relación clásica entre el sindicalismo obrero y la emancipación antiautoritaria. Leer: Capítulos 1 al 3).")
+
+    elif max_vertiente == "comunitario":
+        st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Ontología Comunitaria y del Buen Vivir")
+        st.markdown("""
+        **1. Definiciones Fundamentales (La vertiente en juego):**  
+        * **Ontología Comunitaria y Buen Vivir:** Matriz inspirada en el pensamiento indígena y comunitario que concibe a la persona como un nodo inalienable de un tejido vivo que integra a la comunidad humana, los antepasados y la naturaleza (*Pachamama*). Opone la reciprocidad y el mandar obedeciendo al individualismo mercantil.
+        
+        **2. Explicación reveladora de tu postura (A qué adhiere tu perfil):**  
+        Te alineas con una visión donde la economía y la política deben estar subordinadas a la reproducción de la vida comunitaria, el equilibrio territorial y la reciprocidad frente al extractivismo.
+        
+        **3. Modelamiento Metacognitivo (Despliegue y profundización de tu matriz):**  
+        Partiendo de la matriz comunitaria y territorial, tu profundización exige definir el cauce político de tu proyecto:  
+        * *Opción A (Vía Autonomía Territorial y Comunal):* Consolidar el autogobierno local, la justicia indígena y la propiedad colectiva de la tierra como espacios blindados frente al extractivismo global.  
+        * *Opción B (Vía Socialismo Comunitario / Plurinacional):* Articular las comunidades originarias con un proyecto político estatal plurinacional que transforme las estructuras de dominación económica a escala nacional.
+        
+        **Movimientos y referentes históricos y latinoamericanos:**  
+        * *Movimientos:* Zapatismo, confederaciones indígenas andinas, movimientos por el Buen Vivir.  
+        * *Figuras:* José Carlos Mariátegui, Alberto Acosta, Álvaro García Linera, Fausto Reinaga.
+        """)
+        st.subheader("📚 Itinerario Bibliográfico Basal (4 Autores Clásicos y 4 Comentaristas con Capítulos):")
+        st.markdown("**Autores Clásicos (Doctrinarios):**")
+        st.markdown("1. José Carlos Mariátegui, *7 ensayos de interpretación de la realidad peruana* (Aporte: El problema del indio y la pervivencia del ayllu y la raíz comunitaria agraria. Leer: Ensayo sobre el problema agrario).")
+        st.markdown("2. Alberto Acosta, *El buen vivir: Sumak Kawsay* (Aporte: Crítica al desarrollismo capitalista y formulación de alternativas desde la cosmovisión comunitaria. Leer: Capítulos 1 al 3).")
+        st.markdown("3. Fausto Reinaga, *La revolución india* (Aporte: Conciencia amindia y reivindicación de civilización comunitaria frente al colonialismo. Leer: Capítulos esenciales).")
+        st.markdown("4. Silvia Rivera Cusicanqui, *Oprimidos pero no vencidos* (Aporte: Luchas campesinas, aymaras y sociología de la imagen comunitaria. Leer: Capítulos metodológicos).")
+        st.markdown("**Comentarios y Ensayos Críticos:**")
+        st.markdown("1. Álvaro García Linera, *Forma valor y forma comunidad* (Aporte: Articulación teórica entre el marxismo crítico y las estructuras comunitarias andinas. Leer: Introducción y capítulos centrales).")
+        st.markdown("2. Arturo Escobar, *Territorios de diferencia* (Aporte: Geografías de la diferencia, ontologías relacionales y defensa de los mundos socio-naturales. Leer: Capítulos 1 al 3).")
+        st.markdown("3. Eduardo Gudynas, *Derechos de la naturaleza y buen vivir* (Aporte: Sistematización jurídica y filosófica del biocentrismo comunitario. Leer: Capítulos iniciales).")
+        st.markdown("4. Boaventura de Sousa Santos, *Descolonizar el saber, reinventar el poder* (Aporte: Las epistemologías del sur frente a la hegemonía de la modernidad occidental. Leer: Ensayos sobre el Estado plurinacional).")
+
+    st.balloons()
