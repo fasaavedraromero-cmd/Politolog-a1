@@ -381,4 +381,44 @@ if submitted:
         * *Figuras:* Piotr Kropotkin, Mijaíl Bakunin, Pierre-Joseph Proudhon, Elisée Reclus; en Chile: la prensa mutualista y precursores del movimiento obrero ácrata.
         """)
         st.subheader("📚 Itinerario Bibliográfico Basal (4 Autores Clásicos y 4 Comentaristas con Capítulos):")
-        st.markdown("**Autores Clásicos (Do
+        st.markdown("**Autores Clásicos (Doctrinarios):**")
+        st.markdown("1. Piotr Kropotkin, *La ayuda mutua* (Aporte: Demostración histórica de la cooperación como factor evolutivo social al margen del Estado. Leer: Introducción y Conclusión).")
+        st.markdown("2. Mijaíl Bakunin, *Dios y el Estado* (Aporte: Crítica frontal a la autoridad teológica, política y a los dogmas jerárquicos. Leer: Texto completo fragmentado).")
+        st.markdown("3. Pierre-Joseph Proudhon, *¿Qué es la propiedad?* (Aporte: La tesis sobre la propiedad como dominación y el mutualismo económico. Leer: Capítulos 1 al 3).")
+        st.markdown("4. Elisée Reclus, *El hombre y la tierra* (Aporte: Relación simbiótica entre las comunidades humanas libres y el entorno ecológico. Leer: Introducción geográfica).")
+        st.markdown("**Comentarios y Ensayos Críticos:**")
+        st.markdown("1. Daniel Guérin, *El anarquismo* (Aporte: Síntesis histórica rigurosa de las corrientes y praxis ácratas mundiales. Leer: Capítulos introductorios).")
+        st.markdown("2. Colin Ward, *Anarchy in Action* (Aporte: Ejemplos prácticos y cotidianos de cómo la sociedad se autoorganiza sin necesidad de gobierno. Leer: Capítulos 1 al 4).")
+        st.markdown("3. Murray Bookchin, *The Ecology of Freedom* (Aporte: Fundamentación del municipalismo libertario y la ecología social. Leer: Capítulos sobre la jerarquía y la libertad).")
+        st.markdown("4. Rudolf Rocker, *Anarcosindicalismo* (Aporte: Exposición clásica de la relación entre el sindicalismo obrero y la emancipación antiautoritaria. Leer: Capítulos 1 al 3).")
+
+    elif max_vertiente == "comunitario":
+        st.success("✔ Diagnóstico: Coherencia Estructural Sólida — Ontología Comunitaria y del Buen Vivir")
+        st.markdown("""
+        **1. Definiciones Fundamentales (La vertiente en juego):**  
+        * **Ontología Comunitaria y Buen Vivir:** Matriz inspirada en el pensamiento indígena y comunitario que concibe a la persona como un nodo inalienable de un tejido vivo que integra a la comunidad humana, los antepasados y la naturaleza (*Pachamama*). Opone la reciprocidad y el mandar obedeciendo al individualismo mercantil.
+        
+        **2. Explicación reveladora de tu postura (A qué adhiere tu perfil):**  
+        Te alineas con una visión donde la economía y la política deben estar subordinadas a la reproducción de la vida comunitaria, el equilibrio territorial y la reciprocidad frente al extractivismo.
+        
+        **3. Modelamiento de Profundización (Cómo robustecer y llevar al siguiente nivel tus ideas):**  
+        * *Opción A (Autonomía Territorial Comunitaria):* Consolidación del autogobierno local, la justicia comunitaria y la defensa colectiva del territorio.  
+        * *Opción B (Socialismo Comunitario / Plurinacional):* Articulación de los pueblos y comunidades en un proyecto de transformación estatal a escala nacional.
+        
+        **Movimientos y referentes históricos y latinoamericanos:**  
+        * *Movimientos:* Zapatismo, confederaciones indígenas andinas, movimientos por el Buen Vivir.  
+        * *Figuras:* José Carlos Mariátegui, Alberto Acosta, Álvaro García Linera, Fausto Reinaga.
+        """)
+        st.subheader("📚 Itinerario Bibliográfico Basal (4 Autores Clásicos y 4 Comentaristas con Capítulos):")
+        st.markdown("**Autores Clásicos (Doctrinarios):**")
+        st.markdown("1. José Carlos Mariátegui, *7 ensayos de interpretación de la realidad peruana* (Aporte: El problema del indio y la pervivencia del ayllu y la raíz comunitaria agraria. Leer: Ensayo sobre el problema agrario).")
+        st.markdown("2. Alberto Acosta, *El buen vivir: Sumak Kawsay* (Aporte: Crítica al desarrollismo capitalista y formulación de alternativas desde la cosmovisión comunitaria. Leer: Capítulos 1 al 3).")
+        st.markdown("3. Fausto Reinaga, *La revolución india* (Aporte: Conciencia amindia y reivindicación de civilización comunitaria frente al colonialismo. Leer: Capítulos esenciales).")
+        st.markdown("4. Silvia Rivera Cusicanqui, *Oprimidos pero no vencidos* (Aporte: Luchas campesinas, aymaras y sociología de la imagen comunitaria. Leer: Capítulos metodológicos).")
+        st.markdown("**Comentarios y Ensayos Críticos:**")
+        st.markdown("1. Álvaro García Linera, *Forma valor y forma comunidad* (Aporte: Articulación teórica entre el marxismo crítico y las estructuras comunitarias andinas. Leer: Introducción y capítulos centrales).")
+        st.markdown("2. Arturo Escobar, *Territorios de diferencia* (Aporte: Geografías de la diferencia, ontologías relacionales y defensa de los mundos socio-naturales. Leer: Capítulos 1 al 3).")
+        st.markdown("3. Eduardo Gudynas, *Derechos de la naturaleza y buen vivir* (Aporte: Sistematización jurídica y filosófica del biocentrismo comunitario. Leer: Capítulos iniciales).")
+        st.markdown("4. Boaventura de Sousa Santos, *Descolonizar el saber, reinventar el poder* (Aporte: Las epistemologías del sur frente a la hegemonía de la modernidad occidental. Leer: Ensayos sobre el Estado plurinacional).")
+
+    st.balloons()
