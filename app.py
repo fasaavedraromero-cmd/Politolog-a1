@@ -1,7 +1,5 @@
 import streamlit as st
 import pandas as pd
-import numpy as np
-import plotly.express as px
 
 st.set_page_config(page_title="Arqueología Antropológica Política", page_icon="🏛️", layout="wide")
 
@@ -9,7 +7,7 @@ st.title("🏛️ Radiografía de creencias e ideas políticas")
 st.markdown("---")
 st.write("""
 **Bienvenido al laboratorio de arqueología conceptual.** Este instrumento de alta densidad analítica parte de tu **concepto de ser humano** (Bloque 1) para descender metodológicamente por el vínculo social (Bloque 2), la nación e identidad (Bloque 3), el estado y la autoridad (Bloque 4), la economía y riqueza (Bloque 5), y la geopolítica y proyecto histórico (Bloque 6). 
-Tómate tu tiempo en cada uno de los 24 dilemas. Al finalizar, el sistema generará una radiografía geométrica mediante gráfico de radar, un glosario conceptual riguroso, un diagnóstico multidoctrinal de tensiones, un modelamiento de opciones y una base bibliográfica primaria con capítulos específicos.
+Tómate tu tiempo en cada uno de los 24 dilemas. Al finalizar, el sistema generará una radiografía cuantitativa de tus vertientes, un glosario conceptual riguroso, un diagnóstico multidoctrinal de tensiones, un modelamiento de opciones y una base bibliográfica primaria con capítulos específicos.
 """)
 
 # --- FORMULARIO DE DECISIONES SECUENCIALES (6 BLOQUES / 24 MICRO-PREGUNTAS) ---
@@ -240,7 +238,7 @@ with st.form("formulario_arqueologia"):
 # --- PROCESAMIENTO Y DIAGNÓSTICO FORMATIVO MULTIDOCTRINAL ---
 if submitted:
     st.markdown("---")
-    st.header("📊 1. Radiografía Geométrica: Gráfico de Radar de tus Vertientes")
+    st.header("📊 1. Radiografía Geométrica y Cuantitativa de tus Vertientes")
 
     respuestas = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23, p24]
     
@@ -267,16 +265,9 @@ if submitted:
         elif "eslabón" in r or "reciprocidad, el trueque" in r or "tierra ancestral" in r or "equilibrio ecológico" in r:
             puntos["Postdesarrollismo y Biocentrismo"] += 1.0
 
-    # Generación de Gráfico de Radar con Plotly
-    df_radar = pd.DataFrame(dict(
-        Intensidad=list(puntos.values()),
-        Vertiente=list(puntos.keys())
-    ))
-    
-    fig = px.line_polar(df_radar, r='Intensidad', theta='Vertiente', line_close=True, range_r=[0, 10])
-    fig.update_traces(fill='toself', line_color='#1f77b4')
-    fig.update_layout(polar=dict(radialaxis=dict(visible=True, range=[0, 10])), showlegend=False)
-    st.plotly_chart(fig, use_container_width=True)
+    # Gráfico de barras nativo limpio y eficiente
+    df_chart = pd.DataFrame(list(puntos.items()), columns=["Vertiente", "Puntaje"]).set_index("Vertiente")
+    st.bar_chart(df_chart)
 
     # Identificación de vertientes activas (con puntaje > 0)
     vertientes_activas = {k: v for k, v in sorted(puntos.items(), key=lambda item: item[1], reverse=True) if v > 0}
