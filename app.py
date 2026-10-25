@@ -3,11 +3,11 @@ import pandas as pd
 
 st.set_page_config(page_title="Arqueología Antropológica Política", page_icon="🏛️", layout="wide")
 
-st.title("🏛️ Simulador de Arqueología Antropológica Política")
+st.title("🏛️ Radiografía de creencias e ideas políticas")
 st.markdown("---")
 st.write("""
-**Bienvenido al laboratorio de arqueología conceptual.** Inspirado en el flujo deductivo del pensamiento político, este simulador ampliado a 24 preguntas parte de tu **concepto de ser humano** para descender por las capas de la sociedad, la nación, el estado, la economía y el proyecto histórico. 
-Tómate tu tiempo en cada dilema. Al finalizar, obtendrás una radiografía tabular, un glosario detallado, un diagnóstico de coherencia o tensiones, un modelamiento de profundización con opciones (A, B, C) y una bibliografía primaria rigurosa con capítulos específicos.
+**Bienvenido al laboratorio de arqueología conceptual.** Este instrumento de alta densidad analítica parte de tu **concepto de ser humano** (Bloque 1) para descender metodológicamente por el vínculo social (Bloque 2), la nación e identidad (Bloque 3), el estado y la autoridad (Bloque 4), la economía y riqueza (Bloque 5), y la geopolítica y proyecto histórico (Bloque 6). 
+Tómate tu tiempo en cada uno de los 24 dilemas. Al finalizar, el sistema generará una radiografía tabular, un glosario conceptual riguroso, un diagnóstico de coherencia o cortocircuitos ontológicos, un modelamiento de profundización con opciones detalladas y una base bibliográfica primaria con capítulos específicos.
 """)
 
 # --- FORMULARIO DE DECISIONES SECUENCIALES (6 BLOQUES / 24 MICRO-PREGUNTAS) ---
@@ -240,7 +240,6 @@ if submitted:
     st.markdown("---")
     st.header("📊 1. Radiografía Tabular de Ideas Fuerza y Vertientes")
 
-    # Mapeo de respuestas a dimensiones para construir la tabla resumen
     respuestas = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23, p24]
     
     puntos = {
@@ -285,7 +284,7 @@ if submitted:
 
     max_vertiente = v1
     max_puntaje = p_v1
-    es_coherente = max_puntaje >= 10  # Umbral ajustado para 24 preguntas
+    es_coherente = max_puntaje >= 9.0  # Umbral de consistencia para 24 preguntas
 
     nombres_vertientes = {
         "liberal": "Liberalismo Clásico",
@@ -296,76 +295,149 @@ if submitted:
         "comunitario": "Ontología Comunitaria y del Buen Vivir"
     }
 
-    # --- 2. GLOSARIO DETALLADO DE LAS VERTIENTES DETECTADAS ---
+    # --- 2. GLOSARIO DETALLADO DE LAS VERTIENTES ---
     st.markdown("---")
-    st.header("📖 2. Glosario Conceptual y Fundamentos Teóricos")
+    st.header("📖 2. Glosario Conceptual, Exponentes y Fundamentos Históricos")
     st.markdown(f"""
-    * **{nombres_vertientes[v1]} (Corriente Dominante):**
-      * *Descripción detallada:* Sostén filosófico basado en la primacía ontológica del individuo, la neutralidad institucional, el contrato social y la limitación del poder coactivo.
-      * *Principales exponentes:* John Locke, Adam Smith, Immanuel Kant, Friedrich Hayek.
-      * *Fundamentos (Extranjeros y Chilenos):* Tradición republicana clásica y liberalismo político occidental; en Chile, proyectado en el pensamiento liberal decimonónico (José Victorino Lastarria) y el reformismo institucional de Valentín Letelier.
+    * **Liberalismo Clásico:**
+      * *Descripción:* Sostén filosófico basado en la primacía ontológica del individuo racional, la neutralidad institucional del Estado de derecho, el contrato social y la propiedad privada como garantía de libertad.
+      * *Exponentes:* John Locke, Adam Smith, Immanuel Kant, Alexis de Tocqueville, Friedrich Hayek.
+      * *Fundamentos:* Tradición contractualista occidental; en Chile, proyectado en el pensamiento liberal decimonónico (José Victorino Lastarria) y el reformismo institucional de Valentín Letelier.
 
-    * **{nombres_vertientes[v2]} (Corriente Secundaria / Tensión):**
-      * *Descripción detallada:* Matriz analítica alternativa detectada en tus elecciones que introduce principios contrapuestos sobre la estructura social, la propiedad o la autoridad.
-      * *Principales exponentes:* Referentes clásicos de su respectiva tradición doctrinal.
-      * *Fundamentos (Extranjeros y Chilenos):* Movimientos históricos y corrientes de pensamiento ancladas en la historia política y social.
+    * **Marxismo y Teoría Crítica:**
+      * *Descripción:* Matriz materialista histórica que concibe la política y la conciencia como superestructuras determinadas por las relaciones de producción y la lucha de clases, buscando la emancipación universal mediante la socialización de los medios.
+      * *Exponentes:* Karl Marx, Friedrich Engels, Vladimir Lenin, Rosa Luxemburgo, Antonio Gramsci.
+      * *Fundamentos:* Crítica de la economía política y socialismo científico; en Chile, encarnado en el sindicalismo de clase de Luis Emilio Recabarren y el pensamiento de Clotario Blest.
+
+    * **Tradicionalismo y Realismo Político:**
+      * *Descripción:* Corriente centrada en el enraizamiento histórico, la soberanía estatal fuerte, el orden orgánico y la seguridad frente a las amenazas del entorno geopolítico (espectro amigo/enemigo).
+      * *Exponentes:* Thomas Hobbes, Carl Schmitt, Edmund Burke, Juan Donoso Cortés, Hans Morgenthau.
+      * *Fundamentos:* Filosofía de la soberanía y realismo westfaliano; en Chile, arraigado en la tradición geopolítica nacional y el pensamiento de estrategas como Ramón Cañas Montalva.
+
+    * **Anarcocapitalismo / Libertarismo Radical:**
+      * *Descripción:* Doctrina fundamentada en el axioma de la autopropiedad y el principio de no agresión. Rechaza toda coacción estatal e impositiva, apostando por mercados libres absolutos y la privatización de la justicia y la seguridad.
+      * *Exponentes:* Murray Rothbard, Ludwig von Mises, Ayn Rand, Hans-Hermann Hoppe.
+      * *Fundamentos:* Escuela Austríaca de Economía y derecho natural libertario contemporáneo.
+
+    * **Anarquismo Clásico / Autonomismo:**
+      * *Descripción:* Tradición antiautoritaria que postula la incompatibilidad de la libertad con cualquier jerarquía (Estado, capital, Iglesia). Propone la autoorganización horizontal, la ayuda mutua y el federalismo comunal.
+      * *Exponentes:* Piotr Kropotkin, Mijaíl Bakunin, Pierre-Joseph Proudhon, Elisée Reclus.
+      * *Fundamentos:* Sindicalismo revolucionario y cooperación mutualista global.
+
+    * **Ontología Comunitaria y del Buen Vivir:**
+      * *Descripción:* Matriz basada en la cosmovisión relacional y comunitaria donde la persona es un nodo inalienable de un tejido social y ecológico. Subordina el mercado a la reproducción de la vida y la reciprocidad (*Pachamama*).
+      * *Exponentes:* José Carlos Mariátegui, Alberto Acosta, Álvaro García Linera, Fausto Reinaga.
+      * *Fundamentos:* Pensamiento indigenista andino y ecología política comunitaria.
     """)
 
-    # --- 3. SÍNTESIS DESCRIPTIVA DE COHERENCIA O CONTRADICCIONES ---
+    # --- 3. SÍNTESIS DIAGNÓSTICA PROFUNDA Y DETALLADA ---
     st.markdown("---")
-    st.header("🔍 3. Síntesis Diagnóstica: Coherencia o Tensiones Estructurales")
+    st.header("🔍 3. Síntesis Diagnóstica: Coherencia Deductiva o Tensiones Estructurales")
+    
     if es_coherente:
-        st.success(f"✔ **Perfil Coherente:** Tu arquitectura conceptual muestra una solidez notable alineada con el **{nombres_vertientes[v1]}**.")
+        st.success(f"✔ **Diagnóstico de Coherencia Estructural Sólida:** Tu arquitectura conceptual se alinea de manera consistente con los axiomas del **{nombres_vertientes[v1]}**.")
         st.markdown(f"""
-        * **Análisis detallado de adhesión:** A lo largo de las 24 dimensiones, mantienes un hilo conductor deductivo claro. Desde tu concepción del ser humano hasta tus proyecciones geopolíticas, rechazas las contradicciones sistémicas, apostando por un orden institucional unificado que prioriza los axiomas propios de esta vertiente sin disonancias cognitivas graves.
+        * **Desglose Analítico del Perfil:** A lo largo de las 24 dimensiones, demuestras un hilo conductor deductivo sumamente riguroso. Al descender desde tu concepción inicial del ser humano (Bloque 1) hasta tus proyecciones geopolíticas e históricas (Bloque 6), rechazas de forma metódica las disonancias con otras escuelas. No caes en contradicciones sistémicas: mantienes una fidelidad conceptual pura que prioriza los principios ontológicos, institucionales y económicos de esta matriz, logrando un edificio teórico cohesionado, inmune a contradicciones internas graves y listo para un despliegue académico avanzado.
         """)
     else:
-        st.warning(f"⚠️ **Perfil Híbrido / Contradictorio:** Se detecta una tensión profunda entre el **{nombres_vertientes[v1]}** y el **{nombres_vertientes[v2]}**.")
+        st.warning(f"⚠️ **Diagnóstico de Perfil Híbrido y Contradictorio:** Se detecta un entrecruzamiento de tensiones doctrinales profundas entre el **{nombres_vertientes[v1]}** y el **{nombres_vertientes[v2]}**.")
         st.markdown(f"""
-        * **Análisis detallado de tensiones:** Al ampliar el cuestionario a 24 dimensiones, queda en evidencia que combinas premisas ontológicas irreconciliables en las capas intermedias (por ejemplo, mezclando contratos individuales liberales con subordinaciones comunitarias o estructuras colectivistas). Esto genera un cortocircuito lógico en tu edificio conceptual que requiere encuadre metodológico.
+        * **Análisis Quirúrgico del Cortocircuito Ontológico:** Al expandir el análisis a 24 micro-preguntas, el simulador evidencia que tu edificio conceptual sufre de un choque de placas tectónicas teóricas. Estás combinando premisas ontológicas que se neutralizan mutuamente en las capas intermedias (por ejemplo, adoptando el individualismo metodológico o contractual en el plano económico, pero deslizando pulsiones colectivistas, coactivas u orgánicas en el plano estatal o comunitario; o viceversa). Esta hibridación, aunque común en el pragmatismo político cotidiano, genera una disonancia lógica severa en tu arquitectura deductiva que debe ser resuelta mediante un encuadre metodológico consciente.
         """)
 
-    # --- 4. MODELAMIENTO DE PROFUNDIZACIÓN Y/O ENCUADRE (OPCIONES A, B, C) ---
+    # --- 4. MODELAMIENTO DE PROFUNDIZACIÓN Y OPCIONES DE ENCUADRE ---
     st.markdown("---")
-    st.header("🎯 4. Modelamiento de Profundización y Opciones de Encuadre")
+    st.header("🎯 4. Modelamiento de Profundización y Opciones de Encuadre Metodológico")
+    
     if es_coherente:
         st.markdown(f"""
-        Dado que tu perfil muestra consistencia en el **{nombres_vertientes[v1]}**, te ofrecemos 3 subvertientes avanzadas para profundizar tu estudio teórico:
-        * **Opción A (Subvertiente Reformista / Institucional):** Profundizar en cómo las instituciones estatales regulan y garantizan las condiciones marco sin perder el centro en la autonomía individual o el orden orgánico basal.
-        * **Opción B (Subvertiente Radical / Ortodoxa):** Llevar los principios de tu matriz a su máxima expresión teórica, purgando cualquier concesión pragmática o intervencionista del Estado.
-        * **Opción C (Subvertiente Histórica / Comparada):** Estudiar las adaptaciones geopolíticas e institucionales que esta vertiente ha sufrido en el contexto latinoamericano y chileno frente a los ciclos de crisis.
+        Puesto que tu arquitectura muestra solidez y consistencia en el **{nombres_vertientes[v1]}**, te ofrecemos **tres rutas de profundización teórica avanzada (Subvertientes)** para encauzar tu investigación académica:
+        * **Opción A (La Vía Reformista / Institucional):** Estudiar cómo los fundamentos de tu matriz se adaptan a las exigencias de regulación estatal moderada, justicia distributiva de mínimos y estabilidad democrática representativa sin fracturar el núcleo individual o el orden orgánico basal.
+        * **Opción B (La Vía Ortodoxa / Radical):** Llevar los axiomas de tu vertiente hacia su formulación más pura e intransigente, purgando cualquier concesión pragmática, intervencionismo estatal o concesión keynesiana/colectivista.
+        * **Opción C (La Vía Histórica / Geopolítica Comparada):** Analizar la evolución y las tensiones prácticas que ha sufrido esta doctrina al ser aplicada en los procesos institucionales y geopolíticos de América Latina y Chile a lo largo de su historia republicana.
         """)
     else:
         st.markdown(f"""
-        Para resolver las contradicciones entre **{nombres_vertientes[v1]}** y **{nombres_vertientes[v2]}**, la idea más fuerte detectada es la de tu matriz dominante. Te ofrecemos las siguientes opciones de encuadre y profundización:
-        * **Opción A (Purificación hacia la Matriz 1 - {nombres_vertientes[v1]}):** Subordinar deductivamente todas las respuestas de las capas sociales, económicas y geopolíticas hacia los axiomas puros de esta primera vertiente, eliminando todo rezago heterodoxo.
-        * **Opción B (Giro radical hacia la Matriz 2 - {nombres_vertientes[v2]}):** Reestructurar por completo el edificio conceptual desde la base (Bloque 1), asumiendo que las premisas de la segunda vertiente deben regir la totalidad de tu arquitectura política.
-        * **Opción C (Síntesis Dialéctica / Tercera Vía):** Asumir conscientemente la condición híbrida mediante un marco pluralista que reconozca los límites del monismo doctrinal, estudiando la tensión agonística entre ambas tradiciones.
+        Para resolver el cortocircuito ontológico detectado entre **{nombres_vertientes[v1]}** y **{nombres_vertientes[v2]}**, tu edificio conceptual te exige adoptar una de las siguientes **opciones de encuadre estratégico**:
+        * **Opción A (Purificación Deductiva hacia la Matriz Dominante - {nombres_vertientes[v1]}):** Decidir someter la totalidad de tu arquitectura teórica a los principios de tu vertiente principal. Esto implica revisar y reescribir deductivamente las respuestas de los bloques intermedios (Estado, economía y geopolítica) para eliminar por completo los elementos heterodoxos de la segunda matriz.
+        * **Opción B (Giro Radical hacia la Matriz Secundaria - {nombres_vertientes[v2]}):** Reconocer que tus convicciones más profundas residen en la segunda vertiente detectada, lo que te obliga a realizar un ejercicio inverso: reestructurar tu concepción del ser humano y del vínculo social (Bloques 1 y 2) para subordinarlas a los principios colectivistas, orgánicos o soberanistas de esta matriz.
+        * **Opción C (Asunción del Pluralismo Agonístico / Síntesis Dialéctica):** Abandonar la búsqueda de un monismo deductivo puro y aceptar de manera consciente tu perfil híbrido. Esto implica construir un marco teórico pluralista que asuma teóricamente la tensión entre ambas tradiciones, fundamentando su estudio en la fricción democrática y los límites del pensamiento político tradicional.
         """)
 
-    # --- 5. BIBLIOGRAFÍA PRIMARIA (MÍNIMO 6 TEXTOS CON CAPÍTULOS) ---
+    # --- 5. BASE DE DATOS BIBLIOGRÁFICA MASIVA (42 FUENTES PRIMARIAS) ---
     st.markdown("---")
-    st.header("📚 5. Bibliografía Primaria Obligatoria (Obras Originales y Capítulos)")
+    st.header("📚 5. Base de Datos Bibliográfica Primaria (Selección por Vertientes con Capítulos)")
     st.markdown("""
-    De acuerdo a tus resultados, debes consultar estrictamente las siguientes **fuentes primarias** (textos de los autores originales, sin comentarios de terceros):
-    
-    1. **John Locke**, *Segundo tratado sobre el gobierno civil*  
-       *Capítulos específicos a consultar:* Cap. 2 ("Del estado de naturaleza"), Cap. 5 ("De la propiedad") y Cap. 8 ("Del comienzo de las sociedades políticas").
-    
-    2. **Karl Marx**, *El Capital (Libro I)*  
-       *Capítulos específicos a consultar:* Sección 1 ("La mercancía y el dinero", Cap. 1 al 3) y Sección 3 ("La producción de la plusvalía absoluta").
-    
-    3. **Thomas Hobbes**, *Leviatán*  
-       *Capítulos específicos a consultar:* Cap. 13 ("De la condición natural del género humano...") y Cap. 17 ("De las causas, generación y definición de un Estado").
-    
-    4. **Murray Rothbard**, *Ética de la libertad*  
-       *Capítulos específicos a consultar:* Parte I ("Ley natural") y Parte II ("La autopropiedad y el Estado").
-    
-    5. **Piotr Kropotkin**, *La ayuda mutua: Un factor de evolución*  
-       *Capítulos específicos a consultar:* Introducción y Conclusión.
-    
-    6. **José Carlos Mariátegui**, *7 ensayos de interpretación de la realidad peruana*  
-       *Capítulos específicos a consultar:* "El problema del indio" y "Esquema de la evolución económica".
+    A continuación se despliega el repertorio masivo de **fuentes primarias puras** (autores originales, sin comentarios de terceros). El sistema selecciona y presenta los textos fundamentales correspondientes a las vertientes activadas en tu diagnóstico:
+    """)
+
+    # Diccionario masivo con las 7 vertientes (6 libros c/u = 42 obras primarias)
+    repo_bibliografico = {
+        "liberal": [
+            "**John Locke**, *Segundo tratado sobre el gobierno civil* (Caps. 2: 'Del estado de naturaleza', 5: 'De la propiedad', y 8: 'Del comienzo de las sociedades políticas').",
+            "**Adam Smith**, *La riqueza de las naciones* (Libro I, Caps. 1-3: División del trabajo y origen del valor de cambio).",
+            "**Immanuel Kant**, *La metafísica de las costumbres* (Parte I: Principios metafísicos de la doctrina del derecho).",
+            "**Alexis de Tocqueville**, *La democracia en América* (Volumen II, Segunda Parte: Influencia de la democracia en los sentimientos).",
+            "**Benjamin Constant**, *De la libertad de los antiguos comparada con la de los modernos* (Discurso íntegro en el Ateneo de París).",
+            "**Friedrich Hayek**, *Los fundamentos de la libertad* (Caps. 1 al 4: Libertad y orden económico)."
+        ],
+        "marxista": [
+            "**Karl Marx**, *El Capital (Libro I)* (Sección 1, Caps. 1 al 3: La mercancía, el proceso de cambio y el dinero).",
+            "**Karl Marx y Friedrich Engels**, *Manifiesto del Partido Comunista* (Cap. 1: Burgueses y proletarios).",
+            "**Vladimir Lenin**, *El Estado y la revolución* (Caps. 1: La sociedad de clases y el Estado, y 3: La experiencia de la Comuna de París).",
+            "**Rosa Luxemburgo**, *La acumulación del capital* (Secciones iniciales sobre la reproducción ampliada del capital).",
+            "**Antonio Gramsci**, *Cuadernos de la cárcel* (Antología sobre Estado integral, hegemonía e intelectuales orgánicos).",
+            "**Georg Lukács**, *Historia y conciencia de clase* (Ensayo: 'La reificación y la conciencia del proletariado')."
+        ],
+        "tradicional": [
+            "**Thomas Hobbes**, *Leviatán* (Caps. 13: 'De la condición natural del género humano', 17 y 18: Generación y derechos del soberano).",
+            "**Carl Schmitt**, *El concepto de lo político* (Caps. 1 al 3: Definición ontológica de lo político y la distinción amigo/enemigo).",
+            "**Edmund Burke**, *Reflexiones sobre la revolución en Francia* (Fragmentos esenciales sobre la herencia institucional y el prejuicio racional).",
+            "**Juan Donoso Cortés**, *Ensayos sobre el catolicismo, el liberalismo y el socialismo* (Ensayos fundamentales sobre la dictadura y el orden).",
+            "**Hans Morgenthau**, *Política entre las naciones* (Caps. 1 y 2: Los seis principios del realismo político).",
+            "**Julien Freund**, *L'essence du politique* (Caps. sobre el mando, la obediencia y la naturaleza jerárquica del poder)."
+        ],
+        "libertario": [
+            "**Murray Rothbard**, *Ética de la libertad* (Parte I: Ley natural, y Parte II: La autopropiedad y el Estado).",
+            "**Ludwig von Mises**, *La acción humana* (Caps. 1 al 4: Introducción a la praxeología y el orden de mercado).",
+            "**Ayn Rand**, *La virtud del egoísmo* (Ensayos 1 al 4: La objeción objetivista al altruismo y el estatismo).",
+            "**Lysander Spooner**, *No Treason* (Escritos completos sobre la ilegitimidad contractual del Estado).",
+            "**Gustave de Molinari**, *La producción de seguridad* (Ensayo íntegro sobre la privatización de la ley y el orden).",
+            "**Hans-Hermann Hoppe**, *Democracia: el Dios que fracasó* (Caps. 1 al 3: Monarquía, democracia y orden natural)."
+        ],
+        "anarquista": [
+            "**Piotr Kropotkin**, *La ayuda mutua: Un factor de evolución* (Introducción y Conclusión).",
+            "**Mijaíl Bakunin**, *Dios y el Estado* (Texto fragmentado completo sobre la autoridad y la ciencia).",
+            "**Pierre-Joseph Proudhon**, *¿Qué es la propiedad?* (Caps. 1 al 3: Investigaciones sobre el principio del derecho y del gobierno).",
+            "**Elisée Reclus**, *El hombre y la tierra* (Introducción geográfica sobre la libertad humana y el medio).",
+            "**Errico Malatesta**, *Anarquia* (Opúsculo fundamental sobre la organización libre sin autoridad).",
+            "**Max Stirner**, *El único y su propiedad* (Parte I: El hombre y la soberanía del ego autónomo)."
+        ],
+        "comunitario": [
+            "**José Carlos Mariátegui**, *7 ensayos de interpretación de la realidad peruana* (Ensayo sobre el problema agrario y el ayllu).",
+            "**Alberto Acosta**, *El buen vivir: Sumak Kawsay* (Caps. 1 al 3: Opciones al desarrollo capitalista).",
+            "**Fausto Reinaga**, *La revolución india* (Caps. esenciales sobre la conciencia amindia y el colonialismo).",
+            "**Silvia Rivera Cusicanqui**, *Oprimidos pero no vencidos* (Caps. metodológicos sobre la historia oral y comunitaria andina).",
+            "**Álvaro García Linera**, *Forma valor y forma comunidad* (Introducción y capítulos centrales sobre economía comunitaria).",
+            "**Eduardo Gudynas**, *Derechos de la naturaleza y buen vivir* (Caps. iniciales sobre biocentricismo y alternativas al extractivismo)."
+        ]
+    }
+
+    # Despliegue dinámico de la bibliografía de las vertientes en juego
+    st.markdown(f"### 📌 Bibliografía Fundamental para tu Vertiente Dominante ({nombres_vertientes[v1]}):")
+    for obra in repo_bibliografico.get(v1, []):
+        st.markdown(f"- {obra}")
+
+    st.markdown(f"### 📌 Bibliografía Fundamental para tu Vertiente de Tensión / Secundaria ({nombres_vertientes[v2]}):")
+    for obra in repo_bibliografico.get(v2, []):
+        st.markdown(f"- {obra}")
+
+    st.markdown("### 📌 Bibliografía Transversal de Pluralismo, Estado y Teoría Política Crítica:")
+    st.markdown("""
+    - **Norberto Bobbio**, *Derecha e izquierda* (Caps. 1 al 3: Criterios analíticos de distinción política).
+    - **Chantal Mouffe**, *En torno a lo político* (Caps. 1 y 2: La dimensión agonística y los antagonismos doctrinales).
+    - **Isaiah Berlin**, *Cuatro ensayos sobre la libertad* (Ensayo: 'Dos conceptos de libertad').
+    - **Michael Sandel**, *El descontento con la democracia* (Introducción y Conclusión sobre el liberalismo y las lealtades morales).
     """)
 
     st.balloons()
