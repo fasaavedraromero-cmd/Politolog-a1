@@ -1,7 +1,8 @@
 import streamlit as st
 import pandas as pd
+import random
 
-st.set_page_config(page_title="Arqueología Antropológica Política", page_icon="🏛️", layout="wide")
+st.set_page_config(page_title="Radiografía de creencias e ideas políticas", page_icon="🏛️", layout="wide")
 
 st.title("🏛️ Radiografía de creencias e ideas políticas")
 st.markdown("---")
@@ -10,238 +11,288 @@ st.write("""
 Tómate tu tiempo en cada uno de los 24 dilemas. Al finalizar, el sistema generará una radiografía cuantitativa de tus vertientes, un glosario conceptual riguroso, un diagnóstico multidoctrinal de tensiones, un modelamiento de opciones y una base bibliográfica primaria con capítulos específicos.
 """)
 
-# --- FORMULARIO DE DECISIONES SECUENCIALES (6 BLOQUES / 24 MICRO-PREGUNTAS) ---
+# --- DEFINICIÓN DE PREGUNTAS Y OPCIONES CON SUS ETIQUETAS INTERNAS PARA EVITAR SESGOS ---
+# Cada opción define explícitamente a qué vertiente aporta puntos, permitiendo barajarlas de forma aleatoria.
+banco_preguntas = [
+    # Bloque 1: El Concepto de Ser Humano
+    [
+        "1. Motor de la acción: ¿Qué impulsa fundamentalmente al ser humano en su vida en común?",
+        [
+            ("La búsqueda racional de su propio interés y beneficio particular.", "Liberalismo Clásico"),
+            ("La necesidad material y su transformación a través del trabajo colectivo.", "Marxismo y Teoría Crítica"),
+            ("El sentido de pertenencia a una comunidad orgánica, la familia y la tradición.", "Tradicionalismo y Realismo"),
+            ("El impulso irrenunciable hacia la soberanía absoluta de su propio cuerpo y voluntad.", "Libertarismo Radical")
+        ]
+    ],
+    [
+        "2. Naturaleza y devenir: ¿Cómo consideras la condición fundamental de las personas?",
+        [
+            ("Un individuo cuyos derechos y autonomía preceden a cualquier sociedad.", "Liberalismo Clásico"),
+            ("Un sujeto histórico cuya conciencia cambia según las condiciones materiales.", "Marxismo y Teoría Crítica"),
+            ("Un heredero de tradiciones e instituciones que lo trascienden históricamente.", "Tradicionalismo y Realismo"),
+            ("Un espíritu libre que rechaza de raíz toda imposición moral o legal externa.", "Anarquismo Clásico")
+        ]
+    ],
+    [
+        "3. Libertad y voluntad: ¿Cuál es el origen y el alcance de la libertad humana?",
+        [
+            ("Es una capacidad de elección racional dentro de las reglas del mercado y la ley.", "Liberalismo Clásico"),
+            ("Es la emancipación colectiva frente a las cadenas de la explotación económica.", "Marxismo y Teoría Crítica"),
+            ("Es una libertad situada y concreta, enmarcada en deberes hacia la comunidad y Dios.", "Tradicionalismo y Realismo"),
+            ("Es un absoluto ontológico de autopropiedad que no admite restricciones externas.", "Libertarismo Radical")
+        ]
+    ],
+    [
+        "4. Moral y naturaleza: ¿De dónde surge el orden moral que guía al ser humano?",
+        [
+            ("De convenciones y contratos racionales acordados libremente por los individuos.", "Liberalismo Clásico"),
+            ("De la superación histórica de las ideologías alienantes mediante la praxis.", "Marxismo y Teoría Crítica"),
+            ("De un orden natural, la ley eterna o la transmisión consuetudinaria de los mayores.", "Tradicionalismo y Realismo"),
+            ("De la conciencia individual soberana, totalmente exenta de mandatos coactivos.", "Anarquismo Clásico")
+        ]
+    ],
+    
+    # Bloque 2: El Vínculo Social
+    [
+        "5. Origen del lazo: ¿Cómo se constituye fundamentalmente la sociedad?",
+        [
+            ("Mediante un contrato voluntario entre ciudadanos para proteger intereses.", "Liberalismo Clásico"),
+            ("Mediante un conflicto estructural e histórico entre clases sociales.", "Marxismo y Teoría Crítica"),
+            ("Mediante lazos históricos, culturales y espirituales preexistentes.", "Tradicionalismo y Realismo"),
+            ("Mediante la cooperación libre y espontánea, sin coacción institucional.", "Anarquismo Clásico")
+        ]
+    ],
+    [
+        "6. Regla de convivencia: ¿Qué debe regular la vida en común?",
+        [
+            ("El imperio de la ley impersonal, los contratos y la neutralidad institucional.", "Liberalismo Clásico"),
+            ("La superación de las contradicciones de clase mediante la acción colectiva.", "Marxismo y Teoría Crítica"),
+            ("La fidelidad a los valores compartidos, las costumbres y la autoridad tradicional.", "Tradicionalismo y Realismo"),
+            ("La autonomía absoluta de cada asociación voluntaria o comuna libre.", "Anarquismo Clásico")
+        ]
+    ],
+    [
+        "7. Autoridad y obediencia: ¿Qué justifica la obediencia o el orden social?",
+        [
+            ("El consentimiento voluntario de los gobernados regulado por procedimientos legales.", "Liberalismo Clásico"),
+            ("La dirección consciente orientada a erradicar la injusticia y la escasez.", "Marxismo y Teoría Crítica"),
+            ("La jerarquía natural, el honor, el respeto a los mayores y la cohesión orgánica.", "Tradicionalismo y Realismo"),
+            ("Ninguna autoridad; el orden solo emerge de la asociación voluntaria y la ayuda mutua.", "Anarquismo Clásico")
+        ]
+    ],
+    [
+        "8. Cohesión comunitaria: ¿Qué mantiene unida a una comunidad humana sana?",
+        [
+            ("El respeto mutuo a los derechos individuales y la eficiencia de los intercambios.", "Liberalismo Clásico"),
+            ("La conciencia de clase y la solidaridad en la lucha contra la dominación.", "Marxismo y Teoría Crítica"),
+            ("El arraigo a la tierra, la lengua, la fe común y la memoria de los ancestros.", "Tradicionalismo y Realismo"),
+            ("Las redes de afecto horizontal, la afinidad y la gestión asamblearia directa.", "Anarquismo Clásico")
+        ]
+    ],
+
+    # Bloque 3: Nación e Identidad
+    [
+        "9. Fundamento de pertenencia: ¿Qué define la identidad colectiva o la pertenencia?",
+        [
+            ("La adhesión cívica a un conjunto de leyes y derechos universales abiertos.", "Liberalismo Clásico"),
+            ("Una comunidad de destino histórico, cultural y lingüístico soberano.", "Tradicionalismo y Realismo"),
+            ("Ninguna frontera; la verdadera lealtad es de clase internacional.", "Marxismo y Teoría Crítica"),
+            ("El arraigo profundo a la tierra ancestral y a los pueblos originarios.", "Postdesarrollismo y Biocentrismo")
+        ]
+    ],
+    [
+        "10. Escala de lealtad: ¿Dónde debe depositarse la lealtad política primordial?",
+        [
+            ("En las instituciones democráticas globales o el derecho cosmopolita.", "Liberalismo Clásico"),
+            ("En la defensa de la soberanía y tradiciones de la propia nación.", "Tradicionalismo y Realismo"),
+            ("En la solidaridad internacional de los trabajadores contra el capital.", "Marxismo y Teoría Crítica"),
+            ("En la autogestión de las comunidades locales y territoriales.", "Anarquismo Clásico")
+        ]
+    ],
+    [
+        "11. Patria y cosmopolitismo: ¿Cómo valoras el concepto de patria frente a la globalización?",
+        [
+            ("Debe diluirse en favor de la apertura comercial y la gobernanza global neutral.", "Liberalismo Clásico"),
+            ("Es el espacio vital indispensable para la supervivencia y el despliegue civilizacional.", "Tradicionalismo y Realismo"),
+            ("Es una construcción burguesa destinada a dividir a los proletarios del mundo.", "Marxismo y Teoría Crítica"),
+            ("Debe ser reemplazada por federaciones de pueblos libres y comunas autónomas.", "Anarquismo Clásico")
+        ]
+    ],
+    [
+        "12. Diversidad cultural: ¿Cómo debe gestionarse la pluralidad identitaria dentro de un territorio?",
+        [
+            ("Mediante la tolerancia liberal de mercado y la no discriminación jurídica.", "Liberalismo Clásico"),
+            ("Mediante la integración igualitaria bajo un proyecto de transformación social.", "Marxismo y Teoría Crítica"),
+            ("Mediante la preservación celosa de la identidad histórica y los valores heredados.", "Tradicionalismo y Realismo"),
+            ("Mediante el reconocimiento de autonomías plurinacionales y reciprocidad de saberes.", "Postdesarrollismo y Biocentrismo")
+        ]
+    ],
+
+    # Bloque 4: El Estado y la Autoridad
+    [
+        "13. Naturaleza del poder: ¿Qué rol debe cumplir la autoridad política y el Estado?",
+        [
+            ("Ser un árbitro neutral y mínimo que garantice la libertad individual.", "Liberalismo Clásico"),
+            ("Funcionar como un aparato de dominación de clase a transformar/superar.", "Marxismo y Teoría Crítica"),
+            ("Actuar como custodio soberano del orden frente a las amenazas externas.", "Tradicionalismo y Realismo"),
+            ("Ser desmantelado por completo por ser una estructura coactiva e ilegítima.", "Libertarismo Radical")
+        ]
+    ],
+    [
+        "14. Forma de autoridad: ¿Cómo debe ejercerse el mando?",
+        [
+            ("Mediante representantes elegidos bajo estrictas normas de control legal.", "Liberalismo Clásico"),
+            ("Mediante la dirección revolucionaria orientada a la justicia social.", "Marxismo y Teoría Crítica"),
+            ("Mediante la jerarquía legítima basada en el honor, la historia y el orden.", "Tradicionalismo y Realismo"),
+            ("Mediante la rotación de cargos y el mandato colectivo horizontal.", "Anarquismo Clásico")
+        ]
+    ],
+    [
+        "15. Burocracia y control: ¿Cuál es tu juicio sobre la burocracia estatal?",
+        [
+            ("Es un mal necesario pero peligroso que debe reducirse al mínimo indispensable.", "Liberalismo Clásico"),
+            ("Es un instrumento que debe ser tomado y redirigido al servicio de las mayorías.", "Marxismo y Teoría Crítica"),
+            ("Es el esqueleto técnico que garantiza la continuidad y el orden de la soberanía.", "Tradicionalismo y Realismo"),
+            ("Es una forma patológica de dominación jerárquica que debe ser abolida de inmediato.", "Anarquismo Clásico")
+        ]
+    ],
+    [
+        "16. Ley y coacción: ¿Qué lugar ocupa la coacción legal en la convivencia?",
+        [
+            ("Solo se justifica para prevenir la agresión de terceros y hacer cumplir contratos.", "Liberalismo Clásico"),
+            ("Se justifica temporalmente para disolver los privilegios de las clases opresoras.", "Marxismo y Teoría Crítica"),
+            ("Es la columna vertebral insustituible para mantener a raya el caos y la anomia.", "Tradicionalismo y Realismo"),
+            ("Toda coacción legal es tiranía; la verdadera convivencia nace de la espontaneidad.", "Anarquismo Clásico")
+        ]
+    ],
+
+    # Bloque 5: Economía y Riqueza
+    [
+        "17. Modelo de producción: ¿Cómo debe organizarse la riqueza?",
+        [
+            ("Mediante la propiedad privada inviolable y el libre mercado competitivo.", "Liberalismo Clásico"),
+            ("Mediante la propiedad social y la planificación centralizada/social.", "Marxismo y Teoría Crítica"),
+            ("Mediante contratos estrictamente privados, sin impuestos ni Estado.", "Libertarismo Radical"),
+            ("Mediante la reciprocidad, el trueque y el trabajo comunitario.", "Postdesarrollismo y Biocentrismo")
+        ]
+    ],
+    [
+        "18. Criterio de distribución: ¿Qué debe guiar el reparto de bienes?",
+        [
+            ("La productividad y el mérito individual medidos por el mercado.", "Liberalismo Clásico"),
+            ("La satisfacción planificada de las necesidades de toda la sociedad.", "Marxismo y Teoría Crítica"),
+            ("La protección de la propiedad distribuida y la economía familiar.", "Tradicionalismo y Realismo"),
+            ("El equilibrio ecológico y la sustentabilidad de la vida comunitaria.", "Postdesarrollismo y Biocentrismo")
+        ]
+    ],
+    [
+        "19. Propiedad y acumulación: ¿Cuál es tu postura ante la propiedad de los medios de producción?",
+        [
+            ("Deben estar en manos privadas de manera absoluta e inviolable.", "Libertarismo Radical"),
+            ("Deben ser socializados y gestionados colectivamente por los trabajadores o el Estado.", "Marxismo y Teoría Crítica"),
+            ("Deben estar ampliamente distribuidas entre familias y corporaciones morales (distributismo).", "Tradicionalismo y Realismo"),
+            ("Deben ser de uso comunal o gestionadas mediante cooperativas autónomas autogestionadas.", "Anarquismo Clásico")
+        ]
+    ],
+    [
+        "20. Moneda y finanzas: ¿Cómo visualizas el sistema monetario y financiero ideal?",
+        [
+            ("Basado en banca libre competitiva o dinero respaldado por activos de mercado.", "Libertarismo Radical"),
+            ("Bajo control y planificación pública centralizada al servicio del plan económico.", "Marxismo y Teoría Crítica"),
+            ("Regulado estrictamente por la soberanía nacional para evitar la usura internacional.", "Tradicionalismo y Realismo"),
+            ("Sustituido por monedas locales, trueque, reciprocidad o sistemas de crédito mutuo.", "Postdesarrollismo y Biocentrismo")
+        ]
+    ],
+
+    # Bloque 6: Geopolítica y Proyecto Histórico
+    [
+        "21. Arquitectura global: ¿Cómo debe estructurarse el orden geopolítico mundial?",
+        [
+            ("Mediante la integración global de los mercados y la gobernanza supranacional.", "Liberalismo Clásico"),
+            ("Mediante un sistema multipolar de grandes bloques soberanos o civilizacionales.", "Tradicionalismo y Realismo"),
+            ("Mediante la superación global del capitalismo por la solidaridad internacional.", "Marxismo y Teoría Crítica"),
+            ("Mediante redes de autonomías locales autogestionadas al margen de los Estados.", "Anarquismo Clásico")
+        ]
+    ],
+    [
+        "22. Seguridad y soberanía exterior: ¿Cuál debe ser la prioridad en las relaciones internacionales?",
+        [
+            ("La apertura comercial, la interdependencia y la disolución de barreras arancelarias.", "Liberalismo Clásico"),
+            ("La defensa estricta de la soberanía nacional y la supervivencia frente al enemigo.", "Tradicionalismo y Realismo"),
+            ("La emancipación universal de los pueblos oprimidos frente al imperialismo global.", "Marxismo y Teoría Crítica"),
+            ("La desmilitarización y la cooperación horizontal entre comunas y pueblos libres.", "Anarquismo Clásico")
+        ]
+    ],
+    [
+        "23. Conflicto global: ¿Cómo interpretas las tensiones y guerras entre potencias o bloques?",
+        [
+            ("Como fricciones comerciales superables mediante tratados y derecho internacional.", "Liberalismo Clásico"),
+            ("Como la lucha inevitable entre grandes espacios civilizacionales (*Großraum*).", "Tradicionalismo y Realismo"),
+            ("Como la contradicción última del imperialismo y la competencia interimperialista.", "Marxismo y Teoría Crítica"),
+            ("Como el producto artificial de los Estados, que oprimen a los pueblos en beneficio propio.", "Anarquismo Clásico")
+        ]
+    ],
+    [
+        "24. Horizonte histórico: ¿Cuál es la meta última de la evolución política de la humanidad?",
+        [
+            ("El progreso indefinido de la libertad individual y la prosperidad tecnocapitalista.", "Liberalismo Clásico"),
+            ("La conservación de un orden equilibrado, jerárquico, espiritual y enraizado.", "Tradicionalismo y Realismo"),
+            ("La sociedad sin clases, sin estado y plenamente emancipada del reino de la necesidad.", "Marxismo y Teoría Crítica"),
+            ("La federación mundial de comunidades autogestionadas en armonía con la naturaleza.", "Postdesarrollismo y Biocentrismo")
+        ]
+    ]
+]
+
+# Inicializar orden aleatorio de opciones por sesión para evitar sesgo de posición fijo
+if "orden_opciones" not in st.session_state:
+    st.session_state.orden_opciones = []
+    for q in banco_preguntas:
+        opciones_copia = list(q[1])
+        random.shuffle(opciones_copia)
+        st.session_state.orden_opciones.append(opciones_copia)
+
+# --- FORMULARIO DE DECISIONES SECUENCIALES ---
 with st.form("formulario_arqueologia"):
     
-    # BLOQUE 1: EL CONCEPTO DE SER HUMANO
-    st.header("Bloque 1: El Concepto de Ser Humano")
+    respuestas_usuario = []
     
-    st.markdown("*1. Motor de la acción: ¿Qué impulsa fundamentalmente al ser humano en su vida en común?*")
-    p1 = st.radio("Selecciona una opción:", [
-        "La búsqueda racional de su propio interés y beneficio particular.",
-        "La necesidad material y su transformación a través del trabajo colectivo.",
-        "El sentido de pertenencia a una comunidad orgánica, la familia y la tradición.",
-        "El impulso irrenunciable hacia la soberanía absoluta de su propio cuerpo y voluntad."
-    ], key="p1_choice", label_visibility="collapsed")
-
-    st.markdown("*2. Naturaleza y devenir: ¿Cómo consideras la condición fundamental de las personas?*")
-    p2 = st.radio("Selecciona una opción:", [
-        "Un individuo cuyos derechos y autonomía preceden a cualquier sociedad.",
-        "Un sujeto histórico cuya conciencia cambia según las condiciones materiales.",
-        "Un heredero de tradiciones e instituciones que lo trascienden históricamente.",
-        "Un espíritu libre que rechaza de raíz toda imposición moral o legal externa."
-    ], key="p2_choice", label_visibility="collapsed")
-
-    st.markdown("*3. Libertad y voluntad: ¿Cuál es el origen y el alcance de la libertad humana?*")
-    p3 = st.radio("Selecciona una opción:", [
-        "Es una capacidad de elección racional dentro de las reglas del mercado y la ley.",
-        "Es la emancipación colectiva frente a las cadenas de la explotación económica.",
-        "Es una libertad situada y concreta, enmarcada en deberes hacia la comunidad y Dios.",
-        "Es un absoluto ontológico de autopropiedad que no admite restricciones externas."
-    ], key="p3_choice", label_visibility="collapsed")
-
-    st.markdown("*4. Moral y naturaleza: ¿De dónde surge el orden moral que guía al ser humano?*")
-    p4 = st.radio("Selecciona una opción:", [
-        "De convenciones y contratos racionales acordados libremente por los individuos.",
-        "De la superación histórica de las ideologías alienantes mediante la praxis.",
-        "De un orden natural, la ley eterna o la transmisión consuetudinaria de los mayores.",
-        "De la conciencia individual soberana, totalmente exenta de mandatos coactivos."
-    ], key="p4_choice", label_visibility="collapsed")
-
-    st.markdown("---")
-
-    # BLOQUE 2: EL VÍNCULO SOCIAL
-    st.header("Bloque 2: El Vínculo Social")
+    bloques_titulos = [
+        "Bloque 1: El Concepto de Ser Humano",
+        "Bloque 2: El Vínculo Social",
+        "Bloque 3: Nación e Identidad",
+        "Bloque 4: El Estado y la Autoridad",
+        "Bloque 5: Economía y Riqueza",
+        "Bloque 6: Geopolítica y Proyecto Histórico"
+    ]
     
-    st.markdown("*5. Origen del lazo: ¿Cómo se constituye fundamentalmente la sociedad?*")
-    p5 = st.radio("Selecciona una opción:", [
-        "Mediante un contrato voluntario entre ciudadanos para proteger intereses.",
-        "Mediante un conflicto estructural e histórico entre clases sociales.",
-        "Mediante lazos históricos, culturales y espirituales preexistentes.",
-        "Mediante la cooperación libre y espontánea, sin coacción institucional."
-    ], key="p5_choice", label_visibility="collapsed")
+    idx_preg = 0
+    for b_idx, titulo_bloque in enumerate(bloques_titulos):
+        st.header(titulo_bloque)
+        for p_i in range(4):
+            enunciado, _ = banco_preguntas[idx_preg]
+            st.markdown(f"*{enunciado}*")
+            
+            # Obtener las opciones barajadas para esta pregunta
+            opciones_actuales = st.session_state.orden_opciones[idx_preg]
+            textos_opciones = [op[0] for op in opciones_actuales]
+            
+            eleccion = st.radio(f"q_{idx_preg}", textos_opciones, key=f"radio_{idx_preg}", label_visibility="collapsed")
+            
+            # Guardar la vertiente asociada a la elección del usuario
+            for texto_op, vertiente_op in opciones_actuales:
+                if texto_op == eleccion:
+                    respuestas_usuario.append(vertiente_op)
+                    break
+            idx_preg += 1
+        st.markdown("---")
 
-    st.markdown("*6. Regla de convivencia: ¿Qué debe regular la vida en común?*")
-    p6 = st.radio("Selecciona una opción:", [
-        "El imperio de la ley impersonal, los contratos y la neutralidad institucional.",
-        "La superación de las contradicciones de clase mediante la acción colectiva.",
-        "La fidelidad a los valores compartidos, las costumbres y la autoridad tradicional.",
-        "La autonomía absoluta de cada asociación voluntaria o comuna libre."
-    ], key="p6_choice", label_visibility="collapsed")
-
-    st.markdown("*7. Autoridad y obediencia: ¿Qué justifica la obediencia o el orden social?*")
-    p7 = st.radio("Selecciona una opción:", [
-        "El consentimiento voluntario de los gobernados regulado por procedimientos legales.",
-        "La dirección consciente orientada a erradicar la injusticia y la escasez.",
-        "La jerarquía natural, el honor, el respeto a los mayores y la cohesión orgánica.",
-        "Ninguna autoridad; el orden solo emerge de la asociación voluntaria y la ayuda mutua."
-    ], key="p7_choice", label_visibility="collapsed")
-
-    st.markdown("*8. Cohesión comunitaria: ¿Qué mantiene unida a una comunidad humana sana?*")
-    p8 = st.radio("Selecciona una opción:", [
-        "El respeto mutuo a los derechos individuales y la eficiencia de los intercambios.",
-        "La conciencia de clase y la solidaridad en la lucha contra la dominación.",
-        "El arraigo a la tierra, la lengua, la fe común y la memoria de los ancestros.",
-        "Las redes de afecto horizontal, la afinidad y la gestión asamblearia directa."
-    ], key="p8_choice", label_visibility="collapsed")
-
-    st.markdown("---")
-
-    # BLOQUE 3: NACIÓN E IDENTIDAD
-    st.header("Bloque 3: Nación e Identidad")
-    
-    st.markdown("*9. Fundamento de pertenencia: ¿Qué define la identidad colectiva o la pertenencia?*")
-    p9 = st.radio("Selecciona una opción:", [
-        "La adhesión cívica a un conjunto de leyes y derechos universales abiertos.",
-        "Una comunidad de destino histórico, cultural y lingüístico soberano.",
-        "Ninguna frontera; la verdadera lealtad es de clase internacional.",
-        "El arraigo profundo a la tierra ancestral y a los pueblos originarios."
-    ], key="p9_choice", label_visibility="collapsed")
-
-    st.markdown("*10. Escala de lealtad: ¿Dónde debe depositarse la lealtad política primordial?*")
-    p10 = st.radio("Selecciona una opción:", [
-        "En las instituciones democráticas globales o el derecho cosmopolita.",
-        "En la defensa de la soberanía y tradiciones de la propia nación.",
-        "En la solidaridad internacional de los trabajadores contra el capital.",
-        "En la autogestión de las comunidades locales y territoriales."
-    ], key="p10_choice", label_visibility="collapsed")
-
-    st.markdown("*11. Patria y cosmopolitismo: ¿Cómo valoras el concepto de patria frente a la globalización?*")
-    p11 = st.radio("Selecciona una opción:", [
-        "Debe diluirse en favor de la apertura comercial y la gobernanza global neutral.",
-        "Es el espacio vital indispensable para la supervivencia y el despliegue civilizacional.",
-        "Es una construcción burguesa destinada a dividir a los proletarios del mundo.",
-        "Debe ser reemplazada por federaciones de pueblos libres y comunas autónomas."
-    ], key="p11_choice", label_visibility="collapsed")
-
-    st.markdown("*12. Diversidad cultural: ¿Cómo debe gestionarse la pluralidad identitaria dentro de un territorio?*")
-    p12 = st.radio("Selecciona una opción:", [
-        "Mediante la tolerancia liberal de mercado y la no discriminación jurídica.",
-        "Mediante la integración igualitaria bajo un proyecto de transformación social.",
-        "Mediante la preservación celosa de la identidad histórica y los valores heredados.",
-        "Mediante el reconocimiento de autonomías plurinacionales y reciprocidad de saberes."
-    ], key="p12_choice", label_visibility="collapsed")
-
-    st.markdown("---")
-
-    # BLOQUE 4: EL ESTADO Y LA AUTORIDAD
-    st.header("Bloque 4: El Estado y la Autoridad")
-    
-    st.markdown("*13. Naturaleza del poder: ¿Qué rol debe cumplir la autoridad política y el Estado?*")
-    p13 = st.radio("Selecciona una opción:", [
-        "Ser un árbitro neutral y mínimo que garantice la libertad individual.",
-        "Funcionar como un aparato de dominación de clase a transformar/superar.",
-        "Actuar como custodio soberano del orden frente a las amenazas externas.",
-        "Ser desmantelado por completo por ser una estructura coactiva e ilegítima."
-    ], key="p13_choice", label_visibility="collapsed")
-
-    st.markdown("*14. Forma de autoridad: ¿Cómo debe ejercerse el mando?*")
-    p14 = st.radio("Selecciona una opción:", [
-        "Mediante representantes elegidos bajo estrictas normas de control legal.",
-        "Mediante la dirección revolucionaria orientada a la justicia social.",
-        "Mediante la jerarquía legítima basada en el honor, la historia y el orden.",
-        "Mediante la rotación de cargos y el mandato colectivo horizontal."
-    ], key="p14_choice", label_visibility="collapsed")
-
-    st.markdown("*15. Burocracia y control: ¿Cuál es tu juicio sobre la burocracia estatal?*")
-    p15 = st.radio("Selecciona una opción:", [
-        "Es un mal necesario pero peligroso que debe reducirse al mínimo indispensable.",
-        "Es un instrumento que debe ser tomado y redirigido al servicio de las mayorías.",
-        "Es el esqueleto técnico que garantiza la continuidad y el orden de la soberanía.",
-        "Es una forma patológica de dominación jerárquica que debe ser abolida de inmediato."
-    ], key="p15_choice", label_visibility="collapsed")
-
-    st.markdown("*16. Ley y coacción: ¿Qué lugar ocupa la coacción legal en la convivencia?*")
-    p16 = st.radio("Selecciona una opción:", [
-        "Solo se justifica para prevenir la agresión de terceros y hacer cumplir contratos.",
-        "Se justifica temporalmente para disolver los privilegios de las clases opresoras.",
-        "Es la columna vertebral insustituible para mantener a raya el caos y la anomia.",
-        "Toda coacción legal es tiranía; la verdadera convivencia nace de la espontaneidad."
-    ], key="p16_choice", label_visibility="collapsed")
-
-    st.markdown("---")
-
-    # BLOQUE 5: ECONOMÍA Y RIQUEZA
-    st.header("Bloque 5: Economía y Riqueza")
-    
-    st.markdown("*17. Modelo de producción: ¿Cómo debe organizarse la riqueza?*")
-    p17 = st.radio("Selecciona una opción:", [
-        "Mediante la propiedad privada inviolable y el libre mercado competitivo.",
-        "Mediante la propiedad social y la planificación centralizada/social.",
-        "Mediante contratos estrictamente privados, sin impuestos ni Estado.",
-        "Mediante la reciprocidad, el trueque y el trabajo comunitario."
-    ], key="p17_choice", label_visibility="collapsed")
-
-    st.markdown("*18. Criterio de distribución: ¿Qué debe guiar el reparto de bienes?*")
-    p18 = st.radio("Selecciona una opción:", [
-        "La productividad y el mérito individual medidos por el mercado.",
-        "La satisfacción planificada de las necesidades de toda la sociedad.",
-        "La protección de la propiedad distribuida y la economía familiar.",
-        "El equilibrio ecológico y la sustentabilidad de la vida comunitaria."
-    ], key="p18_choice", label_visibility="collapsed")
-
-    st.markdown("*19. Propiedad y acumulación: ¿Cuál es tu postura ante la propiedad de los medios de producción?*")
-    p19 = st.radio("Selecciona una opción:", [
-        "Deben estar en manos privadas de manera absoluta e inviolable.",
-        "Deben ser socializados y gestionados colectivamente por los trabajadores o el Estado.",
-        "Deben estar ampliamente distribuidas entre familias y corporaciones morales (distributismo).",
-        "Deben ser de uso comunal o gestionadas mediante cooperativas autónomas autogestionadas."
-    ], key="p19_choice", label_visibility="collapsed")
-
-    st.markdown("*20. Moneda y finanzas: ¿Cómo visualizas el sistema monetario y financiero ideal?*")
-    p20 = st.radio("Selecciona una opción:", [
-        "Basado en banca libre competitiva o dinero respaldado por activos de mercado.",
-        "Bajo control y planificación pública centralizada al servicio del plan económico.",
-        "Regulado estrictamente por la soberanía nacional para evitar la usura internacional.",
-        "Sustituido por monedas locales, trueque, reciprocidad o sistemas de crédito mutuo."
-    ], key="p20_choice", label_visibility="collapsed")
-
-    st.markdown("---")
-
-    # BLOQUE 6: GEOPOLÍTICA Y PROYECTO HISTÓRICO
-    st.header("Bloque 6: Geopolítica y Proyecto Histórico")
-    
-    st.markdown("*21. Arquitectura global: ¿Cómo debe estructurarse el orden geopolítico mundial?*")
-    p21 = st.radio("Selecciona una opción:", [
-        "Mediante la integración global de los mercados y la gobernanza supranacional.",
-        "Mediante un sistema multipolar de grandes bloques soberanos o civilizacionales.",
-        "Mediante la superación global del capitalismo por la solidaridad internacional.",
-        "Mediante redes de autonomías locales autogestionadas al margen de los Estados."
-    ], key="p21_choice", label_visibility="collapsed")
-
-    st.markdown("*22. Seguridad y soberanía exterior: ¿Cuál debe ser la prioridad en las relaciones internacionales?*")
-    p22 = st.radio("Selecciona una opción:", [
-        "La apertura comercial, la interdependencia y la disolución de barreras arancelarias.",
-        "La defensa estricta de la soberanía nacional y la supervivencia frente al enemigo.",
-        "La emancipación universal de los pueblos oprimidos frente al imperialismo global.",
-        "La desmilitarización y la cooperación horizontal entre comunas y pueblos libres."
-    ], key="p22_choice", label_visibility="collapsed")
-
-    st.markdown("*23. Conflicto global: ¿Cómo interpretas las tensiones y guerras entre potencias o bloques?*")
-    p23 = st.radio("Selecciona una opción:", [
-        "Como fricciones comerciales superables mediante tratados y derecho internacional.",
-        "Como la lucha inevitable entre grandes espacios civilizacionales (*Großraum*).",
-        "Como la contradicción última del imperialismo y la competencia interimperialista.",
-        "Como el producto artificial de los Estados, que oprimen a los pueblos en beneficio propio."
-    ], key="p23_choice", label_visibility="collapsed")
-
-    st.markdown("*24. Horizonte histórico: ¿Cuál es la meta última de la evolución política de la humanidad?*")
-    p24 = st.radio("Selecciona una opción:", [
-        "El progreso indefinido de la libertad individual y la prosperidad tecnocapitalista.",
-        "La conservación de un orden equilibrado, jerárquico, espiritual y enraizado.",
-        "La sociedad sin clases, sin estado y plenamente emancipada del reino de la necesidad.",
-        "La federación mundial de comunidades autogestionadas en armonía con la naturaleza."
-    ], key="p24_choice", label_visibility="collapsed")
-
-    submitted = st.form_submit_button("Ejecutar Análisis y Modelamiento Metacognitivo Avanzado")
+    submitted = st.form_submit_button("Ejecutar Análisis y Radiografía Metacognitiva Avanzada")
 
 # --- PROCESAMIENTO Y DIAGNÓSTICO FORMATIVO MULTIDOCTRINAL ---
 if submitted:
     st.markdown("---")
-    st.header("📊 1. Radiografía Geométrica y Cuantitativa de tus Vertientes")
+    st.header("📊 1. Radiografía Cuantitativa de tus Vertientes")
 
-    respuestas = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23, p24]
-    
     puntos = {
         "Liberalismo Clásico": 0.0,
         "Marxismo y Teoría Crítica": 0.0,
@@ -251,19 +302,9 @@ if submitted:
         "Postdesarrollismo y Biocentrismo": 0.0
     }
 
-    for r in respuestas:
-        if "interés y beneficio" in r or "contrato voluntario" in r or "adhesión cívica" in r or "árbitro neutral" in r or "propiedad privada inviolable" in r or "integración global de los mercados" in r:
-            puntos["Liberalismo Clásico"] += 1.0
-        elif "necesidad material" in r or "conflicto estructural" in r or "verdadera lealtad es de clase" in r or "aparato de dominación" in r or "propiedad social y la planificación" in r or "superación global del capitalismo" in r:
-            puntos["Marxismo y Teoría Crítica"] += 1.0
-        elif "comunidad orgánica" in r or "lazos históricos, culturales y espirituales" in r or "comunidad de destino histórico" in r or "custodio soberano del orden" in r or "sistema multipolar" in r or "defensa estricta de la soberanía nacional" in r:
-            puntos["Tradicionalismo y Realismo"] += 1.0
-        elif "soberanía absoluta de su propio cuerpo" in r or "cooperación libre y espontánea, sin coacción" in r or "desmantelado por completo" in r or "contratos estrictamente privados" in r:
-            puntos["Libertarismo Radical"] += 1.0
-        elif "espíritu libre que rechaza de raíz" in r or "autonomía absoluta de cada asociación" in r or "autogestión de las comunidades locales" in r or "rotación de cargos" in r or "redes de autonomías locales" in r or "cooperación horizontal entre comunas" in r:
-            puntos["Anarquismo Clásico"] += 1.0
-        elif "eslabón" in r or "reciprocidad, el trueque" in r or "tierra ancestral" in r or "equilibrio ecológico" in r:
-            puntos["Postdesarrollismo y Biocentrismo"] += 1.0
+    for vertiente in respuestas_usuario:
+        if vertiente in puntos:
+            puntos[vertiente] += 1.0
 
     # Gráfico de barras nativo limpio y eficiente
     df_chart = pd.DataFrame(list(puntos.items()), columns=["Vertiente", "Puntaje"]).set_index("Vertiente")
@@ -308,7 +349,7 @@ if submitted:
     else:
         st.warning(f"⚠️ **Perfil Multidoctrinal / Híbrido Complejo:** Se detecta un cruce dinámico entre las siguientes corrientes: **{', '.join(top_vertientes)}**.")
         st.markdown(f"""
-        * **Análisis de Tensiones Múltiples:** Al expandir el análisis a 24 micro-preguntas, el simulador evidencia que tu edificio conceptual no responde a una sola matriz pura, sino a una constelación híbrida. Estás combinando premisas de distintas tradiciones a lo largo de las capas del test. 
+        * **Análisis de Tensiones Múltiples:** Al expandir el análisis a 24 micro-preguntas, el simulador evidencia que tu edificio conceptual no responde al canon de una sola matriz pura, sino a una constelación híbrida. Estás combinando premisas de distintas tradiciones a lo largo de las capas del test. 
         * *¿Qué implica este cruce?* En la práctica ciudadana cotidiana, es habitual tomar herramientas de diversas vertientes para resolver problemas concretos. Sin embargo, a nivel de arquitectura teórica, esto genera un **cortocircuito socrático**. Por ejemplo, intentar compaginar el individualismo mercantil con la planificación social, o la soberanía estatal tradicional con la autogestión anarquista o comunitaria, exige examinar el punto exacto de quiebre deductivo para asumir conscientemente las fricciones de tu modelo de pensamiento.
         """)
 
