@@ -11,8 +11,7 @@ st.write("""
 Tómate tu tiempo en cada uno de los 24 dilemas. Al finalizar, el sistema generará una radiografía cuantitativa de tus vertientes, un glosario conceptual riguroso, un diagnóstico multidoctrinal de tensiones, un modelamiento de opciones y una base bibliográfica primaria con capítulos específicos.
 """)
 
-# --- DEFINICIÓN DE PREGUNTAS Y OPCIONES CON SUS ETIQUETAS INTERNAS PARA EVITAR SESGOS ---
-# Cada opción define explícitamente a qué vertiente aporta puntos, permitiendo barajarlas de forma aleatoria.
+# --- BANCO DE PREGUNTAS Y OPCIONES ---
 banco_preguntas = [
     # Bloque 1: El Concepto de Ser Humano
     [
