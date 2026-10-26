@@ -254,6 +254,7 @@ if "orden_opciones" not in st.session_state:
 with st.form("formulario_arqueologia"):
     
     respuestas_usuario = []
+    bitacora_elecciones = [] # Para almacenar el detalle exacto para el reporte descargable
     
     bloques_titulos = [
         "Bloque 1: El Concepto de Ser Humano",
@@ -278,10 +279,19 @@ with st.form("formulario_arqueologia"):
             eleccion = st.radio(f"q_{idx_preg}", textos_opciones, key=f"radio_{idx_preg}", label_visibility="collapsed")
             
             # Guardar la vertiente asociada a la elección del usuario
+            vertiente_elegida = ""
             for texto_op, vertiente_op in opciones_actuales:
                 if texto_op == eleccion:
+                    vertiente_elegida = vertiente_op
                     respuestas_usuario.append(vertiente_op)
                     break
+            
+            bitacora_elecciones.append({
+                "pregunta": enunciado,
+                "eleccion": eleccion,
+                "vertiente": vertiente_elegida
+            })
+            
             idx_preg += 1
         st.markdown("---")
 
@@ -335,7 +345,7 @@ if submitted:
           * *Fundamentos:* {fund}
         """)
 
-    # --- 3. SÍNTESIS DIAGNÓSTICA MULTIDOCTRINAL ADAPTATIVA ---
+    # --- 3. SÍNTESIS DIAGNÓSTICA MULTIDOCTRINAL SEGMENTADA ---
     st.markdown("---")
     st.header("🔍 3. Síntesis Diagnóstica: Coherencia o Cruce Multidoctrinal")
     
@@ -343,13 +353,32 @@ if submitted:
         v_unica = top_vertientes[0]
         st.success(f"✔ **Perfil Coherente Sólido:** Tu arquitectura conceptual muestra una fidelidad pura hacia la matriz de **{v_unica}**.")
         st.markdown(f"""
-        * **Análisis detallado:** A lo largo de las 24 dimensiones, demuestras un hilo conductor deductivo sumamente riguroso. Al descender desde tu concepción inicial del ser humano (Bloque 1) hasta tus proyecciones geopolíticas e históricas (Bloque 6), rechazas de forma metódica las disonancias con otras escuelas. Mantienes una consistencia teórica pura que prioriza los principios ontológicos, institucionales y económicos de esta vertiente, logrando un edificio conceptual cohesionado, inmune a contradicciones internas graves y listo para un despliegue académico avanzado.
+        * **Análisis detallado:** A lo largo de las 24 dimensiones, demuestras un hilo conductor deductivo sumamente riguroso. Al descender desde tu concepción inicial del ser humano (Bloque 1) hasta tus proyecciones geopolíticas e históricas (Bloque 6), rechazas de forma metódica las disonancias con otras escuelas. Mantienes una consistencia teórica pura que prioriza los principios ontológicos, institucionales y económicos de esta vertiente, logrando un edificio conceptual cohesionado y listo para un despliegue académico avanzado.
         """)
     else:
         st.warning(f"⚠️ **Perfil Multidoctrinal / Híbrido Complejo:** Se detecta un cruce dinámico entre las siguientes corrientes: **{', '.join(top_vertientes)}**.")
-        st.markdown(f"""
-        * **Análisis de Tensiones Múltiples:** Al expandir el análisis a 24 micro-preguntas, el simulador evidencia que tu edificio conceptual no responde al canon de una sola matriz pura, sino a una constelación híbrida. Estás combinando premisas de distintas tradiciones a lo largo de las capas del test. 
-        * *¿Qué implica este cruce?* En la práctica ciudadana cotidiana, es habitual tomar herramientas de diversas vertientes para resolver problemas concretos. Sin embargo, a nivel de arquitectura teórica, esto genera un **cortocircuito socrático**. Por ejemplo, intentar compaginar el individualismo mercantil con la planificación social, o la soberanía estatal tradicional con la autogestión anarquista o comunitaria, exige examinar el punto exacto de quiebre deductivo para asumir conscientemente las fricciones de tu modelo de pensamiento.
+        st.markdown("""
+        * **Análisis de Tensiones Específicas:** Al expandir el análisis a 24 micro-preguntas, el simulador evidencia una constelación híbrida. A continuación se examinan los puntos de fricción según las principales combinaciones detectadas en tus respuestas:
+        """)
+        
+        # Diagnósticos específicos según cruces frecuentes
+        if "Marxismo y Teoría Crítica" in top_vertientes and "Libertarismo Radical" in top_vertientes:
+            st.markdown("- **Choque Estructural (Marxismo ↔ Libertarismo Radical):** Existe una contradicción ontológica insalvable en el estrato económico y de la propiedad. Mientras el marxismo postula la socialización colectiva de los medios de producción y la planificación, el libertarismo exige la propiedad privada absoluta y el rechazo a toda coacción impositiva.")
+        
+        if "Liberalismo Clásico" in top_vertientes and "Tradicionalismo y Realismo" in top_vertientes:
+            st.markdown("- **Tensión Fisiológica (Liberalismo ↔ Tradicionalismo):** Se cruza la neutralidad abstracta de los derechos individuales y el contrato con el enraizamiento orgánico, el deber comunitario y la primacía del orden soberano sobre el individuo.")
+            
+        if "Marxismo y Teoría Crítica" in top_vertientes and "Anarquismo Clásico" in top_vertientes:
+            st.markdown("- **Fricción Táctico-Estratégica (Marxismo ↔ Anarquismo):** Ambas comparten el rechazo al capitalismo, pero divergen profundamente ante el Estado: el marxismo justifica una fase transitoria de centralización estatal (dictadura del proletariado), mientras el anarquismo exige la abolición inmediata de toda jerarquía y autoridad estatal.")
+            
+        if "Libertarismo Radical" in top_vertientes and "Anarquismo Clásico" in top_vertientes:
+            st.markdown("- **Divergencia Antiautoritaria (Libertarismo ↔ Anarquismo):** Coinciden en el repudio absoluto al Estado y la burocracia, pero colisionan radicalmente en la propiedad: el libertarismo defiende el libre mercado capitalista y la propiedad privada inviolable, mientras el anarquismo abole la propiedad privada lucrativa en favor de la autogestión comunal.")
+            
+        if "Tradicionalismo y Realismo" in top_vertientes and "Anarquismo Clásico" in top_vertientes:
+            st.markdown("- **Antinomia de Autoridad (Tradicionalismo ↔ Anarquismo):** Una corriente defiende el principio jerárquico, el mando, la historia y el orden institucional estricto, mientras la otra postula la horizontalidad radical y la disolución de todo mandato coactivo.")
+
+        st.markdown("""
+        * *¿Qué implica este cruce teóricamente?* A nivel de arquitectura conceptual, estas combinaciones generan un **cortocircuito socrático** que exige examinar el punto exacto de quiebre deductivo para asumir conscientemente las fricciones de tu modelo de pensamiento.
         """)
 
     # --- 4. MODELAMIENTO DE PROFUNDIZACIÓN Y OPCIONES DE ENCUADRE ---
@@ -441,5 +470,48 @@ if submitted:
     - **Isaiah Berlin**, *Cuatro ensayos sobre la libertad* (Ensayo: 'Dos conceptos de libertad').
     - **Michael Sandel**, *El descontento con la democracia* (Introducción y Conclusión sobre el liberalismo y las lealtades morales).
     """)
+
+    # --- 6. REPORTE FINAL DE EXPORTACIÓN ROBUSTO ---
+    st.markdown("---")
+    st.header("📥 6. Exportación de Resultados y Dossier Analítico")
+    
+    # Construcción integral del archivo de texto plano descargable
+    contenido_txt = "====================================================\n"
+    contenido_txt += "    DOSSIER DE ARQUEOLOGÍA Y RADIOGRAFÍA POLÍTICA\n"
+    contenido_txt += "====================================================\n\n"
+    
+    contenido_txt += f"-> VERTIENTE PREDOMINANTE: {top_vertientes[0]}\n\n"
+    
+    contenido_txt += "--- 1. PUNTAJES CUANTITATIVOS ---\n"
+    for vert, ptos in puntos.items():
+        contenido_txt += f"  * {vert}: {int(ptos)} puntos\n"
+        
+    contenido_txt += "\n--- 2. VERTIENTES ACTIVAS DETECTADAS ---\n"
+    for v in top_vertientes:
+        contenido_txt += f"  * {v}\n"
+        
+    contenido_txt += "\n--- 3. BITÁCORA DE RESPUESTAS DEL USUARIO ---\n"
+    for idx, item in enumerate(bitacora_elecciones, 1):
+        contenido_txt += f"P{idx}. {item['pregunta']}\n"
+        contenido_txt += f"   -> Opción elegida: {item['eleccion']}\n"
+        contenido_txt += f"   -> Vertiente asignada: {item['vertiente']}\n\n"
+        
+    contenido_txt += "--- 4. GLOSARIO CONCEPTUAL DE LAS VERTIENTES ACTIVAS ---\n"
+    for v in top_vertientes:
+        desc, exp, fund = glosario_maestro[v]
+        contenido_txt += f"[{v}]\n"
+        contenido_txt += f"  - Descripción: {desc}\n"
+        contenido_txt += f"  - Exponentes: {exp}\n"
+        contenido_txt += f"  - Fundamentos: {fund}\n\n"
+        
+    contenido_txt += "====================================================\n"
+    contenido_txt += "Generado en el Laboratorio de Arqueología Conceptual.\n"
+
+    st.download_button(
+        label="📥 Descargar Dossier Completo en Formato TXT",
+        data=contenido_txt,
+        file_name="dossier_radiografia_politica.txt",
+        mime="text/plain"
+    )
 
     st.balloons()
