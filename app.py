@@ -254,7 +254,7 @@ if "orden_opciones" not in st.session_state:
 with st.form("formulario_arqueologia"):
     
     respuestas_usuario = []
-    bitacora_elecciones = [] # Para almacenar el detalle exacto para el reporte descargable
+    bitacora_elecciones = [] 
     
     bloques_titulos = [
         "Bloque 1: El Concepto de Ser Humano",
@@ -272,13 +272,11 @@ with st.form("formulario_arqueologia"):
             enunciado, _ = banco_preguntas[idx_preg]
             st.markdown(f"*{enunciado}*")
             
-            # Obtener las opciones barajadas para esta pregunta
             opciones_actuales = st.session_state.orden_opciones[idx_preg]
             textos_opciones = [op[0] for op in opciones_actuales]
             
             eleccion = st.radio(f"q_{idx_preg}", textos_opciones, key=f"radio_{idx_preg}", label_visibility="collapsed")
             
-            # Guardar la vertiente asociada a la elección del usuario
             vertiente_elegida = ""
             for texto_op, vertiente_op in opciones_actuales:
                 if texto_op == eleccion:
@@ -315,11 +313,9 @@ if submitted:
         if vertiente in puntos:
             puntos[vertiente] += 1.0
 
-    # Gráfico de barras nativo limpio y eficiente
     df_chart = pd.DataFrame(list(puntos.items()), columns=["Vertiente", "Puntaje"]).set_index("Vertiente")
     st.bar_chart(df_chart)
 
-    # Identificación de vertientes activas (con puntaje > 0)
     vertientes_activas = {k: v for k, v in sorted(puntos.items(), key=lambda item: item[1], reverse=True) if v > 0}
     top_vertientes = list(vertientes_activas.keys())
 
@@ -349,33 +345,40 @@ if submitted:
     st.markdown("---")
     st.header("🔍 3. Síntesis Diagnóstica: Coherencia o Cruce Multidoctrinal")
     
+    texto_sintesis_diagnostica = ""
     if len(vertientes_activas) == 1:
         v_unica = top_vertientes[0]
         st.success(f"✔ **Perfil Coherente Sólido:** Tu arquitectura conceptual muestra una fidelidad pura hacia la matriz de **{v_unica}**.")
+        texto_sintesis_diagnostica += f"Perfil Coherente Sólido en {v_unica}.\n"
         st.markdown(f"""
         * **Análisis detallado:** A lo largo de las 24 dimensiones, demuestras un hilo conductor deductivo sumamente riguroso. Al descender desde tu concepción inicial del ser humano (Bloque 1) hasta tus proyecciones geopolíticas e históricas (Bloque 6), rechazas de forma metódica las disonancias con otras escuelas. Mantienes una consistencia teórica pura que prioriza los principios ontológicos, institucionales y económicos de esta vertiente, logrando un edificio conceptual cohesionado y listo para un despliegue académico avanzado.
         """)
     else:
         st.warning(f"⚠️ **Perfil Multidoctrinal / Híbrido Complejo:** Se detecta un cruce dinámico entre las siguientes corrientes: **{', '.join(top_vertientes)}**.")
+        texto_sintesis_diagnostica += f"Perfil Multidoctrinal / Híbrido Complejo entre: {', '.join(top_vertientes)}.\n"
         st.markdown("""
         * **Análisis de Tensiones Específicas:** Al expandir el análisis a 24 micro-preguntas, el simulador evidencia una constelación híbrida. A continuación se examinan los puntos de fricción según las principales combinaciones detectadas en tus respuestas:
         """)
         
-        # Diagnósticos específicos según cruces frecuentes
         if "Marxismo y Teoría Crítica" in top_vertientes and "Libertarismo Radical" in top_vertientes:
             st.markdown("- **Choque Estructural (Marxismo ↔ Libertarismo Radical):** Existe una contradicción ontológica insalvable en el estrato económico y de la propiedad. Mientras el marxismo postula la socialización colectiva de los medios de producción y la planificación, el libertarismo exige la propiedad privada absoluta y el rechazo a toda coacción impositiva.")
+            texto_sintesis_diagnostica += "- Choque Marxismo vs. Libertarismo Radical (Propiedad vs. Coacción).\n"
         
         if "Liberalismo Clásico" in top_vertientes and "Tradicionalismo y Realismo" in top_vertientes:
             st.markdown("- **Tensión Fisiológica (Liberalismo ↔ Tradicionalismo):** Se cruza la neutralidad abstracta de los derechos individuales y el contrato con el enraizamiento orgánico, el deber comunitario y la primacía del orden soberano sobre el individuo.")
+            texto_sintesis_diagnostica += "- Tensión Liberalismo Clásico vs. Tradicionalismo y Realismo (Neutralidad vs. Orden Orgánico).\n"
             
         if "Marxismo y Teoría Crítica" in top_vertientes and "Anarquismo Clásico" in top_vertientes:
             st.markdown("- **Fricción Táctico-Estratégica (Marxismo ↔ Anarquismo):** Ambas comparten el rechazo al capitalismo, pero divergen profundamente ante el Estado: el marxismo justifica una fase transitoria de centralización estatal (dictadura del proletariado), mientras el anarquismo exige la abolición inmediata de toda jerarquía y autoridad estatal.")
+            texto_sintesis_diagnostica += "- Fricción Marxismo vs. Anarquismo Clásico (Estatismo transitorio vs. Abolición inmediata).\n"
             
         if "Libertarismo Radical" in top_vertientes and "Anarquismo Clásico" in top_vertientes:
             st.markdown("- **Divergencia Antiautoritaria (Libertarismo ↔ Anarquismo):** Coinciden en el repudio absoluto al Estado y la burocracia, pero colisionan radicalmente en la propiedad: el libertarismo defiende el libre mercado capitalista y la propiedad privada inviolable, mientras el anarquismo abole la propiedad privada lucrativa en favor de la autogestión comunal.")
+            texto_sintesis_diagnostica += "- Divergencia Libertarismo vs. Anarquismo Clásico (Capitalismo libre vs. Autogestión sin propiedad privada).\n"
             
         if "Tradicionalismo y Realismo" in top_vertientes and "Anarquismo Clásico" in top_vertientes:
             st.markdown("- **Antinomia de Autoridad (Tradicionalismo ↔ Anarquismo):** Una corriente defiende el principio jerárquico, el mando, la historia y el orden institucional estricto, mientras la otra postula la horizontalidad radical y la disolución de todo mandato coactivo.")
+            texto_sintesis_diagnostica += "- Antinomia Tradicionalismo vs. Anarquismo Clásico (Jerarquía estricta vs. Horizontalidad radical).\n"
 
         st.markdown("""
         * *¿Qué implica este cruce teóricamente?* A nivel de arquitectura conceptual, estas combinaciones generan un **cortocircuito socrático** que exige examinar el punto exacto de quiebre deductivo para asumir conscientemente las fricciones de tu modelo de pensamiento.
@@ -471,11 +474,11 @@ if submitted:
     - **Michael Sandel**, *El descontento con la democracia* (Introducción y Conclusión sobre el liberalismo y las lealtades morales).
     """)
 
-    # --- 6. REPORTE FINAL DE EXPORTACIÓN ROBUSTO ---
+    # --- 6. REPORTE FINAL DE EXPORTACIÓN INTEGRO Y ROBUSTO ---
     st.markdown("---")
     st.header("📥 6. Exportación de Resultados y Dossier Analítico")
     
-    # Construcción integral del archivo de texto plano descargable
+    # Construcción integral del archivo de texto plano descargable con TODO el contenido
     contenido_txt = "====================================================\n"
     contenido_txt += "    DOSSIER DE ARQUEOLOGÍA Y RADIOGRAFÍA POLÍTICA\n"
     contenido_txt += "====================================================\n\n"
@@ -490,11 +493,8 @@ if submitted:
     for v in top_vertientes:
         contenido_txt += f"  * {v}\n"
         
-    contenido_txt += "\n--- 3. BITÁCORA DE RESPUESTAS DEL USUARIO ---\n"
-    for idx, item in enumerate(bitacora_elecciones, 1):
-        contenido_txt += f"P{idx}. {item['pregunta']}\n"
-        contenido_txt += f"   -> Opción elegida: {item['eleccion']}\n"
-        contenido_txt += f"   -> Vertiente asignada: {item['vertiente']}\n\n"
+    contenido_txt += "\n--- 3. SÍNTESIS DIAGNÓSTICA DE TENSIONES ---\n"
+    contenido_txt += texto_sintesis_diagnostica + "\n"
         
     contenido_txt += "--- 4. GLOSARIO CONCEPTUAL DE LAS VERTIENTES ACTIVAS ---\n"
     for v in top_vertientes:
@@ -504,8 +504,21 @@ if submitted:
         contenido_txt += f"  - Exponentes: {exp}\n"
         contenido_txt += f"  - Fundamentos: {fund}\n\n"
         
+    contenido_txt += "--- 5. BASE BIBLIOGRÁFICA PRIMARIA RECOMENDADA ---\n"
+    for v in top_vertientes:
+        contenido_txt += f"Bibliografía para {v}:\n"
+        for obra in repo_bibliografico.get(v, []):
+            contenido_txt += f"  - {obra}\n"
+        contenido_txt += "\n"
+        
+    contenido_txt += "--- 6. BITÁCORA DE RESPUESTAS DEL USUARIO ---\n"
+    for idx, item in enumerate(bitacora_elecciones, 1):
+        contenido_txt += f"P{idx}. {item['pregunta']}\n"
+        contenido_txt += f"   -> Opción elegida: {item['eleccion']}\n"
+        contenido_txt += f"   -> Vertiente asignada: {item['vertiente']}\n\n"
+        
     contenido_txt += "====================================================\n"
-    contenido_txt += "Generado en el Laboratorio de Arqueología Conceptual.\n"
+    contenido_txt += "Generado por el Centro de Estudios Políticos Juicio Autónomo.\n"
 
     st.download_button(
         label="📥 Descargar Dossier Completo en Formato TXT",
